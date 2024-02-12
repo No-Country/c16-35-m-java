@@ -7,7 +7,7 @@ Diseño UX/UI:
 Front End (React):
 Franco Quenallata
  --- [![gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:quenallatafranco@gmail.com)
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/in/marco-virinni/](https://www.linkedin.com/in/fquenallata/))
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fquenallata/)
 
 Back End (Java):
 Marco Virinni
