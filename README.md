@@ -7,6 +7,12 @@ Diseño UX/UI:
 Front End (React):
 
 Back End (Java):
-Marco Virinni --- marcovirinni@gmail.com ---- https://www.linkedin.com/in/marco-virinni/
+Marco Virinni
+ --- [![gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:marcovirinni@gmail.com)
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marco-virinni/)
+
+Back End (Java):
+David Lugo --- [![gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:davidlugo.dev@gmail.com)
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://ve.linkedin.com/in/davlgven/)
 
 Tester QA:
