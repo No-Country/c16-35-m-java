@@ -1,18 +1,28 @@
+/*Parecido a Normalise CSS*/
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
+ul,
+ol,
 li {
   list-style: none;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 button {
   border: none;
   background: none;
-  font-family: --font-poppins;
+}
+
+input,
+textarea,
+select {
+  border: none;
+  outline: none;
 }
