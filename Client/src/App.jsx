@@ -1,8 +1,34 @@
+import { Route, Routes } from "react-router-dom";
+import About from "./views/About/About";
+import Home from "./views/Home/Home";
+import Login from "./views/Login/Login";
+import NotFound from "./views/NotFound/NotFound";
+import SignUp from "./views/SignUp/SignUp";
+// import AdminProfile from "./views/Admin/AdminProfile";
+// import Protected from "./views/Protected/Protected";
+
 function App() {
   return (
-    <div>
-      <h1>Hola Mundo</h1>
-    </div>
+    <>
+      <Routes>
+        {/* Routes for everyone */}
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+
+        {/* admin-only routes */}
+        {/* <Route
+          path="/adminprofile/:id"
+          element={
+            <Protected requiredRole={"admin"}>
+              <AdminProfile />
+            </Protected>
+          }
+        /> */}
+      </Routes>
+    </>
   );
 }
 

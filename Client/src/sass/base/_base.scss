@@ -3,10 +3,6 @@ body {
   font-family: var(--font-poppins);
   width: 99.2vw; /* Ancho del viewport (pantalla) */
   max-height: 100vw; /* Altura del viewport (pantalla) */
-  -webkit-backdrop-filter: blur(0);
-  backdrop-filter: blur(0);
-  /*or
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  */
 }
