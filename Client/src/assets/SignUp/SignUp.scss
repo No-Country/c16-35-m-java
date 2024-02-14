@@ -17,23 +17,28 @@
         position: relative;
     }
     & input{
-        border: 2px solid var(--color-primary);
-        border-radius: 5px;
-        width:25rem;
+        border: 2px solid var(--color-cuartiary);
+        border-radius: 6px;
+        width:22rem;
         padding:1rem; 
     }
     & span{
         position: absolute;
         top: 0.5rem;
         right: 1rem;
-        
+        & img{
+            width: 2rem;
+            margin-top: 0.2rem;
+        }
         & i{
             font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-cuartiary);
         }
     }
     & .btn-form {
         background-color: var(--color-primary);
-        width: 25rem;
+        width: 22rem;
         padding: 0.9rem;
         margin-top: 1.5rem;
         color: white;
@@ -42,6 +47,7 @@
         font-weight: 400;
         font-size: 1.1rem;
         transition: all 250ms ease;
+        border-radius: 6px;
     }
     
     & .signup-error{
@@ -59,5 +65,8 @@
     }
     & .form-opciones{
         margin-top: 6rem;
+        & p{
+            margin-bottom: 0.5rem;
+        }
     }
 }

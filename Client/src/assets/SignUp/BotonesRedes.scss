@@ -3,10 +3,11 @@
     align-items: center;
     gap: 1rem;
     & button{
-        width: 12rem;
+        width: 10.5rem;
         background-color: var(--color-tertiary);
         padding: 0.5rem 1rem;
         cursor: pointer;
+        border-radius: 6px;
     }
     & img{
         width: 2rem;

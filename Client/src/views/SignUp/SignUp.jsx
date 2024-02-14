@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import BotonesRedes from '../../components/Nav/Formulario/BotonesRedes';
+import EyePassword from '../../assets/eye-password.svg'
+import EyeRepeatPassword from '../../assets/eye-repeat-password.svg'
 
 const SignUp = () => {
   const { register, formState: { errors }, handleSubmit } = useForm({
@@ -39,7 +41,7 @@ const SignUp = () => {
             <input
             {...register('password',{required: true, minLength:8})}
             type="password" name='password' />
-            <span><i class="bi bi-eye"></i></span>
+            <span><img src={EyePassword} alt="Icono" /></span>
           </div>
           <div className='signup-error'>
             {errors.password?.type === 'required' && <p>El campo contraseña es requerido</p>}
@@ -51,7 +53,7 @@ const SignUp = () => {
             <input
             {...register('password',{required: true, minLength:8})}
             type="password" name='password' />
-            <span><i class="bi bi-eye"></i></span>
+            <span><img src={EyeRepeatPassword} alt="Icono" /></span>
           </div>
           <div className='signup-error'>
             {errors.password?.type === 'required' && <p>El campo contraseña es requerido</p>}
