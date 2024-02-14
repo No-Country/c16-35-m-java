@@ -40,8 +40,8 @@ const SignUp = () => {
           <div className="form-input">
             <input
             {...register('password',{required: true, minLength:8})}
-            type="password" name='password' />
-            <span><img src={EyePassword} alt="Icono" /></span>
+            type="password" name='password' placeholder='*********' />
+            <span><img className='eye-form' src={EyePassword} alt="Icono" /></span>
           </div>
           <div className='signup-error'>
             {errors.password?.type === 'required' && <p>El campo contraseña es requerido</p>}
