@@ -1,0 +1,17 @@
+.btns-form{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    & button{
+        width: 12rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: all 250ms ease;
+        &:hover {
+        background-color: rgb(156, 154, 154)
+        }
+    }
+    & img{
+        width: 2rem;
+    }
+}
