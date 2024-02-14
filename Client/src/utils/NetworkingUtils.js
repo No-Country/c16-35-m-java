@@ -8,8 +8,8 @@ const EducationIt = axios.create({
 
 //agregar interceptors
 //ej.
-/* 
-EducationIt.interceptors.request.use(
+
+/* EducationIt.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -33,6 +33,6 @@ EducationIt.interceptors.response.use(
     }
     return Promise.reject(error);
   }
-);
-*/
+); */
+
 export default EducationIt;
