@@ -1,0 +1,32 @@
+.signup-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & h1{
+        font-size: 4rem;
+    }
+    & .signup-form-inputs{
+        display: flex; 
+        flex-direction: column;
+        align-items: flex-start; 
+        gap:0.5rem
+    }
+    & input{
+        background-color:lightgrey; 
+        width:20rem;
+        padding:0.6rem 1rem; 
+        border-radius: 7px;
+    }
+    & button{
+        background-color:lightgrey;
+        width:8rem;
+        padding:0.6rem 1rem;
+        border-radius:10px; 
+        margin-top:1rem;
+        cursor:pointer;
+    }
+    & .signup-error{
+        color: red;
+    }
+}
