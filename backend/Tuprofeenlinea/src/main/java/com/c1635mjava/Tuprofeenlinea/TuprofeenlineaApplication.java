@@ -35,5 +35,5 @@ public class TuprofeenlineaApplication {
 				clientRepository.save(client);
 			}
 		};
-	}
+	} 
 }

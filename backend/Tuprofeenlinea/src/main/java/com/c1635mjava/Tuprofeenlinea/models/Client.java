@@ -1,7 +1,5 @@
 package com.c1635mjava.Tuprofeenlinea.models;
 
-import lombok.Getter;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +12,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Getter
     private String username;
-    @Getter
     private String password;
     // Otros campos y métodos getters/setters
 
@@ -28,5 +24,20 @@ public class Client {
         this.password = password;
     }
 
-    // Constructor, getters/setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
 }
