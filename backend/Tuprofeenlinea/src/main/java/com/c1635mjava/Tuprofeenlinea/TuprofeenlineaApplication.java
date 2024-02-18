@@ -18,24 +18,25 @@ public class TuprofeenlineaApplication {
 	}
 
 
-	@Bean
-	public CommandLineRunner dataLoader(ClientRepository clientRepository, PasswordEncoder passwordEncoder) {
-		return new CommandLineRunner() {
-			@Override
-			public void run(String... args) throws Exception {
-				// Crear algunos clientes de ejemplo al iniciar la aplicación
-				registerClient(clientRepository, passwordEncoder, "albert.einstein@gmail.com", "e=mc2");
-				registerClient(clientRepository, passwordEncoder, "steve.jobs@gmail.com", "thinkdifferent");
-				registerClient(clientRepository, passwordEncoder, "bill.gates@gmail.com", "microsoft");
-				registerClient(clientRepository, passwordEncoder, "stephen.hawking@gmail.com", "blackholes");
-				registerClient(clientRepository, passwordEncoder, "madam.curie@gmail.com", "radioactivity");
-			}
+//	@Bean
+//	public CommandLineRunner dataLoader(ClientRepository clientRepository, PasswordEncoder passwordEncoder) {
+//		return new CommandLineRunner() {
+//			@Override
+//			public void run(String... args) throws Exception {
+//				// Crear algunos clientes de ejemplo al iniciar la aplicación
+//				registerClient(clientRepository, passwordEncoder, "albert.einstein@gmail.com", "e=mc2");
+//				registerClient(clientRepository, passwordEncoder, "steve.jobs@gmail.com", "thinkdifferent");
+//				registerClient(clientRepository, passwordEncoder, "bill.gates@gmail.com", "microsoft");
+//				registerClient(clientRepository, passwordEncoder, "stephen.hawking@gmail.com", "blackholes");
+//				registerClient(clientRepository, passwordEncoder, "madam.curie@gmail.com", "radioactivity");
+//			}
+//
+//			private void registerClient(ClientRepository clientRepository, PasswordEncoder passwordEncoder, String username, String password) {
+//				Client client = new Client();
+//				client.setUsername(username);
+//				client.setPassword(passwordEncoder.encode(password));
+//				clientRepository.save(client);
+//			}
+//		};
 
-			private void registerClient(ClientRepository clientRepository, PasswordEncoder passwordEncoder, String username, String password) {
-				Client client = new Client();
-				client.setUsername(username);
-				client.setPassword(passwordEncoder.encode(password));
-				clientRepository.save(client);
-			}
-		};
-	}}
+}
