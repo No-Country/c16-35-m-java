@@ -12,11 +12,12 @@ const SignUp = () => {
   });
   
   const handleSignUp = async (values) => {
-    try{
-      await axios.post('', values)
+    try{ 
+      const body = {username:values.username,password:values.password}
+      await axios.post('http://localhost:8080/api/client/register', body)
     }
     catch(error){
-      setError(true)
+
       console.log(error)
     }
   }
@@ -29,8 +30,8 @@ const SignUp = () => {
 
           <label>Correo Electronico</label>
           <input 
-          {...register('email',{required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
-          type="text" name='email' />
+          {...register('username',{required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
+          type="text" name='username' />
           <div className='signup-error'>
             {errors.email?.type === 'required' && <p>El campo email es requerido</p>}
             {errors.email?.type === 'pattern' && <p>El correo electronico no es valido</p>}
