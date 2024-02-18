@@ -1,10 +1,9 @@
 
 package com.c1635mjava.Tuprofeenlinea.controller;
 
-import com.c1635mjava.Tuprofeenlinea.models.Client;
+import com.c1635mjava.Tuprofeenlinea.dtos.ClientDTO;
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +19,10 @@ public class ClientController {
     private IUserService userService;
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Client client) {
+    public ResponseEntity<?> save(@RequestBody ClientDTO client) {
         client.setPassword(bcrypt.encode(client.getPassword()));
         return ResponseEntity.ok(userService.save(client));
     }
+
 }
 
