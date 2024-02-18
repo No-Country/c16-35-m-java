@@ -17,10 +17,10 @@ public class JwtClientDetailService implements UserDetailsService {
     @Autowired
     private ClientRepository clientRepository;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Client client = clientRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Client client = clientRepository.findByEmail(email);
         if(client == null){
-            throw new UsernameNotFoundException(String.format("User not exists",username));
+            throw new UsernameNotFoundException(String.format("User not exists",email));
 
         }
         // TODO: 18/02/2024 logica para devolver rol del usuario 
