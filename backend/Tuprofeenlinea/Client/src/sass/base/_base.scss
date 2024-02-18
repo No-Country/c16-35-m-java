@@ -1,0 +1,8 @@
+html,
+body {
+  font-family: var(--font-poppins);
+  width: 100vw; /* Ancho del viewport (pantalla) */
+  max-height: 100vw; /* Altura del viewport (pantalla) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
