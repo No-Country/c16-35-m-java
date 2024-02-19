@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 export const Nav = () => {
-  const openHamburguer = () => {};
   return (
     <nav className="nav">
       <div className="logo">
