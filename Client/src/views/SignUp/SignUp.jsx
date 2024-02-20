@@ -13,15 +13,13 @@ const SignUp = () => {
   
   const handleSignUp = async (values) => {
     try{
-      await axios.post('', values)
+      await axios.post('http://localhost:8080/api/client', values)
     }
     catch(error){
       setError(true)
       console.log(error)
     }
   }
-
-
   return(
     <section className='signup-container'>
       <form onSubmit={handleSubmit(handleSignUp)}>
