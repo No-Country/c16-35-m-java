@@ -53,7 +53,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests(auth -> auth
-                        .requestMatchers(new AntPathRequestMatcher("/authenticate")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/authenticate/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/client/**")).permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(jwtAuthenticationEntryPoint))
