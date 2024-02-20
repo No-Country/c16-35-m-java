@@ -17,13 +17,21 @@ public class TuprofeenlineaApplication {
 		SpringApplication.run(TuprofeenlineaApplication.class, args);
 	}
 
+<<<<<<< HEAD
 
+=======
+//
+>>>>>>> 5779ed79eaf79e113660de7fbd249bc05e37e7e1
 //	@Bean
 //	public CommandLineRunner dataLoader(ClientRepository clientRepository, PasswordEncoder passwordEncoder) {
 //		return new CommandLineRunner() {
 //			@Override
 //			public void run(String... args) throws Exception {
+<<<<<<< HEAD
 
+=======
+//				// Crear algunos clientes de ejemplo al iniciar la aplicación
+>>>>>>> 5779ed79eaf79e113660de7fbd249bc05e37e7e1
 //				registerClient(clientRepository, passwordEncoder, "albert.einstein@gmail.com", "e=mc2");
 //				registerClient(clientRepository, passwordEncoder, "steve.jobs@gmail.com", "thinkdifferent");
 //				registerClient(clientRepository, passwordEncoder, "bill.gates@gmail.com", "microsoft");

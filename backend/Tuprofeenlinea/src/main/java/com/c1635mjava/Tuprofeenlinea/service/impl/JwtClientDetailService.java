@@ -4,11 +4,14 @@ import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,8 +26,9 @@ public class JwtClientDetailService implements UserDetailsService {
             throw new UsernameNotFoundException(String.format("User not exists",email));
 
         }
-        // TODO: 18/02/2024 logica para devolver rol del usuario 
-        List<GrantedAuthority> roles;
-        return null;
+        List<GrantedAuthority> roles = new ArrayList<>();
+        roles.add(new SimpleGrantedAuthority(client.getRole().getRol()));
+        return new User(client.getEmail(), client.getPassword(), client.isEnabled(),
+                true, true, true, roles);
     }
 }
