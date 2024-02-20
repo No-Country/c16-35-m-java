@@ -3,7 +3,7 @@ package com.c1635mjava.Tuprofeenlinea.dtos;
 
 public class ClientDTO {
 
-    private String username;
+    private String email;
     private String password;
 
     // Constructor vacío
@@ -11,14 +11,14 @@ public class ClientDTO {
     }
 
     // Constructor con parámetros
-    public ClientDTO(String username, String password) {
-        this.username = username;
+    public ClientDTO(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
     // Getters y setters
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
     public String getPassword() {

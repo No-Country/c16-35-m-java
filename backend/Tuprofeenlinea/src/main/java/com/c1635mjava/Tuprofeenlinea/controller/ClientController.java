@@ -24,5 +24,11 @@ public class ClientController {
         client.setPassword(bcrypt.encode(client.getPassword()));
         return ResponseEntity.ok(userService.save(client));
     }
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Client client) {
+        client.setId(id);
+        return ResponseEntity.ok(userService.update(client));
+    }
 }
 

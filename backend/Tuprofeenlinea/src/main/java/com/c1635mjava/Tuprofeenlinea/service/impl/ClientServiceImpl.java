@@ -16,4 +16,19 @@ public class ClientServiceImpl implements IUserService {
     public Client save(Client client) {
         return clientRepository.save(client);
     }
+    
+    @Override
+    public Client update(Client client) {
+        //buscar el Client existente en la base de datos
+        Client existingClient = clientRepository.findById(client.getId()).orElse(null);
+        if (existingClient != null) {
+            existingClient.setName(client.getName());
+            existingClient.setLastname(client.getLastname());
+            existingClient.setBirthday(client.getBirthday());            
+        //guardar el Client actualizado en la base de datos.
+            return clientRepository.save(existingClient);
+        } else {
+            throw new RuntimeException("Client not found");
+        }
+    }
 }
