@@ -1,6 +1,5 @@
 package com.c1635mjava.Tuprofeenlinea.controller;
 
-import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.security.JwtRequest;
 import com.c1635mjava.Tuprofeenlinea.security.JwtResponse;
 import com.c1635mjava.Tuprofeenlinea.security.JwtTokenUtil;
@@ -32,8 +31,8 @@ public class JwtAuthenticationController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
         authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
-        final String token = jwtTokenUtil.generateToken((Client) userDetails);
-        return ResponseEntity.ok(new JwtResponse("Bearer " + token));
+        final String token = jwtTokenUtil.generateToken(userDetails);
+        return ResponseEntity.ok(new JwtResponse(token));
     }
 
     private void authenticate(String email, String password) throws Exception {
@@ -45,5 +44,4 @@ public class JwtAuthenticationController {
             throw new Exception("INVALID_CREDENTIALS", e);
         }
     }
-
 }

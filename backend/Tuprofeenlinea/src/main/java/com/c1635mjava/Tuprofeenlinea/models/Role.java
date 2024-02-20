@@ -19,4 +19,8 @@ public class Role {
     public Role() {
 
     }
+
+    public String getRol() {
+        return this.rol;
+    }
 }

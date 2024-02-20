@@ -1,14 +1,12 @@
 package com.c1635mjava.Tuprofeenlinea.security;
 
-import com.c1635mjava.Tuprofeenlinea.models.Client;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import io.jsonwebtoken.MalformedJwtException;
-
 
 import java.util.Date;
 import java.util.HashMap;
@@ -24,8 +22,13 @@ public class JwtTokenUtil {
     private String secret;
 
     public String getUsernameFromToken(String token) {
-        return getClaimFromToken(token, Claims::getSubject);
+        try {
+            return getClaimFromToken(token, Claims::getSubject);
+        } catch (MalformedJwtException e) {
+            throw new MalformedJwtException("Token JWT mal formado: " + e.getMessage());
+        }
     }
+
 
     public Date getExpirationDateFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);
@@ -36,27 +39,20 @@ public class JwtTokenUtil {
         return claimsResolver.apply(claims);
     }
     private Claims getAllClaimsFromToken(String token) {
-        try {
-            return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-        } catch (MalformedJwtException e) {
-
-            throw new MalformedJwtException("Token JWT malformado: " + e.getMessage());
-        }
+        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
-
 
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
 
-    public String generateToken(Client client) {
+    public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("email", client.getEmail());
-
-        return doGenerateToken(claims, client.getEmail());
+        claims.put("username", userDetails.getUsername());
+        claims.put("roles", userDetails.getAuthorities().stream().map(r->r.getAuthority()).collect(Collectors.joining()));
+        return doGenerateToken(claims, userDetails.getUsername());
     }
-
 
     private String doGenerateToken(Map<String, Object> claims, String subject) {
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))

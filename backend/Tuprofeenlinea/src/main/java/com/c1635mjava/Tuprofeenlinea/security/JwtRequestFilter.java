@@ -2,6 +2,7 @@ package com.c1635mjava.Tuprofeenlinea.security;
 
 import com.c1635mjava.Tuprofeenlinea.service.impl.JwtClientDetailService;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,12 +34,15 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             jwtToken = requestTokenHeader.substring(7);
             try {
                 email = jwtTokenUtil.getUsernameFromToken(jwtToken);
+            } catch (MalformedJwtException e) {
+                logger.error("Token JWT mal formado: " + e.getMessage());
             } catch (IllegalArgumentException e) {
                 logger.error("No se puede encontrar el token JWT");
             } catch (ExpiredJwtException e) {
                 logger.error("Token JWT ha expirado");
             }
-        } else {
+        }
+        else {
             logger.warn("JWT Token no inicia con la palabra Bearer");
         }
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {

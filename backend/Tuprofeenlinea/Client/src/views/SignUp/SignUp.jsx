@@ -10,17 +10,24 @@ const SignUp = () => {
   const { register, formState: { errors }, handleSubmit } = useForm({
     mode:'all',
   });
-  
-  const handleSignUp = async (values) => {
-    try{ 
-      const body = {username:values.username,password:values.password}
-      await axios.post('http://localhost:8080/api/client', body)
-    }
-    catch(error){
 
-      console.log(error)
-    }
+const handleSignUp = async (values) => {
+  try {
+    const body = {username: values.username, password: values.password};
+    // Llama a un endpoint de autenticación para obtener el token JWT
+    const response = await axios.post('http://localhost:8080/authenticate', body);
+    const token = response.data.jwtToken; // Suponiendo que el token está en la propiedad jwtToken del objeto de respuesta
+    const config = {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    };
+    await axios.post('http://localhost:8080/api/client', body, config);
+  } catch(error) {
+    console.log(error);
   }
+}
+
 
 
   return(
@@ -29,7 +36,7 @@ const SignUp = () => {
         <div className='signup-form-inputs'>
 
           <label>Correo Electronico</label>
-          <input 
+          <input
           {...register('username',{required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
           type="text" name='username' />
           <div className='signup-error'>
@@ -48,7 +55,7 @@ const SignUp = () => {
             {errors.password?.type === 'required' && <p>El campo contraseña es requerido</p>}
             {errors.password?.type === 'minLength' && <p>La contraseña debe tener al menos 8 caracteres</p>}
           </div>
-          
+
           <label>Repetir contraseña</label>
           <div className="form-input">
             <input
@@ -62,7 +69,7 @@ const SignUp = () => {
           </div>
 
         </div>
-        <button className='btn-form' 
+        <button className='btn-form'
         type='submit'>
           Registrarse
         </button>
@@ -74,7 +81,7 @@ const SignUp = () => {
           <p>Tambien puedes iniciar sesíon con</p>
           <BotonesRedes />
         </div>
-        
+
       </form>
     </section>
   )
