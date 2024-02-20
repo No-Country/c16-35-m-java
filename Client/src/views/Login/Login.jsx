@@ -2,7 +2,9 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import EyePassword from "../../assets/eye-password.svg";
-import BotonesRedes from "../../components/Nav/Formulario/BotonesRedes";
+import BotonesRedes from "../../components/BotonesRedes/BotonesRedes.jsx";
+//asd
+import "../../views/SignUp/SignUp.scss";
 
 const Login = () => {
   const {
