@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import EyePassword from '../../assets/eye-password.svg';
 import EyeRepeatPassword from '../../assets/eye-repeat-password.svg';
-import EyeClosePassword from '../../assets/eye-close.svg';
 import BotonesRedes from '../../components/BotonesRedes/BotonesRedes.jsx';
 import './SignUp.scss';
 
@@ -76,7 +75,6 @@ const SignUp = () => {
               {...register('password', { required: true, minLength: 8 })}
               type={showPassword ? 'text' : 'password'}
               name='password'
-              placeholder='*********'
             />
             <span>
               <img onClick={handlePassword} className={showPassword ? '':'eye-form'} src={showPassword ? EyeRepeatPassword : EyePassword} alt='Icono' />
@@ -97,7 +95,7 @@ const SignUp = () => {
               name='repeatPassword'
             />
             <span>
-              <img onClick={handleRepeatPassword} src={showRepeatPassword ? EyeClosePassword : EyeRepeatPassword} alt='Icono' />
+              <img onClick={handleRepeatPassword} src={showRepeatPassword ? EyeRepeatPassword : EyePassword} alt='Icono' />
             </span>
           </div>
           <div className='signup-error'>

@@ -5,7 +5,9 @@ function ProfesHome() {
   return (
     <section className='profes-container'>
       <p>El lugar donde podés encontrar los mejores profesores en su área </p>
-      <MatematicaHome />
+      <MatematicaHome materia={'Matematica'} />
+      <MatematicaHome materia={'Guitarra'} />
+      <MatematicaHome materia={'Ingles'} />
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-
+import Manzana from '../../../assets/Manzana.svg'
 import {PROFESORES} from '../../../data-profesores'
 
 import "swiper/css";
@@ -11,10 +11,10 @@ import { Navigation } from "swiper/modules";
 import './SlideHome.scss'
 
 
-function MatematicaHome() {
+function MatematicaHome({materia}) {
   return (
     <div className='matematica-container'>
-      <h3>Matematica</h3>
+      <h3>{materia}</h3>
       <Swiper
         slidesPerView={1}
         spaceBetween={200}
@@ -33,11 +33,14 @@ function MatematicaHome() {
         <div key={nombre} className='card-profe'> 
           <img src={imagen} alt="" />
           <div className='card-profe-info' >
-            <p className='profe-valoracion'>{valoracion}</p>
+              <div className="valoracion">
+                <img src={Manzana} alt="Icono" />
+                <p className='profe-valoracion'>{valoracion}</p>
+              </div>
             <h2 className='profe-nombre'>{nombre}</h2>
             <p className='profe-descripcion'>{descripcion}</p>
             <p className='profe-clase'>{clase}</p>
-            <a href='#'>Ver más</a>
+            <a className='profe-enlace'href='#'>Ver más</a>
           </div>
         </div>
       )
@@ -51,11 +54,14 @@ function MatematicaHome() {
         <div key={nombre} className='card-profe'> 
           <img src={imagen} alt="" />
           <div className='card-profe-info' >
-            <p className='profe-valoracion'>{valoracion}</p>
+            <div className="valoracion">
+              <img src={Manzana} alt="Icono" />
+              <p className='profe-valoracion'>{valoracion}</p>
+            </div>
             <h2 className='profe-nombre'>{nombre}</h2>
             <p className='profe-descripcion'>{descripcion}</p>
             <p className='profe-clase'>{clase}</p>
-            <a href='#'>Ver más</a>
+            <a className='profe-enlace'href='#'>Ver más</a>
           </div>
         </div>
       )
