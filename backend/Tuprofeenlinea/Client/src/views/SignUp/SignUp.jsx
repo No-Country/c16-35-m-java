@@ -14,7 +14,7 @@ const SignUp = () => {
   const handleSignUp = async (values) => {
     try{ 
       const body = {username:values.username,password:values.password}
-      await axios.post('http://localhost:8080/api/client/register', body)
+      await axios.post('http://localhost:8080/api/client', body)
     }
     catch(error){
 

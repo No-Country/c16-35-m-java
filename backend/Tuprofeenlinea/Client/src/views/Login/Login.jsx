@@ -2,7 +2,8 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import EyePassword from "../../assets/eye-password.svg";
-import BotonesRedes from "../../components/Nav/Formulario/BotonesRedes";
+import BotonesRedes from "../../components/BotonesRedes/BotonesRedes.jsx";
+import "../../views/SignUp/SignUp.scss";
 
 const Login = () => {
   const {
@@ -15,7 +16,14 @@ const Login = () => {
 
   const handleLogin = async (values) => {
     try {
-      await axios.post("", values);
+      const response = await axios.post("http://localhost:8080/authenticate", values); // Modifica la URL según la ruta correcta en tu backend
+      const token = response.data.token; // Suponiendo que el token se devuelve en el campo "token" de la respuesta
+      // Guarda el token en tu almacenamiento local (por ejemplo, localStorage)
+      localStorage.setItem("token", token);
+      // Ahora puedes adjuntar el token en el encabezado de autorización de las solicitudes posteriores
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      // Luego puedes redirigir a la página principal u otra página
+      // history.push("/"); // Asegúrate de tener acceso al objeto history
     } catch (error) {
       console.log(error);
     }
