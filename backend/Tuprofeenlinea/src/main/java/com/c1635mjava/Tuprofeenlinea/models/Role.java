@@ -11,4 +11,12 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String rol;
+
+    public Role(String rol) {
+        this.rol = rol;
+    }
+
+    public Role() {
+
+    }
 }
