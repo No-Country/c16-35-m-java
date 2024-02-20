@@ -1,10 +1,12 @@
+import ProfesHome from "../../components/ProfesoresHome/ProfesHome";
 import Slider from "../../components/Slider/Slider";
 
 function Home() {
   return (
-    <div>
+    <main>
       <Slider />
-    </div>
+      <ProfesHome />
+    </main>
   );
 }
 
