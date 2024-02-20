@@ -39,7 +39,7 @@ public class JwtTokenUtil {
         try {
             return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
         } catch (MalformedJwtException e) {
-            // Manejar la excepción cuando el token está malformado
+
             throw new MalformedJwtException("Token JWT malformado: " + e.getMessage());
         }
     }
@@ -53,8 +53,7 @@ public class JwtTokenUtil {
     public String generateToken(Client client) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("email", client.getEmail());
-        // No es recomendable incluir la contraseña en el token JWT por razones de seguridad
-        // claims.put("password", client.getPassword());
+
         return doGenerateToken(claims, client.getEmail());
     }
 

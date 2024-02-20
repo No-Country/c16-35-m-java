@@ -9,7 +9,7 @@ public class JwtRequest {
     private String email;
     private String password;
 
-    // Constructor sin argumentos
+
     public JwtRequest() {
     }
 }
