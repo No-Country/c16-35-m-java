@@ -11,23 +11,15 @@ const SignUp = () => {
     mode:'all',
   });
 
-const handleSignUp = async (values) => {
-  try {
-    const body = {username: values.username, password: values.password};
-    // Llama a un endpoint de autenticación para obtener el token JWT
-    const response = await axios.post('http://localhost:8080/authenticate', body);
-    const token = response.data.jwtToken; // Suponiendo que el token está en la propiedad jwtToken del objeto de respuesta
-    const config = {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    };
-    await axios.post('http://localhost:8080/api/client', body, config);
-  } catch(error) {
-    console.log(error);
+  const handleSignUp = async (values) => {
+    try{
+      await axios.post('', values)
+    }
+    catch(error){
+      setError(true)
+      console.log(error)
+    }
   }
-}
-
 
 
   return(
@@ -37,8 +29,8 @@ const handleSignUp = async (values) => {
 
           <label>Correo Electronico</label>
           <input
-          {...register('username',{required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
-          type="text" name='username' />
+          {...register('email',{required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
+          type="text" name='email' />
           <div className='signup-error'>
             {errors.email?.type === 'required' && <p>El campo email es requerido</p>}
             {errors.email?.type === 'pattern' && <p>El correo electronico no es valido</p>}
