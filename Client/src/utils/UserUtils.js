@@ -1,26 +1,26 @@
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 
-// export function handleUserLogin(token) {
-//   const decoded = jwtDecode(token);
+export function handleUserLogin(token) {
+  const decoded = jwtDecode(token);
 
-//   const user = {
-//     id: decoded.id,
-//     name: decoded.name,
-//     lastName: decoded.lastName,
-//     address: decoded.address,
-//     email: decoded.email,
-//     phone: decoded.phone,
-//     role: decoded.role,
-//     password: decoded.password,
-//     postalCode: decoded.postalCode,
-//     city: decoded.city,
-//     country: decoded.country,
-//   };
+  const user = {
+    id: decoded.id,
+    name: decoded.name,
+    lastName: decoded.lastName,
+    address: decoded.address,
+    email: decoded.email,
+    phone: decoded.phone,
+    role: decoded.role,
+    password: decoded.password,
+    postalCode: decoded.postalCode,
+    city: decoded.city,
+    country: decoded.country,
+  };
 
-//   window.localStorage.setItem("token", token);
-//   window.localStorage.setItem("user", JSON.stringify(user));
-//   window.localStorage.setItem("id", user.id);
-// }
+  window.localStorage.setItem("token", token);
+  window.localStorage.setItem("user", JSON.stringify(user));
+  window.localStorage.setItem("id", user.id);
+}
 
 // export const updateUserLocal = (token) => {
 //   window.localStorage.removeItem("user");

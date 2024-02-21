@@ -1,17 +1,20 @@
 // import axios from "axios";
-import EducationIt from "../../utils/NetworkingUtils";
-import { POST_USER } from "./types";
+import Educaflex from "../../utils/NetworkingUtils";
+import { getLoggedInUser } from "./../../utils/UserUtils";
+import { LOGIN } from "./types";
 
-export function postUser(user) {
+export function signUp(user) {
   return async function (dispatch) {
     try {
-      const { data } = await EducationIt.post("/user", user);
+      const response = await Educaflex.post("/api/client", user);
+      handleUserLogin(response.data.token);
+
       return dispatch({
-        type: POST_USER,
-        payload: data,
+        type: LOGIN,
+        payload: getLoggedInUser(),
       });
     } catch (error) {
-      alert("Error posting video game: " + error);
+      console.log(error);
     }
   };
 }
