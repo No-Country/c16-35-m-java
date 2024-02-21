@@ -24,15 +24,11 @@ public class ClientServiceImpl implements IUserService {
 
     private Client createClient(ClientDTO clientDTO){
         Client client = new Client();
-        Role role = new Role();
-        ArrayList<Role> roles = new ArrayList<>();
 
-        role.setRol("ROLE_USER");
-        roles.add(role);
         client.setEmail(clientDTO.getEmail());
         client.setPassword(clientDTO.getPassword());
         client.setEnabled(true);
-        client.setRoles(roles);
+        client.setRole(new Role("TEACHER"));
         return client;
     }
 
