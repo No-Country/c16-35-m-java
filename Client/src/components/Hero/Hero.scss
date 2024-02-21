@@ -1,0 +1,22 @@
+.hero{
+  margin: 0 auto;
+  width: 70vw;
+  background-color: var(--color-quintiary);
+  z-index: 10;
+  border-radius: 6px;
+  .contenido-hero{
+    padding-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12rem;
+    .hero-texto{
+      font-size: 3.2rem;
+      line-height: 5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.232);
+    }
+  }
+
+}

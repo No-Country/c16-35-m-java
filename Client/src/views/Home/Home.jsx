@@ -1,10 +1,10 @@
 import ProfesHome from "../../components/ProfesoresHome/ProfesHome";
-import Slider from "../../components/Slider/Slider";
+import Hero from "../../components/Hero/Hero";
 
 function Home() {
   return (
     <main>
-      <Slider />
+      <Hero />
       <ProfesHome />
     </main>
   );

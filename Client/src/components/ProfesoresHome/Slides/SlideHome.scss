@@ -10,6 +10,8 @@
     & .swiper-home{
         width: 70vw;
         margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
         & img{
             width: 24rem;
             height: 24rem;
@@ -81,7 +83,17 @@
                 }
             }
         &:hover .card-profe-info{
-                opacity: 1;
+            opacity: 1;
         }
     }
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
