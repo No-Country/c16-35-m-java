@@ -14,16 +14,18 @@ public class CalendaryServiceImpl implements ICalendaryService {
 
     @Autowired
     private CalendaryRepository calendaryRepository;
-
+    @Override
+    public List<Calendary> findAll() {
+        return calendaryRepository.findAll();
+    }
     @Override
     public Calendary save(Calendary calendary) {
         return calendaryRepository.save(calendary);
     }
-    
     @Override
     public Calendary update(Calendary calendary) {
-        Calendary existingCalendary =
-                calendaryRepository.findById(calendary.getId()).orElse(null);
+        Calendary existingCalendary = calendaryRepository.
+                findById(calendary.getId()).orElse(null);
         if (existingCalendary != null) {
             existingCalendary.setSubject(calendary.getSubject());
             existingCalendary.setStartDate(calendary.getStartDate());
@@ -37,7 +39,6 @@ public class CalendaryServiceImpl implements ICalendaryService {
             throw new RuntimeException("Calendary not found");
         }
     }
-        
     @Override
     public Optional<Calendary> findById(Long id) {
         return calendaryRepository.findById(id);
@@ -45,10 +46,6 @@ public class CalendaryServiceImpl implements ICalendaryService {
     @Override
     public void deleteById(Long id) {
         calendaryRepository.deleteById(id);
-    }
-    @Override
-    public List<Calendary> findAll() {
-        return calendaryRepository.findAll();
     }
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     @Override

@@ -18,7 +18,7 @@ public class Reservation {
     @JoinColumn(name = "student_id")
     private Client student;
     @ManyToOne
-    @JoinColumn(name = "calendar_id")
-    private Calendary calendar;
+    @JoinColumn(name = "calendary_id")
+    private Calendary calendary;
 }
 

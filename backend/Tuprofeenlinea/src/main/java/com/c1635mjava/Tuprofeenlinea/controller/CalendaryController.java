@@ -19,44 +19,38 @@ public class CalendaryController {
     private ICalendaryService calendaryService;
     @Autowired
     private IUserService userService;
-
+    @GetMapping
+    public ResponseEntity<?>
+    findAll() {
+        List<Calendary> calendaries = calendaryService.findAll();
+        return ResponseEntity.ok(calendaries);
+    }
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Calendary calendary) {
+    public ResponseEntity<?>
+    save(@RequestBody Calendary calendary) {
         return ResponseEntity.ok(calendaryService.save(calendary));
     }
-    
     @PutMapping("/{id}")
     public ResponseEntity<?>
     update(@PathVariable Long id, @RequestBody Calendary calendary) {
         calendary.setId(id);
         return ResponseEntity.ok(calendaryService.update(calendary));
     }
-    
-    @GetMapping
-    public ResponseEntity<?> findAll() {
-        List<Calendary> calendaries = calendaryService.findAll();
-        return ResponseEntity.ok(calendaries);
-    }
-    
-    @GetMapping("/price")
-    public ResponseEntity<?> findAllByOrderByPriceAsc() {
-        List<Calendary> calendaries = calendaryService.findAllByOrderByPriceAsc();
-        return ResponseEntity.ok(calendaries);
-    }
-    
     @GetMapping("/teacher/{teacherId}")
-    public ResponseEntity<?> findByTeacher(@PathVariable Long teacherId) {
+    public ResponseEntity<?>
+    findByTeacher(@PathVariable Long teacherId) {
         Client teacher = userService.findById(teacherId).orElse(null);
         if (teacher != null) {
-            List<Calendary> calendaries = calendaryService.findByTeacher(teacher);
+            List<Calendary> calendaries = calendaryService.
+                    findByTeacher(teacher);
             return ResponseEntity.ok(calendaries);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
-    
     @GetMapping("/subject/{subject}")
-    public ResponseEntity<?> findBySubject(@PathVariable String subject) {
+    public ResponseEntity<?>
+    findBySubject(@PathVariable String subject) {
         List<Calendary> calendaries = calendaryService.findBySubject(subject);
         return ResponseEntity.ok(calendaries);
     }

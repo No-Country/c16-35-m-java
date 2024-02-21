@@ -28,8 +28,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         final String requestTokenHeader = request.getHeader("Authorization");
         String email = null;
         String jwtToken = null;
-        System.out.println(requestTokenHeader);
-        if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
+        System.out.println("requestTokenHeader = "+requestTokenHeader);
+        if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer")) {
             jwtToken = requestTokenHeader.substring(7);
             try {
                 email = jwtTokenUtil.getUsernameFromToken(jwtToken);
