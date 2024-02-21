@@ -2,7 +2,6 @@ package com.c1635mjava.Tuprofeenlinea.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,13 +21,8 @@ public class JwtTokenUtil {
     private String secret;
 
     public String getUsernameFromToken(String token) {
-        try {
-            return getClaimFromToken(token, Claims::getSubject);
-        } catch (MalformedJwtException e) {
-            throw new MalformedJwtException("Token JWT mal formado: " + e.getMessage());
-        }
+        return getClaimFromToken(token, Claims::getSubject);
     }
-
 
     public Date getExpirationDateFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);
