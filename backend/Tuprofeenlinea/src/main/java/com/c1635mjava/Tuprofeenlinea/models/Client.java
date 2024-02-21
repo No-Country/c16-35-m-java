@@ -25,8 +25,8 @@ public class Client {
     private List<Reservation> reservationList;
     @OneToMany(mappedBy = "teacher")
     private List<Calendary> teachingCalendaries;
-    /*@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Joincolumn(name = "role_Id")
-    private Role role;*/
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_Id")
+    private Role role;
 }
 
