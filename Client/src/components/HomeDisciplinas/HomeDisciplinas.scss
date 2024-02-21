@@ -1,0 +1,22 @@
+.disciplinas-home-container{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 1.5rem auto;
+    & h3{
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    .disciplinas-home{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        margin-top: 1rem;
+        font-weight: 500;
+        & a:hover{
+            color: var(--color-secondary);
+            transition: all 250ms ease;
+        }
+
+    }
+}

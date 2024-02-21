@@ -1,6 +1,7 @@
 import ProfesHome from "../../components/ProfesoresHome/ProfesHome";
 import Hero from "../../components/Hero/Hero";
 import OpinionesHome from "../../components/OpinionesHome/OpinionesHome";
+import HomeDisciplinas from "../../components/HomeDisciplinas/HomeDisciplinas";
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
       <Hero />
       <ProfesHome />
       <OpinionesHome />
+      <HomeDisciplinas />
     </main>
   );
 }

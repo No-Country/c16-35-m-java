@@ -67,3 +67,45 @@ export const OPINIONES = [
         alumno:"Sofia"
     }
 ]
+
+export const DISCIPLINAS =[
+    {
+        materia:"Matemáticas"
+    },
+    {
+        materia:"Inglés"
+    },
+    {
+        materia:"Piano"
+    },
+    {
+        materia:"Filosofía"
+    },
+    {
+        materia:"Quimica"
+    },
+    {
+        materia:"Historia"
+    },
+    {
+        materia:"Guitarra"
+    },
+    {
+        materia:"Italiano"
+    },
+    {
+        materia:"Física"
+    },
+    {
+        materia:"Derecho"
+    },
+    {
+        materia:"Programacion"
+    },
+    {
+        materia:"Francés"
+    },
+    {
+        materia:"Portugues"
+    }
+]
