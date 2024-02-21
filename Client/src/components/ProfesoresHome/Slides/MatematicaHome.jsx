@@ -16,7 +16,6 @@ function MatematicaHome({materia}) {
     <div className='matematica-container'>
       <h3>{materia}</h3>
       <Swiper
-      
         slidesPerView={1}
         spaceBetween={200}
         modules={[Navigation]}

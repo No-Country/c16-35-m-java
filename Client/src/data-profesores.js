@@ -43,3 +43,27 @@ export const PROFESORES = [
         valoracion: 4.7
     }
 ]
+
+export const OPINIONES = [
+    {
+        nombre: "Mauricio",
+        materia: "Filosofia",
+        valoracion: 4.3,
+        reseña: "La enseñanza de Mauricio en filosofía fue excepcional. Su claridad en los conceptos y su habilidad para transmitirlos hicieron que cada clase fuera una experiencia de aprendizaje enriquecedora e inspiradora.",
+        alumno:"Sofia"
+    },
+    {
+        nombre: "Mauricio",
+        materia: "Filosofia",
+        valoracion: 4.3,
+        reseña: "La enseñanza de Mauricio en filosofía fue excepcional. Su claridad en los conceptos y su habilidad para transmitirlos hicieron que cada clase fuera una experiencia de aprendizaje enriquecedora e inspiradora.",
+        alumno:"Sofia"
+    },
+    {
+        nombre: "Mauricio",
+        materia: "Filosofia",
+        valoracion: 4.3,
+        reseña: "La enseñanza de Mauricio en filosofía fue excepcional. Su claridad en los conceptos y su habilidad para transmitirlos hicieron que cada clase fuera una experiencia de aprendizaje enriquecedora e inspiradora.",
+        alumno:"Sofia"
+    }
+]

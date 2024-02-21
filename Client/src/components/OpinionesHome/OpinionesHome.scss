@@ -1,0 +1,55 @@
+.opiniones-home-container{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    & h3{
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+    .opiniones-home{
+        display: flex;
+        gap: 0.5rem;
+        margin: 1rem 0rem;
+    }
+    .opinion-home-card{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #7678AD;
+        border-radius: 6px;
+        padding: 1.8rem;
+        
+    }
+    .info-card{
+        display: flex;
+        color: white;
+        & p{
+            font-size: 1.2rem;
+        }
+    }
+    .card-docente{
+        display: flex;
+        justify-content: space-between;
+        & .valoracion{
+            color: var(--color-secondary);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        & .card-home-valoracion{
+            display: flex;
+            & img{
+                width: 2rem;
+            }
+        }
+    }
+    .card-home-reseña{
+        color: var(--color-quintiary);
+    }
+    .card-home-alumno{
+        text-align: right;
+        color: var(--color-secondary);
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+}
