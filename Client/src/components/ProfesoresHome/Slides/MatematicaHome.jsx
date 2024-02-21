@@ -68,8 +68,8 @@ function MatematicaHome({materia}) {
       )
     })}
   </SwiperSlide>
-    <div className="swiper-button-next"></div> 
-    <div className="swiper-button-prev"></div> 
+    <div className="swiper-button-next" style={{color:"#38346b"}}></div> 
+    <div className="swiper-button-prev"style={{color:"#38346b"}}></div> 
 </Swiper>
       </div>
   );
