@@ -1,12 +1,46 @@
+header{
+  position: fixed;
+  width: 100vw;
+  z-index: 12;
+  background-color: #7678AD;
+}
 .nav {
-  background-color: #f2f3fe;
   color: black;
   display: flex;
   justify-content: space-between;
-  //align-items: stretch;
-  gap: 2rem;
-  padding: 0 5rem;
+  width: 70vw;
+  margin: 0 auto;
+  align-items: center;
   height: 5rem;
+  & .nav-enlaces{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+    & .conectarse{
+      background-color: var(--color-tertiary);
+      height: 3rem;
+      border-radius: 6px;
+      box-shadow: 1px 1px 1px #7678AD;
+      border: 1px solid #7678AD;
+      transition: all 250ms ease;
+      &:hover{
+        border: 1px solid white;
+      }
+    }
+    & .dar-clases{
+      color: white;
+      transition: all 250ms ease;
+      &:hover{
+        color: black;
+      }
+    }
+  }
+
+  & .logo{
+    position: relative;
+    right: 1.8rem;
+  }
 }
 
 .nav li,
@@ -35,7 +69,7 @@ a {
 
 .searchbar {
   border-radius: 20px;
-  width: 40%;
+  width: 35%;
   height: 50%;
   align-self: center;
   padding: 1rem;
