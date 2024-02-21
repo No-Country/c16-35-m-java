@@ -3,7 +3,7 @@ import Hero from "../../components/Hero/Hero";
 
 function Home() {
   return (
-    <main>
+    <main style={{backgroundColor:"#f2f3fe"}}>
       <Hero />
       <ProfesHome />
     </main>

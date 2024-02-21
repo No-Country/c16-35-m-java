@@ -16,6 +16,7 @@ function MatematicaHome({materia}) {
     <div className='matematica-container'>
       <h3>{materia}</h3>
       <Swiper
+      
         slidesPerView={1}
         spaceBetween={200}
         modules={[Navigation]}
@@ -27,6 +28,7 @@ function MatematicaHome({materia}) {
         }}
       >
   <SwiperSlide>
+    
     {PROFESORES.slice(0,3).map(profesor => {
       const { imagen, descripcion, nombre, clase, valoracion} = profesor
       return(
