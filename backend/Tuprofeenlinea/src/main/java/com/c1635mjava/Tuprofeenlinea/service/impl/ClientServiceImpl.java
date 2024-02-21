@@ -6,6 +6,9 @@ import com.c1635mjava.Tuprofeenlinea.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ClientServiceImpl implements IUserService {
 
@@ -16,19 +19,32 @@ public class ClientServiceImpl implements IUserService {
     public Client save(Client client) {
         return clientRepository.save(client);
     }
-    
+
     @Override
     public Client update(Client client) {
-        //buscar el Client existente en la base de datos
         Client existingClient = clientRepository.findById(client.getId()).orElse(null);
         if (existingClient != null) {
             existingClient.setName(client.getName());
             existingClient.setLastname(client.getLastname());
-            existingClient.setBirthday(client.getBirthday());            
-        //guardar el Client actualizado en la base de datos.
+            existingClient.setBirthday(client.getBirthday());
             return clientRepository.save(existingClient);
         } else {
             throw new RuntimeException("Client not found");
         }
+    }
+
+    @Override
+    public Optional<Client> findById(Long id) {
+        return clientRepository.findById(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        clientRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Client> findAll() {
+        return clientRepository.findAll();
     }
 }
