@@ -1,34 +1,34 @@
 /*Parecido a Normalise CSS*/
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  max-width: 100%;
-  overflow-x: hidden;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 ul,
 ol,
 li {
-  list-style: none;
+	list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
 button {
-  border: none;
-  background: none;
+	border: none;
+	background: none;
 }
 
 input,
 textarea,
 select {
-  border: none;
-  outline: none;
+	border: none;
+	outline: none;
 }
