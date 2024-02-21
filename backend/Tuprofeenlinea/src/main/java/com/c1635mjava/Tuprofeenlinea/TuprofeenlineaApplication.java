@@ -16,6 +16,7 @@ public class TuprofeenlineaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TuprofeenlineaApplication.class, args);
 	}
+
 //	@Bean
 //	public CommandLineRunner dataLoader(ClientRepository clientRepository, PasswordEncoder passwordEncoder) {
 //		return new CommandLineRunner() {

@@ -20,4 +20,3 @@ public class Client {
     @JoinColumn(name = "role_id")
     private Role role;
 }
-
