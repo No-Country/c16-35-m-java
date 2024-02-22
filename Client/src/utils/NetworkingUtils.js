@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
 ///despues al dotenv
-//*EducationIt es el nombre de Pagina :)
-const EducationIt = axios.create({
-  baseURL: "https://localhost:8080",
+//*Educaflex es el nombre de Pagina :)
+const Educaflex = axios.create({
+	baseURL: 'https://localhost:8080',
 });
 
 //agregar interceptors
@@ -35,4 +35,4 @@ EducationIt.interceptors.response.use(
   }
 ); */
 
-export default EducationIt;
+export default Educaflex;

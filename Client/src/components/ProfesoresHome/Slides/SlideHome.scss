@@ -1,101 +1,104 @@
 @import url('https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&display=swap');
-.matematica-container{
-    width: 70%;
-    margin: 2rem 0rem;
-    & h3{
-        font-family: "Port Lligat Sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 1.5rem;
-    }
-    & .swiper-home{
-        width: 70vw;
-        margin-top: 2rem;
-        display: flex;
-        flex-direction: row;
-        & img{
-            width: 24rem;
-            height: 24rem;
-            object-fit: cover;
-        }
-    }
-    & .card-profe{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        padding-inline: 1rem;
-        background-color: #f2f3fe;
-        & img{
-            border-radius: 6px;
-        }
-        &  .card-profe-info { 
-                position: absolute;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.2rem;
-                justify-content: end;
-                background-color: rgba(48, 48, 56, 0.806);
-                width: 23rem;
-                height: 23rem;
-                top: 0.5rem;
-                padding:0.7rem;
-                border-radius: 6px;
-                opacity: 0;
-                transition: all 250ms ease-in-out;
-                & .valoracion{
-                    display: flex;
-                    align-items: center;
-                    justify-content: end;
-                    width: 100%;
-                    gap: 0.5rem;
-                    & img{
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
-                }
-                .profe-valoracion,
-                .profe-descripcion{
-                    color: white;
-                }
-                .profe-valoracion{
-                    align-self: flex-end;
-                }
-                .profe-descripcion{
-                    text-align: left;
-                }
-                .profe-nombre,
-                .profe-clase{
-                    color: var(--color-secondary);
-                    font-weight: 700;
-                }
-                .profe-clase{
-                    font-size: 0.9rem;
-                }
-                .profe-enlace{
-                    background-color: var(--color-tertiary);
-                    height: 3rem;
-                    border-radius: 6px;
-                    width: 100%;
-                    justify-content: center;
-                    cursor: pointer;
-                    box-shadow: 1px 1px 1px #91a7aa;
-                }
-            }
-        &:hover .card-profe-info{
-            opacity: 1;
-        }
-    }
+.swiper-slide{
+	background: none;
+}
+.matematica-container {
+	width: 70%;
+	margin: 2rem 0rem;
+	& h3 {
+		font-family: 'Port Lligat Sans', sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 1.5rem;
+	}
+	& .swiper-home {
+		width: 70vw;
+		margin-top: 2rem;
+		display: flex;
+		flex-direction: row;
+		& img {
+			width: 24rem;
+			height: 24rem;
+			object-fit: cover;
+		}
+	}
+	& .card-profe {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		cursor: pointer;
+		padding-inline: 1rem;
+		background-color: #f2f3fe;
+		& img {
+			border-radius: 6px;
+		}
+		& .card-profe-info {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.2rem;
+			justify-content: end;
+			background-color: rgba(48, 48, 56, 0.806);
+			width: 23rem;
+			height: 23rem;
+			top: 0.5rem;
+			padding: 0.7rem;
+			border-radius: 6px;
+			opacity: 0;
+			transition: all 250ms ease-in-out;
+			& .valoracion {
+				display: flex;
+				align-items: center;
+				justify-content: end;
+				width: 100%;
+				gap: 0.5rem;
+				& img {
+					width: 1.5rem;
+					height: 1.5rem;
+				}
+			}
+			.profe-valoracion,
+			.profe-descripcion {
+				color: white;
+			}
+			.profe-valoracion {
+				align-self: flex-end;
+			}
+			.profe-descripcion {
+				text-align: left;
+			}
+			.profe-nombre,
+			.profe-clase {
+				color: var(--color-secondary);
+				font-weight: 700;
+			}
+			.profe-clase {
+				font-size: 0.9rem;
+			}
+			.profe-enlace {
+				background-color: var(--color-tertiary);
+				height: 3rem;
+				border-radius: 6px;
+				width: 100%;
+				justify-content: center;
+				cursor: pointer;
+				box-shadow: 1px 1px 1px #91a7aa;
+			}
+		}
+		&:hover .card-profe-info {
+			opacity: 1;
+		}
+	}
 }
 .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	/* Center slide text vertically */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
