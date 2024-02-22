@@ -13,7 +13,24 @@ public class ClientDTO {
         this.email = email;
     }
 
+
     public void setPassword(String password) {
         this.password = password;
     }
+
+    // Constructor con parámetros
+    public ClientDTO(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    // Getters y setters
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
 }
