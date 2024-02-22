@@ -5,6 +5,7 @@ import Login from './views/Login/Login';
 import NotFound from './views/NotFound/NotFound';
 import SignUp from './views/SignUp/SignUp';
 import { Nav } from './components/Nav/Nav';
+import { UserPanel } from './views/UserPanel/UserPanel';
 // import AdminProfile from "./views/Admin/AdminProfile";
 // import Protected from "./views/Protected/Protected";
 
@@ -18,6 +19,7 @@ function App() {
 				<Route path='/login' element={<Login />}></Route>
 				<Route path='/signup' element={<SignUp />}></Route>
 				<Route path='/about' element={<About />}></Route>
+				<Route path='/profile' element={<UserPanel />}></Route>
 				<Route path='*' element={<NotFound />}></Route>
 
 				{/* admin-only routes */}
