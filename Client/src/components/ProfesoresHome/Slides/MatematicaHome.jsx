@@ -3,13 +3,12 @@ import Manzana from '../../../assets/Manzana.svg';
 import { PROFESORES } from '../../../data-profesores';
 
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import { Navigation } from 'swiper/modules';
 
 import './SlideHome.scss';
-
 function MatematicaHome({ materia }) {
 	return (
 		<div className='matematica-container'>

@@ -1,4 +1,3 @@
-import React from 'react';
 import ImagenHero from '../../assets/Imagen-hero.png';
 import './Hero.scss';
 
