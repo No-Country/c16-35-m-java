@@ -1,6 +1,6 @@
 // import axios from "axios";
 import Educaflex from '../../utils/NetworkingUtils';
-import { getLoggedInUser } from './../../utils/UserUtils';
+import { getLoggedInUser, handleUserLogin } from './../../utils/UserUtils';
 import { LOGIN } from './types';
 
 export function signUp(user) {
