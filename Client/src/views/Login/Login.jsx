@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import EyePassword from '../../assets/eye-password.svg';
 import BotonesRedes from '../../components/BotonesRedes/BotonesRedes.jsx';
 //asd
 import '../../views/SignUp/SignUp.scss';
 
 const Login = () => {
+	const navigate = useNavigate();
 	const {
 		register,
 		formState: { errors },
@@ -17,7 +19,8 @@ const Login = () => {
 
 	const handleLogin = async (values) => {
 		try {
-			await axios.post('', values);
+			await axios.post('https://c16-35-m-java.onrender.com/authenticate', values);
+			navigate('/')
 		} catch (error) {
 			console.log(error);
 		}

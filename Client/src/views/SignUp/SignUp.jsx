@@ -43,7 +43,7 @@ const SignUp = () => {
 
 		setLoading(true);
 		try {
-			await axios.post('http://localhost:8080/api/client', values);
+			await axios.post('https://c16-35-m-java.onrender.com/api/client', values);
 			setLoading(false);
 			navigate('/login');
 		} catch (error) {
