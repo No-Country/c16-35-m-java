@@ -5,7 +5,7 @@ import './HomeDisciplinas.scss';
 function HomeDisciplinas() {
 	return (
 		<section className='disciplinas-home-container'>
-			<h3>Todas las disciplinas </h3>
+			<h3>Otras clases que puedes tener </h3>
 			<div className='disciplinas-home'>
 				<div className='disciplinas-col'>
 					{DISCIPLINAS.slice(0, 5).map((disciplina, index) => {
