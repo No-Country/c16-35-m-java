@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&display=swap');
+
 .swiper-slide{
 	background: none;
 }
@@ -6,10 +6,10 @@
 	width: 70%;
 	margin: 2rem 0rem;
 	& h3 {
-		font-family: 'Port Lligat Sans', sans-serif;
-		font-weight: 400;
-		font-style: normal;
-		font-size: 1.5rem;
+		font-family: var(--font-poppins);
+		font-weight: 700;
+		font-size: 1.6rem;
+		color: var(--color-primary);
 	}
 	& .swiper-home {
 		width: 70vw;

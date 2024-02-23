@@ -4,10 +4,10 @@ import './ProfesHome.scss';
 function ProfesHome() {
 	return (
 		<section className='profes-container'>
-			<h3>El lugar donde podés encontrar los mejores profesores en su área </h3>
-			<MatematicaHome materia={'Matematica'} />
+			<h3 className='profeshome-titulo'>El lugar donde podés encontrar los mejores profesores en su área </h3>
+			<MatematicaHome materia={'Matemáticas'} />
 			<MatematicaHome materia={'Guitarra'} />
-			<MatematicaHome materia={'Ingles'} />
+			<MatematicaHome materia={'Inglés'} />
 		</section>
 	);
 }
