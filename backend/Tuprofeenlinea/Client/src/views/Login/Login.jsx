@@ -2,9 +2,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import EyePassword from "../../assets/eye-password.svg";
-import BotonesRedes from "../../components/BotonesRedes/BotonesRedes.jsx";
-//asd
-import "../../views/SignUp/SignUp.scss";
+import BotonesRedes from "../../components/Nav/Formulario/BotonesRedes";
 
 const Login = () => {
   const {
@@ -15,15 +13,13 @@ const Login = () => {
     mode: "all",
   });
 
-
   const handleLogin = async (values) => {
     try {
-      await axios.post("http://localhost:8080/authenticate", values);
+      await axios.post("", values);
     } catch (error) {
       console.log(error);
     }
   };
-
 
   return (
     <section className="signup-container">
