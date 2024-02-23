@@ -1,6 +1,6 @@
 package com.c1635mjava.Tuprofeenlinea.service;
 
-
+import com.c1635mjava.Tuprofeenlinea.dtos.ReservationDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.models.Reservation;
@@ -20,4 +20,6 @@ public interface IReservationService {
     List<Reservation> findByStudent(Client student);
     List<Reservation> findByCalendary(Calendary calendary);
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    void createReservation(ReservationDTO reservationDTO);
 }

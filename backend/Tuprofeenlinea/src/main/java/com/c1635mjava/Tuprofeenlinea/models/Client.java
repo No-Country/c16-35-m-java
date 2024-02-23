@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,8 +13,8 @@ import java.util.List;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private Long id; 
     private String email;
     private String password;
     private String name;
@@ -22,12 +23,20 @@ public class Client {
     private String descriptionTeacher;
     private String descriptionBiography;
     private boolean enabled;
+
     @OneToMany(mappedBy = "student")
     private List<Reservation> reservationList;
+
     @OneToMany(mappedBy = "teacher")
     private List<Calendary> teachingCalendaries;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_Id")
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id")
     private Role role;
+
+    public Client() {
+        this.reservationList = new ArrayList<>();
+        this.teachingCalendaries = new ArrayList<>();
+    }
 }
+

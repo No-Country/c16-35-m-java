@@ -50,6 +50,7 @@ public class WebSecurityConfig {
 
                 .authorizeRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/authenticate/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/reservation/**")).permitAll()
 
 
                         .requestMatchers(new AntPathRequestMatcher("/authenticate")).permitAll()
