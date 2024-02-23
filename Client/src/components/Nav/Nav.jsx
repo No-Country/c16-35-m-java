@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
+import MenuIcon from './DropdownMenuButton/MenuIcon/MenuIcon';
 import './Nav.scss';
+//import DehazeIcon from '@mui/icons-material/Dehaze';
 
 export const Nav = () => {
 	return (
 		<header>
 			<nav className='nav'>
+				<MenuIcon />
 				<div className='logo'>
 					<Link to='/'>
 						<img src={Logo} alt='Logo de la aplicacion' />
