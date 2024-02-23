@@ -1,4 +1,4 @@
-import Estrella from '../../assets/Estrella.svg';
+import Manzana from '../../assets/Manzana.svg'
 import { OPINIONES } from '../../data-profesores';
 import './OpinionesHome.scss';
 function OpinionesHome() {
@@ -16,7 +16,7 @@ function OpinionesHome() {
 									<p>Profe de {materia}</p>
 								</div>
 								<div className='card-home-valoracion'>
-									<img src={Estrella} alt='Estrella' />
+									<img src={Manzana} alt='Manzana' />
 									<p className='valoracion'>{valoracion}</p>
 								</div>
 							</div>

@@ -19,36 +19,40 @@
 		background-color: #7678ad;
 		border-radius: 6px;
 		padding: 1.8rem;
+		box-shadow: 1px 1px 2px var(--color-primary);
 	}
 	.info-card {
 		display: flex;
-		color: white;
+		color: var(--color-secondary);
+		font-weight: 600;
 		& p {
-			font-size: 1.2rem;
+			font-size: 1rem;
 		}
 	}
 	.card-docente {
 		display: flex;
 		justify-content: space-between;
 		& .valoracion {
-			color: var(--color-secondary);
+			color: black;
 			font-weight: 500;
-			font-size: 1.1rem;
 		}
 		& .card-home-valoracion {
 			display: flex;
+			align-items: center;
+			gap: 0.3rem;
 			& img {
-				width: 2rem;
+				width: 1.2rem;
+				margin-bottom: 0.25rem;
 			}
 		}
 	}
 	.card-home-reseña {
-		color: var(--color-quintiary);
+		color: black;
 	}
 	.card-home-alumno {
 		text-align: right;
-		color: var(--color-secondary);
+		color: black;
 		font-weight: 500;
-		font-size: 1.1rem;
+		font-size: 0.9rem;
 	}
 }
