@@ -17,27 +17,12 @@ public class ClientServiceImpl implements IUserService {
     private ClientRepository clientRepository;
 
     @Override
-    public Client save(ClientDTO client) {
-        System.out.println("client: " + client);
-        return clientRepository.save(createClient(client));
-    }
-
-    private Client createClient(ClientDTO clientDTO){
-        Client client = new Client();
-
-        client.setEmail(clientDTO.getEmail());
-        client.setPassword(clientDTO.getPassword());
-        client.setEnabled(true);
-        client.setRole(new Role("TEACHER"));
-        return client;
-    }
-
-    @Override
     public List<Client> findAll() {
         return clientRepository.findAll();
     }
     @Override
     public Client save(Client client) {
+        client.setEnabled(true);
         return clientRepository.save(client);
     }
     @Override
