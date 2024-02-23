@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import EyePassword from '../../assets/eye-password.svg';
 import EyeRepeatPassword from '../../assets/eye-repeat-password.svg';
 import BotonesRedes from '../../components/BotonesRedes/BotonesRedes.jsx';
+import { signUp } from '../../redux/actions/actions.js';
 import './SignUp.scss';
 
 const SignUp = () => {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [showPassword, setShowPassword] = useState(false);
 	const [showRepeatPassword, setShowRepeatPassword] = useState(false);
@@ -43,7 +44,7 @@ const SignUp = () => {
 
 		setLoading(true);
 		try {
-			await axios.post('http://localhost:8080/api/client', values);
+			dispatch(signUp(values));
 			setLoading(false);
 			navigate('/login');
 		} catch (error) {
