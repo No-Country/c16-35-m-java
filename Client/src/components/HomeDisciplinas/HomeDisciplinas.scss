@@ -14,22 +14,30 @@
 		justify-content: space-around;
 		margin-top: 1rem;
 		font-weight: 500;
-		& a:hover {
-			color: white;
-			transition: all 250ms ease;
-		}
 		.disciplinas-col{
 			background-color: var(--color-quintiary);
 			border-radius: 6px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			gap: 1rem;
+			padding: 1rem;
 			color: var(--color-primary);
 			font-weight: 600;
 			font-size: 1.2rem;
 			line-height: 0.7rem;
 			width: 11rem;
-			box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.199); /* Cambia los valores según lo desees */
+			box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.199);
+			& button{
+				color: var(--color-primary);
+				font-weight: 600;
+				font-size: 1.2rem;
+				cursor: pointer;
+				&:hover {
+					color: white;
+					transition: all 250ms ease;
+				}
+			}
 		}
 	}
 }
