@@ -11,11 +11,6 @@ export const Nav = () => {
 						<img src={Logo} alt='Logo de la aplicacion' />
 					</Link>
 				</div>
-				<input
-					type='text'
-					className='searchbar'
-					placeholder='¿Qué quieres aprender hoy?'
-				/>
 				<div className='nav-enlaces'>
 					<Link className='dar-clases' to='/about'>
 						Dar clases
