@@ -1,13 +1,11 @@
 package com.c1635mjava.Tuprofeenlinea.service.impl;
 
 import com.c1635mjava.Tuprofeenlinea.models.Client;
-import com.c1635mjava.Tuprofeenlinea.models.Role;
 import com.c1635mjava.Tuprofeenlinea.repository.ClientRepository;
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,25 +13,21 @@ import java.util.Optional;
 public class ClientServiceImpl implements IUserService {
 
     @Autowired
+    private PasswordEncoder bcrypt;
+    @Autowired
     private ClientRepository clientRepository;
-
-    @GetMapping("/{id}")
-    public Optional<Client> getClient(@PathVariable Long id) {
-        return clientRepository.findById(id);
-    }
-
     @Override
     public List<Client> findAll() {
         return clientRepository.findAll();
     }
-
     @Override
     public Client save(Client client) {
+    
+        client.setPassword(bcrypt.encode(client.getPassword()));
+        client.setRole("student");
         client.setEnabled(true);
-        client.setRole(new Role("STUDENT"));
         return clientRepository.save(client);
     }
-
     @Override
     public Client update(Client client) {
         Client existingClient = clientRepository.
@@ -55,11 +49,10 @@ public class ClientServiceImpl implements IUserService {
     public void deleteById(Long id) {
         clientRepository.deleteById(id);
     }
-
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     @Override
-    public List<Client> findByRole_Rol(String rol) {
-        return clientRepository.findByRole_Rol(rol);
+    public List<Client> findByRole(String role) {
+        return clientRepository.findByRole(role);
     }
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 }

@@ -2,7 +2,6 @@ package com.c1635mjava.Tuprofeenlinea.service.impl;
 
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
-import com.c1635mjava.Tuprofeenlinea.models.Role;
 import com.c1635mjava.Tuprofeenlinea.repository.CalendaryRepository;
 import com.c1635mjava.Tuprofeenlinea.service.ICalendaryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class CalendaryServiceImpl implements ICalendaryService {
     }
     @Override
     public Calendary save(Calendary calendary) {
-        calendary.getTeacher().setRole(new Role("TEACHER"));
+        calendary.getTeacher().setRole("teacher");
         return calendaryRepository.save(calendary);
     }
     @Override

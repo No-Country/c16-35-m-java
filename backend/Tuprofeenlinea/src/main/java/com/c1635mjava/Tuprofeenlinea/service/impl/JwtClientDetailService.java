@@ -27,7 +27,7 @@ public class JwtClientDetailService implements UserDetailsService {
 
         }
         List<GrantedAuthority> roles = new ArrayList<>();
-        roles.add(new SimpleGrantedAuthority(client.getRole().getRol()));
+        roles.add(new SimpleGrantedAuthority(client.getRole()));
         return new User(client.getEmail(), client.getPassword(), client.isEnabled(),
                 true, true, true, roles);
     }

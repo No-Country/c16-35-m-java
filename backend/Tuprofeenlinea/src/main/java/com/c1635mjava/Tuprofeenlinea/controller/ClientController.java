@@ -5,7 +5,6 @@ import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.service.impl.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -15,8 +14,6 @@ import java.util.Optional;
 @RequestMapping("/api/client")
 public class ClientController {
 
-    @Autowired
-    private PasswordEncoder bcrypt;
     @Autowired
     private ClientServiceImpl clientService;
     @GetMapping("/{id}")//mostrar el cliente identificado por id
@@ -32,7 +29,6 @@ public class ClientController {
     @PostMapping
     public ResponseEntity<?>
     save(@RequestBody Client client) { //guardar datos de cliente
-        client.setPassword(bcrypt.encode(client.getPassword()));
         return ResponseEntity.ok(clientService.save(client));
     }
     @PutMapping("/{id}")
@@ -44,7 +40,7 @@ public class ClientController {
     @GetMapping("/role/{rol}")
     public ResponseEntity<?>//mostrar los clientes dado un nombre de rol
     findByRole(@PathVariable String rol) {
-        List<Client> clientsOfRole = clientService.findByRole_Rol(rol);
+        List<Client> clientsOfRole = clientService.findByRole(rol);
         return ResponseEntity.ok(clientsOfRole);
     }
 }

@@ -3,7 +3,6 @@ package com.c1635mjava.Tuprofeenlinea.models;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
-
 import java.time.LocalDate;
 
 @Entity
@@ -21,11 +20,11 @@ public class Client {
     private String descriptionTeacher;
     private String descriptionBiography;
     private boolean enabled;
+    private String role;
     @OneToMany(mappedBy = "student")
     private List<Reservation> reservationList;
     @OneToMany(mappedBy = "teacher")
     private List<Calendary> teachingCalendaries;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_Id")
-    private Role role;
+    /*@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_Id")*/
 }
