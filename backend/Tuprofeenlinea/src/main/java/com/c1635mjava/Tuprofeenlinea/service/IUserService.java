@@ -12,4 +12,6 @@ public interface IUserService {
     Client update(Client client);
     Optional<Client> findById(Long id);
     void deleteById(Long id);
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    List<Client> findByRole_Rol(String rol);
 }

@@ -15,7 +15,7 @@ public class Calendary {
     private String subject;
     private LocalDate startDate;
     private LocalDate endDate;
-    private int starHour;
+    private int startHour;
     private int endHour;
     private String descriptionCurse;
     private int price;

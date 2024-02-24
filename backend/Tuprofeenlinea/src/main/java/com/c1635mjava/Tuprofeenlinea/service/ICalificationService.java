@@ -14,3 +14,4 @@ public interface ICalificationService {
     List<Calification> findAll();
     List<Calification> findByReservation(Reservation reservation);
 }
+

@@ -1,10 +1,13 @@
 package com.c1635mjava.Tuprofeenlinea.repository;
 
 import com.c1635mjava.Tuprofeenlinea.models.Client;
+import com.c1635mjava.Tuprofeenlinea.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
     Client findByEmail(String email);
+    List<Client> findByRole_Rol(String rol);
 }

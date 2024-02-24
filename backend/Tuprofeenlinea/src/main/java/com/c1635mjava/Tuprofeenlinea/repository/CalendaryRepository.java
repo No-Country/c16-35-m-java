@@ -8,8 +8,6 @@ import java.util.List;
 
 @Repository
 public interface CalendaryRepository extends JpaRepository<Calendary, Long> {
-
     List<Calendary> findByTeacher(Client teacher);
     List<Calendary> findBySubject(String subject);
-
 }
