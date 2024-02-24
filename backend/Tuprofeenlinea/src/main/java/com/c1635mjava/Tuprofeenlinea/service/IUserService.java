@@ -7,7 +7,6 @@ import java.util.Optional;
 
 public interface IUserService {
     List<Client> findAll();
-    Client save(ClientDTO client);
     Client save(Client client);
     Client update(Client client);
     Optional<Client> findById(Long id);

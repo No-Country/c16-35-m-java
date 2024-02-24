@@ -1,6 +1,5 @@
 package com.c1635mjava.Tuprofeenlinea.service.impl;
 
-import com.c1635mjava.Tuprofeenlinea.dtos.ClientDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.models.Role;
 import com.c1635mjava.Tuprofeenlinea.repository.ClientRepository;
@@ -31,9 +30,10 @@ public class ClientServiceImpl implements IUserService {
     @Override
     public Client save(Client client) {
         client.setEnabled(true);
+        client.setRole(new Role("STUDENT"));
         return clientRepository.save(client);
     }
-    
+
     @Override
     public Client update(Client client) {
         Client existingClient = clientRepository.
@@ -61,5 +61,5 @@ public class ClientServiceImpl implements IUserService {
     public List<Client> findByRole_Rol(String rol) {
         return clientRepository.findByRole_Rol(rol);
     }
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/    
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 }
