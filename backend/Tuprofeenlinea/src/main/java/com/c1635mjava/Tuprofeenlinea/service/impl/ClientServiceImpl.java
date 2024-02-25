@@ -36,6 +36,8 @@ public class ClientServiceImpl implements IUserService {
             existingClient.setName(client.getName());
             existingClient.setLastname(client.getLastname());
             existingClient.setBirthday(client.getBirthday());
+            existingClient.setDescriptionTeacher(client.getDescriptionTeacher());
+            existingClient.setDescriptionBiography(client.getDescriptionBiography());
             return clientRepository.save(existingClient);
         } else {
             throw new RuntimeException("Client not found");

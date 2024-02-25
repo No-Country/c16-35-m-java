@@ -3,24 +3,36 @@ package com.c1635mjava.Tuprofeenlinea.service.impl;
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.repository.CalendaryRepository;
+import com.c1635mjava.Tuprofeenlinea.repository.ClientRepository;
 import com.c1635mjava.Tuprofeenlinea.service.ICalendaryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @Service
 public class CalendaryServiceImpl implements ICalendaryService {
 
     @Autowired
     private CalendaryRepository calendaryRepository;
+    @Autowired
+    private ClientRepository clientRepository;
     @Override
     public List<Calendary> findAll() {
         return calendaryRepository.findAll();
     }
     @Override
     public Calendary save(Calendary calendary) {
-        calendary.getTeacher().setRole("teacher");
+        Authentication authentication;
+        authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        Client teacher;
+        teacher = clientRepository.findByEmail(userDetails.getUsername());
+        teacher.setRole("teacher");
+        calendary.setTeacher(teacher);
         return calendaryRepository.save(calendary);
     }
     @Override
