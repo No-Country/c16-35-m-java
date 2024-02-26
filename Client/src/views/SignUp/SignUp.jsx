@@ -46,7 +46,7 @@ const SignUp = () => {
 		try {
 			dispatch(signUp(values));
 			setLoading(false);
-			navigate('/login');
+			navigate('/');
 		} catch (error) {
 			console.error(error);
 		}

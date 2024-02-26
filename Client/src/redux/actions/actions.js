@@ -1,5 +1,9 @@
 import Educaflex from '../../utils/NetworkingUtils';
-import { getLoggedInUser, handleUserLogin } from '../../utils/UserUtils';
+import {
+	getLoggedInUser,
+	handleUserLogin,
+	handleUserSignUp,
+} from '../../utils/UserUtils';
 import { LOGIN, SIGN_UP } from './types';
 
 export function signUp(user) {
@@ -7,8 +11,11 @@ export function signUp(user) {
 		try {
 			const response = await Educaflex.post('/api/client', user);
 			console.log(response.data);
+			handleUserSignUp(response.data);
+			console.log(getLoggedInUser());
 			return dispatch({
 				type: SIGN_UP,
+				payload: getLoggedInUser(),
 			});
 		} catch (error) {
 			console.log(error);
