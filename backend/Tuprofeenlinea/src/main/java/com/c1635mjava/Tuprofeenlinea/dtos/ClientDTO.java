@@ -17,8 +17,16 @@ public class ClientDTO {
     private LocalDate birthday;
     private String descriptionTeacher;
     private String descriptionBiography;
-
+    private String imagePath;
     public ClientDTO() {
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public ClientDTO(String email, String password, String name, String lastname, LocalDate birthday, String descriptionTeacher, String descriptionBiography) {
@@ -113,5 +121,10 @@ public class ClientDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+
+    public String getLastName() {
+        return getLastname();
     }
 }

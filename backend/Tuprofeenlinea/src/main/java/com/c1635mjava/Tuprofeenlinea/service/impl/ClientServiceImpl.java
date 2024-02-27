@@ -22,6 +22,11 @@ public class ClientServiceImpl implements IUserService {
     }
 
     @Override
+    public void save(Client existingClient) {
+        clientRepository.save(existingClient);
+    }
+
+    @Override
     public Client save(ClientDTO clientDTO) {
         Client client = new Client();
         client.setEmail(clientDTO.getEmail());
@@ -32,25 +37,44 @@ public class ClientServiceImpl implements IUserService {
 
 
 
+
     @Override
     public Client update(Client client) {
-
         Optional<Client> optionalExistingClient = clientRepository.findById(client.getId());
-        if (optionalExistingClient.isPresent()) {Client existingClient = optionalExistingClient.get();
+        if (optionalExistingClient.isPresent()) {
+            Client existingClient = optionalExistingClient.get();
 
-            existingClient.setName(client.getName());
-            existingClient.setLastname(client.getLastname());
-            existingClient.setBirthday(client.getBirthday());
-            existingClient.setDescriptionBiography(client.getDescriptionBiography());
-            existingClient.setDescriptionTeacher(client.getDescriptionTeacher());
+            // Verificar cada campo proporcionado en la solicitud y actualizar solo esos campos
+            if (client.getEmail() != null) {
+                existingClient.setEmail(client.getEmail());
+            }
+            if (client.getName() != null) {
+                existingClient.setName(client.getName());
+            }
+            if (client.getLastname() != null) {
+                existingClient.setLastname(client.getLastname());
+            }
+            if (client.getBirthday() != null) {
+                existingClient.setBirthday(client.getBirthday());
+            }
+            if (client.getDescriptionBiography() != null) {
+                existingClient.setDescriptionBiography(client.getDescriptionBiography());
+            }
+            if (client.getDescriptionTeacher() != null) {
+                existingClient.setDescriptionTeacher(client.getDescriptionTeacher());
+            }
+            if (client.getImagePath() != null) {
+                existingClient.setImagePath(client.getImagePath());
+            }
 
             // Guardar los cambios en la base de datos
             return clientRepository.save(existingClient);
         } else {
-            // Si no se encuentra el cliente, lanzar una excepción
             throw new RuntimeException("Client not found");
         }
     }
+
+
 
     @Override
     public Optional<Client> findById(Long id) {
