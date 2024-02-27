@@ -14,10 +14,20 @@ public class Reservation {
     private Long id;
     private LocalDate date;
     private int duration;
+
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Client student;
+
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private Client teacher;
+
     @ManyToOne
     @JoinColumn(name = "calendary_id")
     private Calendary calendary;
+
+    public void setTeacher(Client teacher) {
+        this.teacher = teacher;
+    }
 }

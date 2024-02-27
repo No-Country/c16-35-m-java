@@ -24,33 +24,37 @@ public class CalificationController {
     private ICalificationService calificationService;
     @Autowired
     private ReservationServiceImpl reservationService;
+
     @GetMapping
     public ResponseEntity<?>
     findAll() {
         List<Calification> califications = calificationService.findAll();
         return ResponseEntity.ok(califications);
     }
+
     @PostMapping
     public ResponseEntity<?>
     save(@RequestBody Calification calification) {
         return ResponseEntity.ok(calificationService.save(calification));
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<?>
     update(@PathVariable Long id, @RequestBody Calification calification) {
         calification.setId(id);
         return ResponseEntity.ok(calificationService.update(calification));
     }
+
     @GetMapping("/reservation/{reservationId}")
     public ResponseEntity<?>
-    findByReservation(@PathVariable Long reservationId){
+    findByReservation(@PathVariable Long reservationId) {
         Reservation reservation = reservationService.
                 findById(reservationId).orElse(null);
-        if(reservation != null){
+        if (reservation != null) {
             List<Calification> califications = calificationService.
                     findByReservation(reservation);
             return ResponseEntity.ok(califications);
-        }else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
