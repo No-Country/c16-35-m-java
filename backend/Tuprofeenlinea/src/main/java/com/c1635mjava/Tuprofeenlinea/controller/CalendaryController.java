@@ -55,4 +55,3 @@ public class CalendaryController {
         return ResponseEntity.ok(calendaries);
     }
 }
-

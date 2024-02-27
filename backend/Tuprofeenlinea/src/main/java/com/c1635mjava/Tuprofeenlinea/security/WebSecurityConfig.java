@@ -1,8 +1,10 @@
 package com.c1635mjava.Tuprofeenlinea.security;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -35,26 +37,26 @@ public class WebSecurityConfig {
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
     }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
-
                 .authorizeRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/authenticate/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/reservation/**")).permitAll()
-
-
+                        .requestMatchers(new AntPathRequestMatcher("/api/client/{id}")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/authenticate")).permitAll()
-
                         .requestMatchers(new AntPathRequestMatcher("/api/client/**")).permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(jwtAuthenticationEntryPoint))
@@ -66,5 +68,4 @@ public class WebSecurityConfig {
     }
 
 }
-
 

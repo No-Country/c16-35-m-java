@@ -26,9 +26,9 @@ public class JwtClientDetailService implements UserDetailsService {
             throw new UsernameNotFoundException(String.format("User not exists",email));
 
         }
-        List<GrantedAuthority> roles = new ArrayList<>();
-        roles.add(new SimpleGrantedAuthority(client.getRole().getRol()));
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(client.getRole().toString()));
         return new User(client.getEmail(), client.getPassword(), client.isEnabled(),
-                true, true, true, roles);
-    }
-}
+                true, true, true, authorities);
+
+    }}

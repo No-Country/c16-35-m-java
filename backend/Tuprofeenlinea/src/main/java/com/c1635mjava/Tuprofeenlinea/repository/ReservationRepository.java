@@ -13,4 +13,3 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     List<Reservation> findByStudent(Client student);
     List<Reservation> findByCalendary(Calendary calendary);
 }
-

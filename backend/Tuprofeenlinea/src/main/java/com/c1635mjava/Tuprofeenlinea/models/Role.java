@@ -1,22 +1,17 @@
 package com.c1635mjava.Tuprofeenlinea.models;
 
-import jakarta.persistence.*;
-import lombok.Data;
+public enum Role {
+    TEACHER("TEACHER"),
+    STUDENT("STUDENT"),
+    ADMIN("ADMIN");
 
-@Entity
-@Data
-@Table(name = "roles")
-public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String rol;
+    private final String value;
 
-    public Role(String rol) {
-        this.rol = rol;
+    Role(String value) {
+        this.value = value;
     }
 
-    public Role() {
-
+    public String getValue() {
+        return value;
     }
 }

@@ -11,4 +11,3 @@ import java.util.List;
 public interface CalificationRepository extends JpaRepository<Calification, Long> {
     List<Calification> findByReservation(Reservation reservation);
 }
-

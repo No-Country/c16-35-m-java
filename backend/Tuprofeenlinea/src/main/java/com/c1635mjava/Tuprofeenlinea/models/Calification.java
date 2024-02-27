@@ -18,4 +18,3 @@ public class Calification {
     @OneToOne
     private Reservation reservation;
 }
-

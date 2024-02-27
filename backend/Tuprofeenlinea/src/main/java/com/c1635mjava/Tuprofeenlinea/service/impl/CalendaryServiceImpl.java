@@ -47,7 +47,7 @@ public class CalendaryServiceImpl implements ICalendaryService {
     public void deleteById(Long id) {
         calendaryRepository.deleteById(id);
     }
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     @Override
     public List<Calendary> findByTeacher(Client teacher) {
         return calendaryRepository.findByTeacher(teacher);
@@ -56,5 +56,5 @@ public class CalendaryServiceImpl implements ICalendaryService {
     public List<Calendary> findBySubject(String subject) {
         return calendaryRepository.findBySubject(subject);
     }
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/    
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 }

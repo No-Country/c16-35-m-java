@@ -30,4 +30,3 @@ public class Calendary {
     public void setStartHour(int i) {
     }
 }
-
