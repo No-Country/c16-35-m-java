@@ -28,9 +28,6 @@ public class Client {
     private String descriptionBiography;
     private boolean enabled = true;
 
-    private String imagePath;
-
-
     @OneToMany(mappedBy = "student")
     @JsonIgnore
     private List<Reservation> reservationList;
@@ -46,7 +43,6 @@ public class Client {
         this.teachingCalendaries = new ArrayList<>();
         this.role = "TEACHER";
     }
-
 
 }
 
