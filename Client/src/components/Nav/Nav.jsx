@@ -35,7 +35,7 @@ export const Nav = () => {
 					className='searchbar'
 					placeholder='¿Qué quieres aprender hoy?'
 				/>
-				{user ? <DropdownMenuButton /> : registrarse()}
+				{user.email ? <DropdownMenuButton /> : registrarse()}
 			</nav>
 		</header>
 	);
