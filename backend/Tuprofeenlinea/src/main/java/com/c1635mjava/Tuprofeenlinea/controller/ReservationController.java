@@ -86,7 +86,6 @@ public class ReservationController {
             reservation.setDate(reservationDTO.getDate());
             reservation.setDuration(reservationDTO.getDuration());
             reservation.setStudent(student);
-            reservation.setTeacher(teacher);
 
             // Guardar la reserva en la base de datos
             reservationService.save(reservation);
