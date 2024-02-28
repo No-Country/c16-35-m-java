@@ -53,11 +53,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests(auth -> auth
-                        .requestMatchers(new AntPathRequestMatcher("/authenticate/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/api/reservation/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/api/client/{id}")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/authenticate")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/api/client/**")).permitAll()
+                        .requestMatchers(AUTO_WHITELIST).permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .formLogin(AbstractHttpConfigurer::disable)
@@ -67,5 +63,15 @@ public class WebSecurityConfig {
         return httpSecurity.build();
     }
 
+    private static final String [] AUTO_WHITELIST = {
+            "/authenticate/**",
+            "/api/reservation/**",
+            "/api/client/{id}",
+            "/authenticate",
+            "/api/client/**",
+            "/swagger-ui/**",
+            "/swagger-ui.html",
+            "/v3/api-docs/**"
+    };
 }
 
