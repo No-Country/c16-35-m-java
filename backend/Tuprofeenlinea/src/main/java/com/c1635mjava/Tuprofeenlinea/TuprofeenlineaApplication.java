@@ -7,6 +7,8 @@ import com.c1635mjava.Tuprofeenlinea.models.Role;
 import com.c1635mjava.Tuprofeenlinea.repository.CalendaryRepository;
 import com.c1635mjava.Tuprofeenlinea.repository.ClientRepository;
 import com.c1635mjava.Tuprofeenlinea.repository.ReservationRepository;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.time.LocalDate;
 
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Educaflex API", version = "1.0", description = "Educaflex Documentation"))
 public class TuprofeenlineaApplication {
 
 	public static void main(String[] args) {
