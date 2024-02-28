@@ -1,10 +1,13 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { logout } from '../../../redux/actions/actions';
 import './DropdownMenuButton.scss';
 
 const DropdownMenuButton = () => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const [checked, setChecked] = useState(false);
 
 	const handleCheckboxChange = () => {
@@ -23,6 +26,7 @@ const DropdownMenuButton = () => {
 				return;
 			}
 			case 'Salir': {
+				dispatch(logout());
 				navigate('/');
 				return;
 			}
