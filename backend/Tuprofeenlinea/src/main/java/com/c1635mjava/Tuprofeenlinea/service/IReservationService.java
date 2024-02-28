@@ -21,5 +21,4 @@ public interface IReservationService {
     List<Reservation> findByCalendary(Calendary calendary);
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    void createReservation(ReservationDTO reservationDTO);
 }

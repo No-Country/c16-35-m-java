@@ -30,12 +30,15 @@ public class CalendaryController {
     save(@RequestBody Calendary calendary) {
         return ResponseEntity.ok(calendaryService.save(calendary));
     }
+
+
     @PutMapping("/{id}")
     public ResponseEntity<?>
     update(@PathVariable Long id, @RequestBody Calendary calendary) {
         calendary.setId(id);
         return ResponseEntity.ok(calendaryService.update(calendary));
     }
+
     @GetMapping("/teacher/{teacherId}")
     public ResponseEntity<?>
     findByTeacher(@PathVariable Long teacherId) {
@@ -48,6 +51,8 @@ public class CalendaryController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
     @GetMapping("/subject/{subject}")
     public ResponseEntity<?>
     findBySubject(@PathVariable String subject) {

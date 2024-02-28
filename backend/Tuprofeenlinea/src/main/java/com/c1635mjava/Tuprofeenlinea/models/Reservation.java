@@ -20,14 +20,7 @@ public class Reservation {
     private Client student;
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id")
-    private Client teacher;
-
-    @ManyToOne
     @JoinColumn(name = "calendary_id")
     private Calendary calendary;
 
-    public void setTeacher(Client teacher) {
-        this.teacher = teacher;
-    }
 }

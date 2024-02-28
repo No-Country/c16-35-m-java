@@ -44,11 +44,5 @@ public class ReservationDTO {
         this.studentId = studentId;
     }
 
-    public Long getTeacherId() {
-        return teacherId;
-    }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
 }

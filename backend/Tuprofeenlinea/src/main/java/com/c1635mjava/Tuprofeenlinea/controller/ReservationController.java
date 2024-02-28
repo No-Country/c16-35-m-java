@@ -66,36 +66,36 @@ public class ReservationController {
         }
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createReservation(@RequestBody ReservationDTO reservationDTO) {
-        try {
-            // Buscar el estudiante en la base de datos
-            Client student = userService.findById(reservationDTO.getStudentId()).orElse(null);
-            if (student == null) {
-                return ResponseEntity.badRequest().body("Student not found");
-            }
-
-            // Buscar el profesor en la base de datos
-            Client teacher = userService.findById(reservationDTO.getTeacherId()).orElse(null);
-            if (teacher == null) {
-                return ResponseEntity.badRequest().body("Teacher not found");
-            }
-
-            // Crear una nueva reserva utilizando los datos del DTO y los clientes encontrados
-            Reservation reservation = new Reservation();
-            reservation.setDate(reservationDTO.getDate());
-            reservation.setDuration(reservationDTO.getDuration());
-            reservation.setStudent(student);
-            reservation.setTeacher(teacher);
-
-            // Guardar la reserva en la base de datos
-            reservationService.save(reservation);
-
-            return ResponseEntity.ok("Reservation created successfully");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
+//    @PostMapping("/create")
+//    public ResponseEntity<?> createReservation(@RequestBody ReservationDTO reservationDTO) {
+//        try {
+//            // Buscar el estudiante en la base de datos
+//            Client student = userService.findById(reservationDTO.getStudentId()).orElse(null);
+//            if (student == null) {
+//                return ResponseEntity.badRequest().body("Student not found");
+//            }
+//
+//            // Buscar el profesor en la base de datos
+//            Client teacher = userService.findById(reservationDTO.getTeacherId()).orElse(null);
+//            if (teacher == null) {
+//                return ResponseEntity.badRequest().body("Teacher not found");
+//            }
+//
+//            // Crear una nueva reserva utilizando los datos del DTO y los clientes encontrados
+//            Reservation reservation = new Reservation();
+//            reservation.setDate(reservationDTO.getDate());
+//            reservation.setDuration(reservationDTO.getDuration());
+//            reservation.setStudent(student);
+//            reservation.setTeacher(teacher);
+//
+//            // Guardar la reserva en la base de datos
+//            reservationService.save(reservation);
+//
+//            return ResponseEntity.ok("Reservation created successfully");
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body(e.getMessage());
+//        }
+//    }
 
 }
 

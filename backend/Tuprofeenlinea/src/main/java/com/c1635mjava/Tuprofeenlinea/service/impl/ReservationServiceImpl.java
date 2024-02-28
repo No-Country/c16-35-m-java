@@ -54,8 +54,4 @@ public class ReservationServiceImpl implements IReservationService {
         return reservationRepository.findByCalendary(calendary);
     }
 
-    @Override
-    public void createReservation(ReservationDTO reservationDTO) {
-
-    }
 }
