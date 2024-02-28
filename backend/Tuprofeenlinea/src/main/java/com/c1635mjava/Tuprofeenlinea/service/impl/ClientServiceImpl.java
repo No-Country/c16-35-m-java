@@ -47,6 +47,7 @@ public class ClientServiceImpl implements IUserService {
             existingClient.setDescriptionBiography(client.getDescriptionBiography());
             existingClient.setDescriptionTeacher(client.getDescriptionTeacher());
 
+             existingClient.setRole(client.getRole());
             // Guardar los cambios en la base de datos
             return clientRepository.save(existingClient);
         } else {

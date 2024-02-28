@@ -27,10 +27,9 @@ public class TuprofeenlineaApplication {
 		return args -> {
 			// Crear algunos clientes de ejemplo al iniciar la aplicación
 			Client student1 = new Client();
-			student1.setName("Estudiante 1");
-			student1.setEmail("estudiante1@example.com");
-			student1.setPassword(passwordEncoder.encode("password1"));
-			student1.setRole(String.valueOf(Role.TEACHER));
+			student1.setName("Estudiante 19");
+			student1.setEmail("estudiante19@example.com");
+			student1.setPassword(passwordEncoder.encode("password19"));			student1.setRole(String.valueOf(Role.TEACHER));
 			clientRepository.save(student1);
 
 			Client teacher1 = new Client();
