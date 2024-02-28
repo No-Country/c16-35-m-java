@@ -15,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.io.File;
 import java.time.LocalDate;
 
 @SpringBootApplication
@@ -29,12 +30,33 @@ public class TuprofeenlineaApplication {
 	public CommandLineRunner dataLoader(ClientRepository clientRepository, CalendaryRepository calendaryRepository, ReservationRepository reservationRepository, PasswordEncoder passwordEncoder) {
 		return args -> {
 			// Crear algunos clientes de ejemplo al iniciar la aplicación
-			Client student1 = new Client();
-			student1.setName("Estudiante 1");
-			student1.setEmail("estudiante1@example.com");
-			student1.setPassword(passwordEncoder.encode("password1"));
-			student1.setRole(String.valueOf(Role.TEACHER));
-			clientRepository.save(student1);
+			Client student50 = new Client();
+			student50.setName("ProfeHard");
+			student50.setEmail("ProfeHard@gmail.com");
+			student50.setPassword(passwordEncoder.encode("ProfeHard1"));
+			student50.setRole(String.valueOf(Role.TEACHER));
+
+			clientRepository.save(student50);
+
+			// Guardar el cliente en la base de datos
+			Client savedStudent50 = clientRepository.save(student50);
+
+			// Crear la ruta de carga única para el cliente
+			String uploadFolderPath = "/uploads/profesor1";
+			String clientUploadFolder = uploadFolderPath + "client_" + savedStudent50.getId() + "/";
+
+			// Aquí puedes crear la carpeta en el sistema de archivos si no existe
+			File clientUploadDirectory = new File(clientUploadFolder);
+			if (!clientUploadDirectory.exists()) {
+				clientUploadDirectory.mkdirs(); // Crear la carpeta si no existe
+			}
+
+			// Guardar la ruta de carga en el cliente para su posterior referencia
+			savedStudent50.setImagePath(clientUploadFolder); // Asignar la ruta de carga al campo image_path
+			clientRepository.save(savedStudent50);
+
+
+
 
 			Client teacher1 = new Client();
 			teacher1.setName("Profesor 1");
@@ -71,7 +93,7 @@ public class TuprofeenlineaApplication {
 			Reservation reservation = new Reservation();
 			reservation.setDate(LocalDate.now().plusDays(2));
 			reservation.setDuration(1);
-			reservation.setStudent(student1);
+			reservation.setStudent(student50);
 			reservation.setCalendary(calendary1);
 			reservationRepository.save(reservation);
 		};

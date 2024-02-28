@@ -50,7 +50,6 @@ public class ClientController {
         }
         Client existingClient = optionalClient.get();
 
-
         existingClient.setName(client.getName());
         existingClient.setLastname(client.getLastname());
         existingClient.setBirthday(client.getBirthday());
