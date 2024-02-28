@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
+import { Nav } from './components/Nav/Nav';
 import About from './views/About/About';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import NotFound from './views/NotFound/NotFound';
 import SignUp from './views/SignUp/SignUp';
-import { Nav } from './components/Nav/Nav';
 import { UserPanel } from './views/UserPanel/UserPanel';
 import Subject from './views/Subject/Subject';
 // import AdminProfile from "./views/Admin/AdminProfile";

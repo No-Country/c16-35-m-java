@@ -4,11 +4,23 @@ export function handleUserLogin(token) {
 	const decoded = jwtDecode(token);
 
 	const user = {
+		id: decoded.id,
 		role: decoded.roles,
 		email: decoded.username,
 	};
 
 	window.localStorage.setItem('token', token);
+	window.localStorage.setItem('user', JSON.stringify(user));
+}
+
+export function handleUserSignUp(userSignup) {
+	const user = {
+		id: userSignup.id,
+		role: 'user',
+		email: userSignup.email,
+	};
+
+	window.localStorage.setItem('token', 'hola :) soy un token del back');
 	window.localStorage.setItem('user', JSON.stringify(user));
 }
 
@@ -22,6 +34,7 @@ export const updateUserLocal = (token) => {
 	const decoded = jwtDecode(token);
 
 	const user = {
+		id: decoded.id,
 		role: decoded.roles,
 		email: decoded.username,
 	};
@@ -34,17 +47,3 @@ export function handleUserLogout() {
 	window.localStorage.removeItem('token');
 	window.localStorage.removeItem('user');
 }
-
-// export function mapUserToUserInfo(user) {
-//   return {
-//     name: user.name || "",
-//     lastName: user.lastName || "",
-//     email: user.email || "",
-//     phone: user.phone || "",
-//     address: user.address || "",
-//     city: user.city || "",
-//     country: user.country || "",
-//     postalCode: user.postalCode || "",
-//     password: user.password || "",
-//   };
-// }

@@ -3,7 +3,7 @@ import axios from 'axios';
 ///despues al dotenv
 //*Educaflex es el nombre de Pagina :)
 const Educaflex = axios.create({
-	baseURL: 'https://localhost:8080',
+	baseURL: 'https://c16-35-m-java.onrender.com',
 });
 
 //agregar interceptors

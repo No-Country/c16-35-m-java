@@ -1,15 +1,17 @@
-import { POST_USER } from '../actions/types';
+import { LOGIN, LOGOUT, SIGN_UP } from '../actions/types';
 
-let initialState = { allUsers: [] };
+let initialState = { allTeachers: [], user: {} };
 
 function rootReducer(state = initialState, action) {
 	const { type, payload } = action;
 
 	switch (type) {
-		case POST_USER:
+		case SIGN_UP:
+		case LOGIN:
+		case LOGOUT:
 			return {
 				...state,
-				allVideoGames: payload,
+				user: payload,
 			};
 
 		default:
