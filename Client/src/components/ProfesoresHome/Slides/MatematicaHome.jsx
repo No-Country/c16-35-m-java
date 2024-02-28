@@ -28,9 +28,8 @@ function MatematicaHome({ materia }) {
 				<SwiperSlide style={{background:"none"}}>
 					{PROFESORES.slice(0, 3).map((profesor) => {
 						const { imagen, descripcion, nombre, clase, valoracion } = profesor;
-						const uniqueKey = `${nombre}_${index}`;
 						return (
-							<div key={uniqueKey} className='card-profe'>
+							<div key={nombre} className='card-profe'>
 								<img src={imagen} alt='' />
 								<div className='card-profe-info'>
 									<div className='valoracion'>
@@ -51,11 +50,9 @@ function MatematicaHome({ materia }) {
 
 				<SwiperSlide style={{background:"none"}}>
 					{PROFESORES.slice(3, 6).map((profesor) => {
-
 						const { imagen, descripcion, nombre, clase, valoracion } = profesor;
-						const uniqueKey = `${nombre}_${index}`;
 						return (
-							<div key={uniqueKey} className='card-profe'>
+							<div key={nombre} className='card-profe'>
 								<img src={imagen} alt='' />
 								<div className='card-profe-info'>
 									<div className='valoracion'>

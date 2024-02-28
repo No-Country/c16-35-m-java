@@ -30,11 +30,6 @@ export const Nav = () => {
 						<img src={Logo} alt='Logo de la aplicación' />
 					</Link>
 				</div>
-				<input
-					type='text'
-					className='searchbar'
-					placeholder='¿Qué quieres aprender hoy?'
-				/>
 				{user.email ? <DropdownMenuButton /> : registrarse()}
 			</nav>
 		</header>
