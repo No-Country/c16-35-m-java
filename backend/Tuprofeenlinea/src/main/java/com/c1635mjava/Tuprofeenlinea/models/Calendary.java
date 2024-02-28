@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,4 +23,10 @@ public class Calendary {
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Client teacher;
+
+    @OneToMany(mappedBy = "calendary")
+    private List<Reservation> reservations;
+
+    public void setStartHour(int i) {
+    }
 }
