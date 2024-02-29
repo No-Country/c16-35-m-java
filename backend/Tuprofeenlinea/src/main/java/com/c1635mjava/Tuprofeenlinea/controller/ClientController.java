@@ -75,9 +75,26 @@ public class ClientController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Client> findById(@PathVariable Long id) {
-        Optional<Client> client = userService.findById(id);
-        return client.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        Optional<Client> optionalClient = userService.findById(id);
+
+        if (optionalClient.isPresent()) {
+            Client client = optionalClient.get();
+            Client currentClient = userService.getCurrentClient(); // Obtener el cliente autenticado
+
+            // Verificar si el cliente autenticado es el propietario del perfil
+            if (client.getId().equals(currentClient.getId())) {
+                // Devolver el cliente con la contraseña oculta
+                client.setPassword(null);
+                return ResponseEntity.ok(client);
+            } else {
+                // Si el cliente no es el propietario del perfil, devolver el cliente tal como está
+                return ResponseEntity.ok(client);
+            }
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {

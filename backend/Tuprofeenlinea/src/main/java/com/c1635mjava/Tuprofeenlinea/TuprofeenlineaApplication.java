@@ -54,25 +54,25 @@ public class TuprofeenlineaApplication {
 //
 //
 //
-//			Client teacher1 = new Client();
-//			teacher1.setName("Profesor 1");
-//			teacher1.setEmail("profesor1@example.com");
-//			teacher1.setPassword(passwordEncoder.encode("password1"));
-//			teacher1.setRole(String.valueOf(Role.TEACHER));
-//			clientRepository.save(teacher1);
-//
-//			// Crear algunos calendarios de ejemplo
-//			Calendary calendary1 = new Calendary();
-//			calendary1.setSubject("matematica");
-//			calendary1.setStartDate(LocalDate.now());
-//			calendary1.setEndDate(LocalDate.now().plusMonths(3));
-//			calendary1.setStartHour(8);
-//			calendary1.setEndHour(10);
-//			calendary1.setDescriptionCurse("Curso de matemáticas básicas");
-//			calendary1.setPrice(50);
-//			calendary1.setTeacher(teacher1);
-//
-//			calendaryRepository.save(calendary1);
+			Client teacher1 = new Client();
+			teacher1.setName("Profesor 1");
+			teacher1.setEmail("profesor1@example.com");
+			teacher1.setPassword(passwordEncoder.encode("password1"));
+			teacher1.setRole(String.valueOf(Role.TEACHER));
+			clientRepository.save(teacher1);
+
+			// Crear algunos calendarios de ejemplo
+			Calendary calendary1 = new Calendary();
+			calendary1.setSubject("matematica");
+			calendary1.setStartDate(LocalDate.now());
+			calendary1.setEndDate(LocalDate.now().plusMonths(3));
+			calendary1.setStartHour(8);
+			calendary1.setEndHour(10);
+			calendary1.setDescriptionCurse("Curso de matemáticas básicas");
+			calendary1.setPrice(50);
+			calendary1.setTeacher(teacher1);
+
+			calendaryRepository.save(calendary1);
 //
 //			Calendary calendary2 = new Calendary();
 //			calendary2.setSubject("fisica");
