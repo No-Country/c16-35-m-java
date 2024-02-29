@@ -1,5 +1,6 @@
 package com.c1635mjava.Tuprofeenlinea.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "calendary")
+@JsonIgnoreProperties({"teacher", "reservations"})
 public class Calendary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
