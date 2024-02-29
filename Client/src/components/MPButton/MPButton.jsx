@@ -9,7 +9,7 @@ const MPButton = () => {
 		try {
 			//"/create_preference"
 			const response = await axios.post(
-				'http://localhost:3001/MercadoPago/create_preference',
+				'http://localhost:3003/MercadoPago/create_preference',
 				{
 					title: 'Clase',
 					quantity: 1,
