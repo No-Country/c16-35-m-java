@@ -23,7 +23,6 @@ function App() {
 				<Route path='/profile' element={<UserPanel />}></Route>
 				<Route path='*' element={<NotFound />}></Route>
 				<Route path={`/materia/:materia`} element={<Subject />}></Route>
-
 				{/* admin-only routes */}
 				{/* <Route
           path="/adminprofile/:id"
