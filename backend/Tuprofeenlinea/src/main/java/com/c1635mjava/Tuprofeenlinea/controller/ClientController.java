@@ -49,6 +49,7 @@ public class ClientController {
         Client existingClient = optionalClient.get();
 
         existingClient.setEmail(client.getEmail());
+        existingClient.setPassword(client.getPassword());
         existingClient.setName(client.getName());
         existingClient.setLastname(client.getLastname());
         existingClient.setBirthday(client.getBirthday());

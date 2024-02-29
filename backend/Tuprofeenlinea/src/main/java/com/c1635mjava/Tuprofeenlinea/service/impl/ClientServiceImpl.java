@@ -46,6 +46,9 @@ public class ClientServiceImpl implements IUserService {
             if (client.getEmail() != null) {
                 existingClient.setEmail(client.getEmail());
             }
+            if (client.getPassword() != null) {
+                existingClient.setPassword(client.getPassword());
+            }
              if (client.getName() != null) {
                 existingClient.setName(client.getName());
             }
