@@ -2,7 +2,7 @@ package com.c1635mjava.Tuprofeenlinea.controller;
 
 import com.c1635mjava.Tuprofeenlinea.dtos.ClientDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
-import com.c1635mjava.Tuprofeenlinea.service.IUploadFileService;
+
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
 import io.jsonwebtoken.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,6 @@ public class ClientController {
     @Autowired
     private IUserService userService;
 
-    @Autowired
-    private IUploadFileService uploadFileService;
 
     @GetMapping
     public ResponseEntity<List<Client>> findAll() {
@@ -43,32 +41,25 @@ public class ClientController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client client, @RequestParam(value = "profileImage", required = false) MultipartFile profileImage) {
+    public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client client, @RequestParam(value = "profileImageURL", required = false) String profileImageURL) {
         Optional<Client> optionalClient = userService.findById(id);
         if (!optionalClient.isPresent()) {
             return ResponseEntity.notFound().build();
         }
         Client existingClient = optionalClient.get();
 
+        existingClient.setEmail(client.getEmail());
         existingClient.setName(client.getName());
         existingClient.setLastname(client.getLastname());
         existingClient.setBirthday(client.getBirthday());
         existingClient.setDescriptionTeacher(client.getDescriptionTeacher());
         existingClient.setDescriptionBiography(client.getDescriptionBiography());
 
-        // Verificar si se proporcionó una nueva imagen y guardarla si es necesario
-        if (profileImage != null && !profileImage.isEmpty()) {
-            try {
-                String uniqueFileName = uploadFileService.copy(profileImage);
-                System.out.println("Ruta : "+ uniqueFileName );
-                // Asignar la ruta de la nueva imagen al cliente
-                existingClient.setImagePath(uniqueFileName);
-            } catch (IOException | java.io.IOException e) {
-                e.printStackTrace();
-                // Manejar el error en caso de que falle la carga de la imagen
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-            }
+        // Verificar si se proporcionó una nueva URL de imagen y guardarla si es necesario
+        if (profileImageURL != null && !profileImageURL.isEmpty()) {
+            existingClient.setImagePath(profileImageURL);
         }
+
         Client savedClient = userService.update(existingClient);
         return ResponseEntity.ok(savedClient);
     }

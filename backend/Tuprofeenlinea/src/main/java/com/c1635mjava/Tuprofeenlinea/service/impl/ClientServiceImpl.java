@@ -43,6 +43,9 @@ public class ClientServiceImpl implements IUserService {
         Optional<Client> optionalExistingClient = clientRepository.findById(client.getId());
         if (optionalExistingClient.isPresent()) {
             Client existingClient = optionalExistingClient.get();
+            if (client.getEmail() != null) {
+                existingClient.setEmail(client.getEmail());
+            }
              if (client.getName() != null) {
                 existingClient.setName(client.getName());
             }
