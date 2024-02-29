@@ -67,7 +67,7 @@ public class TuprofeenlineaApplication {
 
 			// Crear algunos calendarios de ejemplo
 			Calendary calendary1 = new Calendary();
-			calendary1.setSubject("Matemáticas");
+			calendary1.setSubject("matematica");
 			calendary1.setStartDate(LocalDate.now());
 			calendary1.setEndDate(LocalDate.now().plusMonths(3));
 			calendary1.setStartHour(8);
