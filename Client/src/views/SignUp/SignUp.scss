@@ -13,8 +13,12 @@
 	& .signup-form-inputs {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		align-items: flex-start;
 		gap: 0.5rem;
+	}
+	& label {
+		width: 100%;
 	}
 	& .form-input {
 		position: relative;

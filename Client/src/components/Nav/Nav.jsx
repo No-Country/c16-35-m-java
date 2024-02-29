@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
+import MPButton from '../MPButton/MPButton';
 import DropdownMenuButton from './DropdownMenuButton/DropdownMenuButton';
 import './Nav.scss';
 
@@ -30,6 +31,7 @@ export const Nav = () => {
 						<img src={Logo} alt='Logo de la aplicación' />
 					</Link>
 				</div>
+				<MPButton />
 				{user.email ? <DropdownMenuButton /> : registrarse()}
 			</nav>
 		</header>

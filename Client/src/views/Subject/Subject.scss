@@ -1,11 +1,11 @@
-.subject-container{
-    padding-top: 5rem;
-    text-align: center;
-    & h1{
-        text-transform: capitalize;
-        color: var(--color-primary);
-        font-size: 3rem;
-    }
+.subject-container {
+	padding-top: 5rem;
+	text-align: center;
+	& h1 {
+		text-transform: capitalize;
+		color: var(--color-primary);
+		font-size: 3rem;
+	}
 }
 .subject-card{
     width: 70%;
@@ -36,7 +36,7 @@
             background-color: rgba(48, 48, 56, 0.806);
             width: 19rem;
             height: 19rem;
-            left: 4.2rem;
+            left: 2.9rem;
             top: 0.5rem;
             padding: 0.7rem;
             border-radius: 6px;

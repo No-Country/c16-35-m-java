@@ -24,6 +24,7 @@ const Login = () => {
 			dispatch(login(values));
 			navigate('/');
 		} catch (error) {
+			alert('Error al loguearse')
 			console.log(error);
 			navigate('/');
 		}
