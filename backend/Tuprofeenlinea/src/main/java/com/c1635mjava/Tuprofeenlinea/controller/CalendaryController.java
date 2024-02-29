@@ -52,6 +52,12 @@ public class CalendaryController {
         }
     }
 
+    @GetMapping("/subject/all")
+    public ResponseEntity<?> findAllCalendaries() {
+        List<Calendary> calendaries = calendaryService.findAll();
+        return ResponseEntity.ok(calendaries);
+    }
+
 
     @GetMapping("/subject/{subject}")
     public ResponseEntity<?>
