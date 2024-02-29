@@ -18,17 +18,14 @@ public class Calendary {
     private String subject;
     private LocalDate startDate;
     private LocalDate endDate;
-    private int starHour;
+    private int startHour;
     private int endHour;
     private String descriptionCurse;
     private int price;
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Client teacher;
-
     @OneToMany(mappedBy = "calendary")
     private List<Reservation> reservations;
 
-    public void setStartHour(int i) {
-    }
 }
