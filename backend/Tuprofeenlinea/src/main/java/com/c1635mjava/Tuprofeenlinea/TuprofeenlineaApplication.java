@@ -82,7 +82,7 @@ public class TuprofeenlineaApplication {
 			calendary2.setEndHour(12);
 			calendary2.setDescriptionCurse("Curso de física avanzada");
 			calendary2.setPrice(60);
-			calendary2.setTeacher(teacher1);
+			calendary2.setTeacher(student50);
 			calendaryRepository.save(calendary2);
 
 			// Crear una reserva de ejemplo

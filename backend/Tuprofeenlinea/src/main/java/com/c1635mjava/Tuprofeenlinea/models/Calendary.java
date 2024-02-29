@@ -33,7 +33,7 @@ public class Calendary {
     public void setStartHour(int i) {
     }
 
-    public Calendary (){
-        this.subject = "";
-    }
+//    public Calendary (){
+//        this.subject = "";
+//    }
 }
