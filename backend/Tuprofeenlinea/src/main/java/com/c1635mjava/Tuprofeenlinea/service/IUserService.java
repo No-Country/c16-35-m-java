@@ -14,4 +14,6 @@ public interface IUserService {
     List<Client> findAll();
 
     void save(Client existingClient);
+
+    Client getCurrentClient();
 }

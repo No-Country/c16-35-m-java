@@ -8,6 +8,8 @@ import com.c1635mjava.Tuprofeenlinea.repository.ReservationRepository;
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -99,5 +101,19 @@ public class ClientServiceImpl implements IUserService {
         } else {
             throw new EntityNotFoundException("Client not found with id: " + id);
         }
+    }
+    @Override
+    public Client getCurrentClient() {
+        // Obtener la autenticación actual del contexto de seguridad de Spring Security
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        // Verificar si la autenticación contiene detalles del cliente
+        if (authentication != null && authentication.getPrincipal() instanceof Client) {
+            // Si el principal de autenticación es una instancia de Client, devolverlo
+            return (Client) authentication.getPrincipal();
+        }
+
+        // Si no se puede obtener el cliente actual, devuelve null
+        return null;
     }
 }
