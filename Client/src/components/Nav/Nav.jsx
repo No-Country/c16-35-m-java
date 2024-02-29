@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
+import MPButton from '../MPButton/MPButton';
 import DropdownMenuButton from './DropdownMenuButton/DropdownMenuButton';
 import './Nav.scss';
 
@@ -25,6 +26,7 @@ export const Nav = () => {
 	return (
 		<header>
 			<nav className='nav'>
+				<MPButton />
 				<div className='logo'>
 					<Link to='/'>
 						<img src={Logo} alt='Logo de la aplicación' />
