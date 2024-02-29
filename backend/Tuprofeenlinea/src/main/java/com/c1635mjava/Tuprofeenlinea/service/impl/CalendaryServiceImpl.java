@@ -30,7 +30,7 @@ public class CalendaryServiceImpl implements ICalendaryService {
             existingCalendary.setSubject(calendary.getSubject());
             existingCalendary.setStartDate(calendary.getStartDate());
             existingCalendary.setEndDate(calendary.getEndDate());
-            existingCalendary.setStartHour(calendary.getStarHour());
+            existingCalendary.setStartHour(calendary.getStartHour());
             existingCalendary.setEndHour(calendary.getEndHour());
             existingCalendary.setDescriptionCurse(calendary.getDescriptionCurse());
             existingCalendary.setPrice(calendary.getPrice());
