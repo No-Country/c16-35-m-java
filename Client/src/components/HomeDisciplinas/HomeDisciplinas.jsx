@@ -1,19 +1,23 @@
-import { Link } from 'react-router-dom';
 import { DISCIPLINAS } from '../../data-profesores';
+import { useNavigate } from 'react-router-dom'
 import './HomeDisciplinas.scss';
 
 function HomeDisciplinas() {
+	const navigate = useNavigate()
+	const handleSubject = (materia) =>{
+        navigate(`/materia/${materia.toLowerCase()}`)
+	}
 	return (
 		<section className='disciplinas-home-container'>
-			<h3>Todas las disciplinas </h3>
+			<h3>Otras clases que puedes tener </h3>
 			<div className='disciplinas-home'>
 				<div className='disciplinas-col'>
 					{DISCIPLINAS.slice(0, 5).map((disciplina, index) => {
 						const { materia } = disciplina;
 						return (
-							<Link key={index} to={'/'}>
+							<button onClick={() => handleSubject(materia)} key={index}>
 								{materia}
-							</Link>
+							</button>
 						);
 					})}
 				</div>
@@ -21,9 +25,9 @@ function HomeDisciplinas() {
 					{DISCIPLINAS.slice(5, 10).map((disciplina, index) => {
 						const { materia } = disciplina;
 						return (
-							<Link key={index + 5} to={'/'}>
+							<button onClick={() => handleSubject(materia)} key={index + 5} to={'/'}>
 								{materia}
-							</Link>
+							</button>
 						);
 					})}
 				</div>
@@ -31,9 +35,9 @@ function HomeDisciplinas() {
 					{DISCIPLINAS.slice(10, 13).map((disciplina, index) => {
 						const { materia } = disciplina;
 						return (
-							<Link key={index + 10} to={'/'}>
+							<button onClick={() => handleSubject(materia)} key={index + 10} to={'/'}>
 								{materia}
-							</Link>
+							</button>
 						);
 					})}
 				</div>

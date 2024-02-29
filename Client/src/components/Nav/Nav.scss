@@ -16,7 +16,6 @@ header {
 		display: flex;
 		align-items: center;
 		cursor: pointer;
-
 		& .conectarse {
 			background-color: var(--color-tertiary);
 			height: 3rem;
@@ -39,7 +38,7 @@ header {
 
 	& .logo {
 		position: relative;
-		right: 1.8rem;
+		right: 1.6rem;
 	}
 }
 
