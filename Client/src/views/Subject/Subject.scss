@@ -1,88 +1,91 @@
-.subject-container{
-    padding-top: 5rem;
-    text-align: center;
-    & h1{
-        text-transform: capitalize;
-        color: var(--color-primary);
-        font-size: 3rem;
-    }
+.subject-container {
+	padding-top: 5rem;
+	text-align: center;
+	& h1 {
+		text-transform: capitalize;
+		color: var(--color-primary);
+		font-size: 3rem;
+	}
 }
-.subject-card{
-    width: 70%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Divide el espacio en tres columnas iguales */
-    gap: 1rem;
-    margin-top: 3rem;
-    & .card-profe {
-        position: relative;
-        cursor: pointer;
-        padding-inline: 1rem;
-        & img {
-            border-radius: 6px;
-        }
-        & img {
-            width: 20rem;
-            height: 20rem;
-            object-fit: cover;
-        }
-        & .card-profe-info {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.2rem;
-            justify-content: end;
-            background-color: rgba(48, 48, 56, 0.806);
-            width: 19rem;
-            height: 19rem;
-            left: 2.9rem;
-            top: 0.5rem;
-            padding: 0.7rem;
-            border-radius: 6px;
-            opacity: 0;
-            transition: all 250ms ease-in-out;
-            & .valoracion {
-                display: flex;
-                align-items: center;
-                justify-content: end;
-                width: 100%;
-                gap: 0.5rem;
-                & img {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                }
-            }
-            .profe-valoracion,
-            .profe-descripcion {
-                color: white;
-            }
-            .profe-valoracion {
-                align-self: flex-end;
-            }
-            .profe-descripcion {
-                text-align: left;
-            }
-            .profe-nombre,
-            .profe-clase {
-                color: var(--color-secondary);
-                font-weight: 700;
-            }
-            .profe-clase {
-                font-size: 0.9rem;
-            }
-            .profe-enlace {
-                background-color: var(--color-tertiary);
-                height: 3rem;
-                border-radius: 6px;
-                width: 100%;
-                justify-content: center;
-                cursor: pointer;
-                box-shadow: 1px 1px 1px #91a7aa;
-            }
-        }
-        &:hover .card-profe-info {
-            opacity: 1;
-        }
-    }
+.subject-card {
+	width: 70%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(
+		3,
+		1fr
+	); /* Divide el espacio en tres columnas iguales */
+	gap: 1rem;
+	margin-top: 3rem;
+	& .card-profe {
+		position: relative;
+		cursor: pointer;
+		padding-inline: 1rem;
+		& img {
+			border-radius: 6px;
+		}
+		& img {
+			width: 20rem;
+			height: 20rem;
+			object-fit: cover;
+		}
+		& .card-profe-info {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.2rem;
+			justify-content: end;
+			background-color: rgba(48, 48, 56, 0.806);
+			width: 19rem;
+			height: 19rem;
+			left: 2.5rem;
+			top: 0.5rem;
+			padding: 0.7rem;
+			border-radius: 6px;
+			opacity: 0;
+			transition: all 250ms ease-in-out;
+			& .valoracion {
+				display: flex;
+				align-items: center;
+				justify-content: end;
+				width: 100%;
+				gap: 0.5rem;
+				& img {
+					width: 1.5rem;
+					height: 1.5rem;
+				}
+			}
+			.profe-valoracion,
+			.profe-descripcion {
+				color: white;
+			}
+			.profe-valoracion {
+				align-self: flex-end;
+			}
+			.profe-descripcion {
+				text-align: left;
+			}
+			.profe-nombre,
+			.profe-clase {
+				color: var(--color-secondary);
+				font-weight: 700;
+			}
+			.profe-clase {
+				font-size: 0.9rem;
+			}
+			.profe-enlace {
+				background-color: var(--color-tertiary);
+				height: 3rem;
+				border-radius: 6px;
+				width: 100%;
+				justify-content: center;
+				cursor: pointer;
+				box-shadow: 1px 1px 1px #91a7aa;
+			}
+		}
+		&:hover .card-profe-info {
+			opacity: 1;
+		}
+	}
 }

@@ -56,7 +56,9 @@ const SignUp = () => {
 		<section className='signup-container'>
 			<form onSubmit={handleSubmit(handleSignUp)}>
 				<div className='signup-form-inputs'>
-					<label>Correo Electrónico</label>
+					<label>
+						<p>Correo Electrónico</p>
+					</label>
 					<input
 						{...register('email', {
 							required: true,

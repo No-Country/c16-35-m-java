@@ -26,12 +26,12 @@ export const Nav = () => {
 	return (
 		<header>
 			<nav className='nav'>
-				<MPButton />
 				<div className='logo'>
 					<Link to='/'>
 						<img src={Logo} alt='Logo de la aplicación' />
 					</Link>
 				</div>
+				<MPButton />
 				{user.email ? <DropdownMenuButton /> : registrarse()}
 			</nav>
 		</header>
