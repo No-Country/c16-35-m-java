@@ -1,16 +1,24 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Nav } from './components/Nav/Nav';
+import { reloadUser } from './redux/actions/actions';
 import About from './views/About/About';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import NotFound from './views/NotFound/NotFound';
 import SignUp from './views/SignUp/SignUp';
-import { UserPanel } from './views/UserPanel/UserPanel';
 import Subject from './views/Subject/Subject';
-// import AdminProfile from "./views/Admin/AdminProfile";
+import { UserPanel } from './views/UserPanel/UserPanel';
 // import Protected from "./views/Protected/Protected";
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(reloadUser()); // Carga el usuario al montar la aplicación
+	}, [dispatch]);
+
 	return (
 		<>
 			<Nav />
