@@ -79,14 +79,14 @@ public class TuprofeenlineaApplication {
 			calendaryRepository.save(calendary1);
 
 			Calendary calendary2 = new Calendary();
-			calendary2.setSubject("Física");
+			calendary2.setSubject("fisica");
 			calendary2.setStartDate(LocalDate.now());
 			calendary2.setEndDate(LocalDate.now().plusMonths(3));
 			calendary2.setStartHour(10);
 			calendary2.setEndHour(12);
 			calendary2.setDescriptionCurse("Curso de física avanzada");
 			calendary2.setPrice(60);
-			calendary2.setTeacher(teacher1);
+			calendary2.setTeacher(student50);
 			calendaryRepository.save(calendary2);
 
 			// Crear una reserva de ejemplo
