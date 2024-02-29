@@ -68,6 +68,7 @@ public class WebSecurityConfig {
             "/api/reservation/**",
             "/api/client/{id}",
             "/authenticate",
+            "/api/calendary/subject/**",
             "/api/client/**",
             "/swagger-ui/**",
             "/swagger-ui.html",
