@@ -13,5 +13,5 @@ public interface IUserService {
     void deleteById(Long id);
     List<Client> findAll();
 
-
+    void save(Client existingClient);
 }

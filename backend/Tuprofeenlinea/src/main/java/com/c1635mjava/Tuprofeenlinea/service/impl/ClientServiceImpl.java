@@ -33,25 +33,37 @@ public class ClientServiceImpl implements IUserService {
         return clientRepository.save(client);
     }
 
-
+    @Override
+    public void save(Client existingClient) {
+        clientRepository.save(existingClient);
+    }
 
     @Override
     public Client update(Client client) {
-
         Optional<Client> optionalExistingClient = clientRepository.findById(client.getId());
-        if (optionalExistingClient.isPresent()) {Client existingClient = optionalExistingClient.get();
+        if (optionalExistingClient.isPresent()) {
+            Client existingClient = optionalExistingClient.get();
+            if (client.getName() != null) {
+                existingClient.setName(client.getName());
+            }
+            if (client.getLastname() != null) {
+                existingClient.setLastname(client.getLastname());
+            }
+            if (client.getBirthday() != null) {
+                existingClient.setBirthday(client.getBirthday());
+            }
+            if (client.getDescriptionBiography() != null) {
+                existingClient.setDescriptionBiography(client.getDescriptionBiography());
+            }
+            if (client.getDescriptionTeacher() != null) {
+                existingClient.setDescriptionTeacher(client.getDescriptionTeacher());
+            }
+            if (client.getImagePath() != null) {
+                existingClient.setImagePath(client.getImagePath());
+            }
 
-            existingClient.setName(client.getName());
-            existingClient.setLastname(client.getLastname());
-            existingClient.setBirthday(client.getBirthday());
-            existingClient.setDescriptionBiography(client.getDescriptionBiography());
-            existingClient.setDescriptionTeacher(client.getDescriptionTeacher());
-
-             existingClient.setRole(client.getRole());
-            // Guardar los cambios en la base de datos
             return clientRepository.save(existingClient);
         } else {
-            // Si no se encuentra el cliente, lanzar una excepción
             throw new RuntimeException("Client not found");
         }
     }
