@@ -7,7 +7,6 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 @Entity
 @Data
 @JsonIgnoreProperties({"teacher", "reservations"})
@@ -33,7 +32,18 @@ public class Calendary {
     public void setStartHour(int i) {
     }
 
-//    public Calendary (){
-//        this.subject = "";
-//    }
+    public Calendary (){
+        this.subject = "";
+    }
+
+    // Agrega getter y setter para reservations
+    public List<Reservation> getReservation() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+
 }

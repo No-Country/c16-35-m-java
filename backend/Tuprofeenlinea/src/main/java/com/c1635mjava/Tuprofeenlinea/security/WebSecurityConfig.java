@@ -59,7 +59,7 @@ public class WebSecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/api/reservation/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/client/{id}")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/authenticate")).permitAll()
-
+                        .requestMatchers(new AntPathRequestMatcher("/api/calification/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/client/**")).permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(jwtAuthenticationEntryPoint))

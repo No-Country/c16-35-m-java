@@ -42,8 +42,8 @@ public class Client {
     private String role;
 
     public Client() {
-//        this.reservationList = new ArrayList<>();
-//        this.teachingCalendaries = new ArrayList<>();
+        this.reservationList = new ArrayList<>();
+        this.teachingCalendaries = new ArrayList<>();
         this.role = "TEACHER";
     }
 

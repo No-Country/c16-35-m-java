@@ -4,6 +4,7 @@ import com.c1635mjava.Tuprofeenlinea.dtos.ReservationDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.models.Reservation;
+import com.c1635mjava.Tuprofeenlinea.models.ReservationState;
 import com.c1635mjava.Tuprofeenlinea.service.ICalendaryService;
 import com.c1635mjava.Tuprofeenlinea.service.IReservationService;
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
@@ -34,15 +35,26 @@ public class ReservationController {
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Reservation reservation) {
+    public ResponseEntity<?> save(@RequestBody Reservation reservation)
+    {    reservation.setState(ReservationState.IN_PROGRESS);
         return ResponseEntity.ok(reservationService.save(reservation));
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Reservation reservation) {
         reservation.setId(id);
         return ResponseEntity.ok(reservationService.update(reservation));
     }
+@PutMapping("/{id}/finish")
+public ResponseEntity<?> markReservationAsFinished(@PathVariable Long id) {
+    try {
+        reservationService.markReservationAsFinished(id);
+        return ResponseEntity.ok("Reserva marcada como finalizada exitosamente.");
+    } catch (Exception e) {
+        return ResponseEntity.badRequest().body("Error al marcar la reserva como finalizada: " + e.getMessage());
+    }
+}
 
     @GetMapping("/student/{studentId}")
     public ResponseEntity<?> findByStudent(@PathVariable Long studentId) {

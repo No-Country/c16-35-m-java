@@ -73,28 +73,31 @@ public class ClientController {
         return ResponseEntity.ok(savedClient);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Client> findById(@PathVariable Long id) {
-        Optional<Client> optionalClient = userService.findById(id);
-
-        if (optionalClient.isPresent()) {
-            Client client = optionalClient.get();
-            Client currentClient = userService.getCurrentClient(); // Obtener el cliente autenticado
-
-            // Verificar si el cliente autenticado es el propietario del perfil
-            if (client.getId().equals(currentClient.getId())) {
-                // Devolver el cliente con la contraseña oculta
-                client.setPassword(null);
-                return ResponseEntity.ok(client);
-            } else {
-                // Si el cliente no es el propietario del perfil, devolver el cliente tal como está
-                return ResponseEntity.ok(client);
-            }
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Client> findById(@PathVariable Long id) {
+//        Optional<Client> optionalClient = userService.findById(id);
+//
+//        if (optionalClient.isPresent()) {
+//            Client client = optionalClient.get();
+//            Client currentClient = userService.getCurrentClient(); // Obtener el cliente autenticado
+//
+//            // Verificar si el cliente autenticado es el propietario del perfil
+//            if (client.getId().equals(currentClient.getId())) {
+//                // Devolver el cliente con la contraseña oculta
+//                client.setPassword(null);
+//                return ResponseEntity.ok(client);
+//            } else {
+//                // Si el cliente no es el propietario del perfil, devolver el cliente tal como está
+//                return ResponseEntity.ok(client);
+//            }
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+@GetMapping("/{id}")//mostrar el cliente identificado por id
+public Optional<Client> findById(@PathVariable Long id) {
+    return userService.findById(id);
+}
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
