@@ -3,27 +3,29 @@ import axios from 'axios';
 import './UserPanel.scss';
 
 export const UserPanel = () => {
-    const [imageProfile, setImageProfile] = useState(null);
-    const [newImage, setNewImage] = useState(null);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [imageProfile, setImageProfile] = useState("");
+    const [newImage, setNewImage] = useState("");
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [birthday, setBirthday] = useState('');
     const [descriptionBiography, setDescriptionBiography] = useState('');
 
-    const actualizarImagenDePerfil = (event) => {
-      const imagenSeleccionada = event.target.files[0];
-      setNewImage(imagenSeleccionada);
-
-      const reader = new FileReader();
-      reader.onload = () => {
-          const base64String = reader.result;
-          // Aquí puedes hacer algo con la cadena base64, como enviarla al servidor
-          console.log(base64String);
-      };
-      reader.readAsDataURL(imagenSeleccionada);
-  };
+    const actualizarImagenDePerfil = async (event) => {
+    const imagenSeleccionada = event.target.files[0];
+    
+    const formData = new FormData()
+    formData.append('file', imagenSeleccionada)
+    formData.append('upload_preset','Images')
+    
+    await axios.post('https://api.cloudinary.com/v1_1/dxryietha/image/upload', formData)
+    .then(response =>{
+        const imageUrl = response.data.secure_url
+        setNewImage(imageUrl)
+    })
+    .catch(error =>{
+        console.log('Error al cargar la imagen', error)
+    })
+};
 
     useEffect(() => {
         axios.get('https://c16-35-m-java.onrender.com/api/client/1')
@@ -31,26 +33,22 @@ export const UserPanel = () => {
                 const data = response.data;
                 setName(data.name);
                 setLastname(data.lastname);
-                setEmail(data.email);
-                setPassword(data.password);
                 setBirthday(data.birthday);
                 setDescriptionBiography(data.descriptionBiography);
-                setImageProfile(data.imagePath); // Asignar la imagen del perfil del backend
+                setImageProfile(data.imagePath); 
             })
             .catch((error) => {
                 console.error('Error al obtener los datos del usuario:', error);
             });
     }, []);
 
+    
     const handleChangeProfile = (event) => {
         event.preventDefault();
 
-        // Crear un objeto con los datos del perfil
         const profileData = {
             name: name,
             lastname: lastname,
-            email: email,
-            password: password,
             birthday: birthday,
             descriptionBiography: descriptionBiography,
             imagePath: newImage
@@ -81,14 +79,6 @@ export const UserPanel = () => {
                         <div className='form-input'>
                             <input type='text' name='lastname' value={lastname} onChange={(e) => setLastname(e.target.value)} />
                         </div>
-                        <label>Email</label>
-                        <div className='form-input'>
-                            <input type='email' name='email' value={email} placeholder='Ejemplo@ejemplo.com' onChange={(e) => setEmail(e.target.value)} />
-                        </div>
-                        <label>Contraseña</label>
-                        <div className='form-input'>
-                            <input type='password' name='password' value={password} placeholder='*********' onChange={(e) => setPassword(e.target.value)} />
-                        </div>
                         <label>Cumpleaños</label>
                         <div className='form-input'>
                             <input type='date' name='birthday' value={birthday} onChange={(e) => setBirthday(e.target.value)} />
@@ -105,7 +95,7 @@ export const UserPanel = () => {
                     <div className='perfil'>
                     <img
                             className='avatar'
-                            src={newImage ? URL.createObjectURL(newImage) : (imageProfile ? imageProfile : 'https://c.superprof.com/static/img/defaultAvatar.ed8fb74e.png')}
+                            src={newImage}
                             alt='Imagen de Perfil'
                         />
                         <label htmlFor='file-upload' className='btn-form'>
