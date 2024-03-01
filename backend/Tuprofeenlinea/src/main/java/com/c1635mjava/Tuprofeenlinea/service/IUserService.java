@@ -15,5 +15,4 @@ public interface IUserService {
 
     void save(Client existingClient);
 
-    Client getCurrentClient();
 }

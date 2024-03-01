@@ -48,9 +48,7 @@ public class ClientServiceImpl implements IUserService {
             if (client.getEmail() != null) {
                 existingClient.setEmail(client.getEmail());
             }
-            if (client.getPassword() != null) {
-                existingClient.setPassword(client.getPassword());
-            }
+
              if (client.getName() != null) {
                 existingClient.setName(client.getName());
             }
@@ -102,18 +100,5 @@ public class ClientServiceImpl implements IUserService {
             throw new EntityNotFoundException("Client not found with id: " + id);
         }
     }
-    @Override
-    public Client getCurrentClient() {
-        // Obtener la autenticación actual del contexto de seguridad de Spring Security
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        // Verificar si la autenticación contiene detalles del cliente
-        if (authentication != null && authentication.getPrincipal() instanceof Client) {
-            // Si el principal de autenticación es una instancia de Client, devolverlo
-            return (Client) authentication.getPrincipal();
-        }
-
-        // Si no se puede obtener el cliente actual, devuelve null
-        return null;
-    }
 }
