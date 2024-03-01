@@ -66,6 +66,7 @@ public class WebSecurityConfig {
     private static final String [] AUTO_WHITELIST = {
             "/authenticate/**",
             "/api/reservation/**",
+            "/api/calendary/**",
             "/api/client/{id}",
             "/authenticate",
             "/api/calendary/subject/**",
