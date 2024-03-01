@@ -36,7 +36,6 @@ public class Calendary {
         this.subject = "";
     }
 
-    // Agrega getter y setter para reservations
     public List<Reservation> getReservation() {
         return reservations;
     }
