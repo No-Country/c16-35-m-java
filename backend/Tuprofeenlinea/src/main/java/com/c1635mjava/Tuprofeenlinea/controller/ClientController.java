@@ -2,7 +2,7 @@ package com.c1635mjava.Tuprofeenlinea.controller;
 
 import com.c1635mjava.Tuprofeenlinea.dtos.ClientDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
-import com.c1635mjava.Tuprofeenlinea.service.IUploadFileService;
+
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
 import io.jsonwebtoken.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,6 @@ public class ClientController {
     @Autowired
     private IUserService userService;
 
-    @Autowired
-    private IUploadFileService uploadFileService;
 
     @GetMapping
     public ResponseEntity<List<Client>> findAll() {
@@ -43,12 +41,13 @@ public class ClientController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client client, @RequestParam(value = "profileImage", required = false) MultipartFile profileImage) {
+    public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client client, @RequestParam(value = "profileImageURL", required = false) String profileImageURL) {
         Optional<Client> optionalClient = userService.findById(id);
         if (!optionalClient.isPresent()) {
             return ResponseEntity.notFound().build();
         }
         Client existingClient = optionalClient.get();
+
 
         existingClient.setName(client.getName());
         existingClient.setLastname(client.getLastname());
@@ -56,48 +55,22 @@ public class ClientController {
         existingClient.setDescriptionTeacher(client.getDescriptionTeacher());
         existingClient.setDescriptionBiography(client.getDescriptionBiography());
 
-        // Verificar si se proporcionó una nueva imagen y guardarla si es necesario
-        if (profileImage != null && !profileImage.isEmpty()) {
-            try {
-                String uniqueFileName = uploadFileService.copy(profileImage);
-                System.out.println("Ruta : "+ uniqueFileName );
-                // Asignar la ruta de la nueva imagen al cliente
-                existingClient.setImagePath(uniqueFileName);
-            } catch (IOException | java.io.IOException e) {
-                e.printStackTrace();
-                // Manejar el error en caso de que falle la carga de la imagen
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-            }
+        // Verificar si se proporcionó una nueva URL de imagen y guardarla si es necesario
+        if (profileImageURL != null && !profileImageURL.isEmpty()) {
+            existingClient.setImagePath(profileImageURL);
         }
+
         Client savedClient = userService.update(existingClient);
         return ResponseEntity.ok(savedClient);
     }
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Client> findById(@PathVariable Long id) {
-//        Optional<Client> optionalClient = userService.findById(id);
-//
-//        if (optionalClient.isPresent()) {
-//            Client client = optionalClient.get();
-//            Client currentClient = userService.getCurrentClient(); // Obtener el cliente autenticado
-//
-//            // Verificar si el cliente autenticado es el propietario del perfil
-//            if (client.getId().equals(currentClient.getId())) {
-//                // Devolver el cliente con la contraseña oculta
-//                client.setPassword(null);
-//                return ResponseEntity.ok(client);
-//            } else {
-//                // Si el cliente no es el propietario del perfil, devolver el cliente tal como está
-//                return ResponseEntity.ok(client);
-//            }
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-@GetMapping("/{id}")//mostrar el cliente identificado por id
-public Optional<Client> findById(@PathVariable Long id) {
-    return userService.findById(id);
-}
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Client> findById(@PathVariable Long id) {
+        Optional<Client> client = userService.findById(id);
+        return client.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {

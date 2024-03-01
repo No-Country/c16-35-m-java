@@ -1,9 +1,6 @@
 package com.c1635mjava.Tuprofeenlinea;
 
-import com.c1635mjava.Tuprofeenlinea.models.Calendary;
-import com.c1635mjava.Tuprofeenlinea.models.Client;
-import com.c1635mjava.Tuprofeenlinea.models.Reservation;
-import com.c1635mjava.Tuprofeenlinea.models.Role;
+import com.c1635mjava.Tuprofeenlinea.models.*;
 import com.c1635mjava.Tuprofeenlinea.repository.CalendaryRepository;
 import com.c1635mjava.Tuprofeenlinea.repository.ClientRepository;
 import com.c1635mjava.Tuprofeenlinea.repository.ReservationRepository;
@@ -94,6 +91,22 @@ public class TuprofeenlineaApplication {
 			reservationRepository.save(reservation);
 
 
+
+
+			// Obtener la fecha actual
+			LocalDate currentDate = LocalDate.now();
+
+// Crear una reserva finalizada, por ejemplo, una reserva que ocurrió hace una semana
+			Reservation finishedReservation = new Reservation();
+			finishedReservation.setDate(currentDate.minusWeeks(1)); // Fecha pasada
+			finishedReservation.setDuration(1); // Duración de 1 hora
+			finishedReservation.setStudent(student50); // Cliente que realizó la reserva
+			finishedReservation.setCalendary(calendary1); // Calendario asociado a la reserva
+			finishedReservation.setState(ReservationState.FINISHED);
+
+
+// Guardar la reserva en el repositorio
+			reservationRepository.save(finishedReservation);
 		};
 	}
 }

@@ -55,6 +55,8 @@ public class WebSecurityConfig {
                 .authorizeRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/api/calendary/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/calendary/subject/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/calification/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/calification/reservation/{Id}")).permitAll()
 
                         .requestMatchers(new AntPathRequestMatcher("/api/reservation/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/client/{id}")).permitAll()

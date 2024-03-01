@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "reservation")
-@JsonIgnoreProperties({"student", "calendary"})
+@JsonIgnoreProperties({"student", "calendary" ,"calification"})
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +31,6 @@ public class Reservation {
 
     @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Calification calification;
+
+
 }

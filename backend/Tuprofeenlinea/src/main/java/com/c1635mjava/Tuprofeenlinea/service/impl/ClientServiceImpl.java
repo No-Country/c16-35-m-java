@@ -27,8 +27,6 @@ public class ClientServiceImpl implements IUserService {
     }
 
 
-
-
     @Override
     public Client save(ClientDTO clientDTO) {
         Client client = new Client();
@@ -42,12 +40,14 @@ public class ClientServiceImpl implements IUserService {
     public void save(Client existingClient) {
         clientRepository.save(existingClient);
     }
-
     @Override
     public Client update(Client client) {
         Optional<Client> optionalExistingClient = clientRepository.findById(client.getId());
         if (optionalExistingClient.isPresent()) {
             Client existingClient = optionalExistingClient.get();
+            if (client.getEmail() != null) {
+                existingClient.setEmail(client.getEmail());
+            }
 
             if (client.getName() != null) {
                 existingClient.setName(client.getName());
@@ -74,16 +74,15 @@ public class ClientServiceImpl implements IUserService {
         }
     }
 
+
+
     @Override
     public Optional<Client> findById(Long id) {
         return clientRepository.findById(id);
     }
     @Autowired
     private ReservationRepository reservationRepository;
-//    @Override
-//    public void deleteById(Long id) {
-//        clientRepository.deleteById(id);
-//    }
+
 
     @Override
     public void deleteById(Long id) {
@@ -102,18 +101,4 @@ public class ClientServiceImpl implements IUserService {
         }
     }
 
-//    @Override
-//    public Client getCurrentClient() {
-//        // Obtener la autenticación actual del contexto de seguridad de Spring Security
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//
-//        // Verificar si la autenticación contiene detalles del cliente
-//        if (authentication != null && authentication.getPrincipal() instanceof Client) {
-//            // Si el principal de autenticación es una instancia de Client, devolverlo
-//            return (Client) authentication.getPrincipal();
-//        }
-//
-//        // Si no se puede obtener el cliente actual, devuelve null
-//        return null;
-//    }
 }

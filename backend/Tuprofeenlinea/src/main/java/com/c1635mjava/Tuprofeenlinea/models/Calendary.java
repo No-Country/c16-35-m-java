@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
+
 @Entity
 @Data
-@JsonIgnoreProperties({"teacher", "reservations"})
 @Table(name = "calendary")
+@JsonIgnoreProperties({"teacher", "reservations"})
 public class Calendary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,24 +25,7 @@ public class Calendary {
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Client teacher;
-
     @OneToMany(mappedBy = "calendary")
     private List<Reservation> reservations;
-
-    public void setStartHour(int i) {
-    }
-
-    public Calendary (){
-        this.subject = "";
-    }
-
-    public List<Reservation> getReservation() {
-        return reservations;
-    }
-
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
-    }
-
 
 }

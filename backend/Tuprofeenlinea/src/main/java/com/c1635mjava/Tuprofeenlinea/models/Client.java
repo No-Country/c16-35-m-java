@@ -29,6 +29,7 @@ public class Client {
     private boolean enabled = true;
 
 
+
     private String imagePath;
 
     @OneToMany(mappedBy = "student")
@@ -48,4 +49,3 @@ public class Client {
     }
 
 }
-

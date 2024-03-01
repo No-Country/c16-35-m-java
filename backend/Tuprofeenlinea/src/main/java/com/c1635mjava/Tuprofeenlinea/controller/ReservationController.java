@@ -4,7 +4,6 @@ import com.c1635mjava.Tuprofeenlinea.dtos.ReservationDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.models.Reservation;
-import com.c1635mjava.Tuprofeenlinea.models.ReservationState;
 import com.c1635mjava.Tuprofeenlinea.service.ICalendaryService;
 import com.c1635mjava.Tuprofeenlinea.service.IReservationService;
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
@@ -35,26 +34,15 @@ public class ReservationController {
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Reservation reservation)
-    {    reservation.setState(ReservationState.IN_PROGRESS);
+    public ResponseEntity<?> save(@RequestBody Reservation reservation) {
         return ResponseEntity.ok(reservationService.save(reservation));
     }
-
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Reservation reservation) {
         reservation.setId(id);
         return ResponseEntity.ok(reservationService.update(reservation));
     }
-@PutMapping("/{id}/finish")
-public ResponseEntity<?> markReservationAsFinished(@PathVariable Long id) {
-    try {
-        reservationService.markReservationAsFinished(id);
-        return ResponseEntity.ok("Reserva marcada como finalizada exitosamente.");
-    } catch (Exception e) {
-        return ResponseEntity.badRequest().body("Error al marcar la reserva como finalizada: " + e.getMessage());
-    }
-}
 
     @GetMapping("/student/{studentId}")
     public ResponseEntity<?> findByStudent(@PathVariable Long studentId) {
@@ -78,36 +66,34 @@ public ResponseEntity<?> markReservationAsFinished(@PathVariable Long id) {
         }
     }
 
-//    @PostMapping("/create")
-//    public ResponseEntity<?> createReservation(@RequestBody ReservationDTO reservationDTO) {
-//        try {
-//            // Buscar el estudiante en la base de datos
-//            Client student = userService.findById(reservationDTO.getStudentId()).orElse(null);
-//            if (student == null) {
-//                return ResponseEntity.badRequest().body("Student not found");
-//            }
-//
-//            // Buscar el profesor en la base de datos
-//            Client teacher = userService.findById(reservationDTO.getTeacherId()).orElse(null);
-//            if (teacher == null) {
-//                return ResponseEntity.badRequest().body("Teacher not found");
-//            }
-//
-//            // Crear una nueva reserva utilizando los datos del DTO y los clientes encontrados
-//            Reservation reservation = new Reservation();
-//            reservation.setDate(reservationDTO.getDate());
-//            reservation.setDuration(reservationDTO.getDuration());
-//            reservation.setStudent(student);
-//            reservation.setTeacher(teacher);
-//
-//            // Guardar la reserva en la base de datos
-//            reservationService.save(reservation);
-//
-//            return ResponseEntity.ok("Reservation created successfully");
-//        } catch (Exception e) {
-//            return ResponseEntity.badRequest().body(e.getMessage());
-//        }
-//    }
+    @PostMapping("/create")
+    public ResponseEntity<?> createReservation(@RequestBody ReservationDTO reservationDTO) {
+        try {
+            // Buscar el estudiante en la base de datos
+            Client student = userService.findById(reservationDTO.getStudentId()).orElse(null);
+            if (student == null) {
+                return ResponseEntity.badRequest().body("Student not found");
+            }
+
+            // Buscar el profesor en la base de datos
+            Client teacher = userService.findById(reservationDTO.getTeacherId()).orElse(null);
+            if (teacher == null) {
+                return ResponseEntity.badRequest().body("Teacher not found");
+            }
+
+            // Crear una nueva reserva utilizando los datos del DTO y los clientes encontrados
+            Reservation reservation = new Reservation();
+            reservation.setDate(reservationDTO.getDate());
+            reservation.setDuration(reservationDTO.getDuration());
+            reservation.setStudent(student);
+
+            // Guardar la reserva en la base de datos
+            reservationService.save(reservation);
+
+            return ResponseEntity.ok("Reservation created successfully");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
 }
-

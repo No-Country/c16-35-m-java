@@ -47,11 +47,69 @@ public class ClientDTO {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getDescriptionTeacher() {
+        return descriptionTeacher;
+    }
+
+    public void setDescriptionTeacher(String descriptionTeacher) {
+        this.descriptionTeacher = descriptionTeacher;
+    }
+
+    public String getDescriptionBiography() {
+        return descriptionBiography;
+    }
+
+    public void setDescriptionBiography(String descriptionBiography) {
+        this.descriptionBiography = descriptionBiography;
+    }
+
+
+
+
     public Long getId() {
         return id;
     }
 
+
+
+    public void setPasswordWithEncoder(String password, PasswordEncoder passwordEncoder) {
+        this.password = passwordEncoder.encode(password);
+    }
+
+
+
+
     private Long id;
+
+    public void ClientIdDTO() {
+    }
+
+    public void ClientIdDTO(Long id) {
+        this.id = id;
+    }
+
 
     public void setId(Long id) {
         this.id = id;

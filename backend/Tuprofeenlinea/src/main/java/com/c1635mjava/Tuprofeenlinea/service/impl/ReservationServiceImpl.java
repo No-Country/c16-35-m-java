@@ -22,7 +22,6 @@ public class ReservationServiceImpl implements IReservationService {
 
     @Override
     public Reservation save(Reservation reservation) {
-
         reservation.setState(ReservationState.IN_PROGRESS);
         return reservationRepository.save(reservation);
     }
