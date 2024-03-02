@@ -8,6 +8,9 @@ import com.c1635mjava.Tuprofeenlinea.repository.ReservationRepository;
 import com.c1635mjava.Tuprofeenlinea.service.IReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,13 +53,8 @@ public class ReservationServiceImpl implements IReservationService {
         return reservationRepository.findByStudent(student);
     }
     @Override
-    public List<LocalDateTime> findByCalendary(Calendary calendary) {
-    List<Reservation> reservations = reservationRepository.findByCalendary(calendary);
-    List<LocalDateTime> datesAndHours = new ArrayList<>();
-    for (Reservation res : reservations) {
-        datesAndHours.add(res.getDate().atTime(res.getDuration(), 0));
-    }
-    return datesAndHours;
+    public List<Reservation> findByCalendary(Calendary calendary) {
+        return reservationRepository.findByCalendary(calendary);
     }
     @Override
     public void createReservation(ReservationDTO reservationDTO) {
