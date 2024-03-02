@@ -56,13 +56,12 @@ public class ReservationController {
             return ResponseEntity.notFound().build();
         }
     }
-
     @GetMapping("/calendary/{calendaryId}")
     public ResponseEntity<?> findByCalendary(@PathVariable Long calendaryId) {
-    Calendary calendary = calendaryService.findById(calendaryId)
+        Calendary calendary = calendaryService.findById(calendaryId)
         .orElseThrow(() -> new ResourceNotFoundException("Calendary not found with id " + calendaryId));
-    List<Reservation> reservations = reservationService.findByCalendary(calendary);
-    return ResponseEntity.ok(reservations);
+        List<LocalDateTime> reservations = reservationService.findByCalendary(calendary);
+        return ResponseEntity.ok(reservations);
     }
     
     @PostMapping("/create")
