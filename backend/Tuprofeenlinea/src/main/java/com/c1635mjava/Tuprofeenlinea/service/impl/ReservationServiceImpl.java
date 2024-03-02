@@ -53,8 +53,13 @@ public class ReservationServiceImpl implements IReservationService {
         return reservationRepository.findByStudent(student);
     }
     @Override
-    public List<Reservation> findByCalendary(Calendary calendary) {
-        return reservationRepository.findByCalendary(calendary);
+    public List<LocalDateTime> findByCalendary(Calendary calendary) {
+    List<Reservation> reservations = reservationRepository.findByCalendary(calendary);
+    List<LocalDateTime> datesAndHours = new ArrayList<>();
+    for (Reservation res : reservations) {
+        datesAndHours.add(res.getDate().atTime(res.getDuration(), 0));
+    }
+    return datesAndHours;
     }
     @Override
     public void createReservation(ReservationDTO reservationDTO) {
