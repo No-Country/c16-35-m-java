@@ -4,7 +4,7 @@ import com.c1635mjava.Tuprofeenlinea.dtos.ReservationDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.models.Reservation;
-
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +18,7 @@ public interface IReservationService {
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     List<Reservation> findByStudent(Client student);
-    List<Reservation> findByCalendary(Calendary calendary);
+    List<LocalDateTime> findByCalendary(Calendary calendary);
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     void createReservation(ReservationDTO reservationDTO);
