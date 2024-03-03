@@ -47,7 +47,7 @@ Este sistema permite a los usuarios:
 
 | **Marco Virinni** | **David Lugo** | **Bryan Lopez** |
 | :---: | :---: | :---: | 
-| <a href="https://www.linkedin.com/in/marco-virinni/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/davlgven/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|| <a href="http://www.linkedin.com/in/bryan-lopez-769030216/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
+| <a href="https://www.linkedin.com/in/marco-virinni/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/davlgven/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="http://www.linkedin.com/in/bryan-lopez-769030216/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
 
 
 ![Java](https://img.shields.io/badge/Java-437291?style=for-the-badge&logo=OpenJDK&logoColor=white)
@@ -61,7 +61,7 @@ Este sistema permite a los usuarios:
 
 | **Ignacion Fernandez** | **Emanuel Rojas** | **Franco Quenellata** |
 | :---: | :---: | :---: | 
-| <a href="https://www.linkedin.com/in/ignaciofernandezdev/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/emanuel-rojas-guindan/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|| <a href="https://www.linkedin.com/in/fquenallata/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
+| <a href="https://www.linkedin.com/in/ignaciofernandezdev/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/emanuel-rojas-guindan/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/fquenallata/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
 
 
 ![React-JavaScript](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=black&style=for-the-badge)
