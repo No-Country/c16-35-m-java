@@ -1,0 +1,77 @@
+.anuncio {
+    padding: 8rem 0rem 4rem;
+    height: fit-content;
+    .anuncio-container {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        h1 {
+            color: var(--color-primary);
+            font-weight: 600;
+            margin: 1rem 0rem;
+        }
+        .anuncio-materias {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .materia {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: var(--color-quintiary);
+                padding: 0.2rem 1.3rem;
+                width: 15rem;
+                color: var(--color-primary);
+                font-weight: 500;
+                margin-bottom: 1rem;
+                border-radius: 6px;
+                input[type="checkbox"] {
+                    opacity: 1;
+                    width: 1rem;
+                    position: static;
+                }
+            }
+        }
+        .anuncio-titulo {
+            background-color: transparent;
+            border: 2px solid var(--color-primary);
+            resize: none;
+            border-radius: 6px;
+            width: 35rem;
+            padding: 1rem;
+            &::placeholder {
+                font-size: 1rem;
+                font-family: var(--font-poppins);
+            }
+        }
+        .anuncio-seccion {
+            margin-top: 2rem;
+            .anuncio-clase {
+                background-color: transparent;
+                border: 2px solid var(--color-primary);
+                resize: none;
+                border-radius: 6px;
+                width: 35rem;
+                height: 8rem;
+                padding: 1rem;
+                &::placeholder {
+                    font-size: 1rem;
+                    font-family: var(--font-poppins);
+                }
+            }
+            textarea {
+                font-family: var(--font-poppins);
+            }
+        }
+        button{
+            background-color: var(--color-quintiary);
+            width: 13rem;
+            padding: 1rem;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}

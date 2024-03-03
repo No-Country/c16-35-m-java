@@ -2,6 +2,8 @@ import ProfesHome from '../../components/ProfesoresHome/ProfesHome';
 import Hero from '../../components/Hero/Hero';
 import OpinionesHome from '../../components/OpinionesHome/OpinionesHome';
 import HomeDisciplinas from '../../components/HomeDisciplinas/HomeDisciplinas';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function Home() {
 	return (

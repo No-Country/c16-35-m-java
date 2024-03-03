@@ -21,6 +21,7 @@ export const UserPanel = () => {
     .then(response =>{
         const imageUrl = response.data.secure_url
         setNewImage(imageUrl)
+        console.log(imageUrl)
     })
     .catch(error =>{
         console.log('Error al cargar la imagen', error)

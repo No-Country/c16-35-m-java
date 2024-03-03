@@ -7,6 +7,7 @@ import NotFound from './views/NotFound/NotFound';
 import SignUp from './views/SignUp/SignUp';
 import { UserPanel } from './views/UserPanel/UserPanel';
 import Subject from './views/Subject/Subject';
+import Anuncio from './views/Anuncio/Anuncio';
 // import AdminProfile from "./views/Admin/AdminProfile";
 // import Protected from "./views/Protected/Protected";
 
@@ -23,6 +24,7 @@ function App() {
 				<Route path='/profile' element={<UserPanel />}></Route>
 				<Route path='*' element={<NotFound />}></Route>
 				<Route path={`/materia/:materia`} element={<Subject />}></Route>
+				<Route path='/anuncio' element={<Anuncio />}></Route>
 
 				{/* admin-only routes */}
 				{/* <Route
