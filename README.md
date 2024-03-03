@@ -70,13 +70,12 @@ Este sistema permite a los usuarios:
 
 ## Stack QA
 
-![Google Sheets](https://img.shields.io/badge/Google%20Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white)
-![Google Docs](https://img.shields.io/badge/Google%20Docs-4285F4?style=for-the-badge&logo=google-docs&logoColor=white)
-![Lightshot](https://img.shields.io/badge/Lightshot-purple?style=for-the-badge)
-
 | **Ivonne Ballester** |
 | :---: |
 | <a href="https://www.linkedin.com/in/ivonne-ballester-"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
+
+
+![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)
 
 ## Gestión y comunicación
 
