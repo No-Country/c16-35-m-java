@@ -31,8 +31,9 @@ Este sistema permite a los usuarios:
 
 * Pagar las clases: de forma rapida y de facil acceso.
 
+## 🚀 Equipo de Desarrollo
 
-## Stack Diseño UX/UI
+## Diseño UX/UI
 
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 ![Adobe Photoshop](https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)
@@ -42,11 +43,11 @@ Este sistema permite a los usuarios:
 | <a href="https://www.linkedin.com/in/adriana-dellatorre/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
 
 
-## Stack Backend
+## Backend
 
 | **Marco Virinni** | **David Lugo** | **Bryan Lopez** |
 | :---: | :---: | :---: | 
-| <a href="https://www.linkedin.com/in/marco-virinni/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/davlgven/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|| <a href="http://www.linkedin.com/in/bryan-lopez-769030216"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
+| <a href="https://www.linkedin.com/in/marco-virinni/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/davlgven/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|| <a href="http://www.linkedin.com/in/bryan-lopez-769030216/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
 
 
 ![Java](https://img.shields.io/badge/Java-437291?style=for-the-badge&logo=OpenJDK&logoColor=white)
@@ -56,7 +57,7 @@ Este sistema permite a los usuarios:
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 
-## Stack Frontend
+## Frontend
 
 | **Ignacion Fernandez** | **Emanuel Rojas** | **Franco Quenellata** |
 | :---: | :---: | :---: | 
@@ -68,7 +69,7 @@ Este sistema permite a los usuarios:
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
 
-## Stack QA
+## QA
 
 | **Ivonne Ballester** |
 | :---: |
@@ -76,6 +77,8 @@ Este sistema permite a los usuarios:
 
 
 ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)
+![Jira](https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=fff)
+
 
 ## Gestión y comunicación
 
