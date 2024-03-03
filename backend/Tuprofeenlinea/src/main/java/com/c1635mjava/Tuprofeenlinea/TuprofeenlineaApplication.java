@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(title = "Educaflex API", version = "1.0", description = "Educaflex Documentation"))
@@ -106,8 +107,8 @@ public class TuprofeenlineaApplication {
 
 			// Crear una reserva de ejemplo
 			Reservation reservation = new Reservation();
-			reservation.setDate(LocalDate.now().plusDays(2));
-			reservation.setDuration(1);
+			reservation.setPayed(false);
+			reservation.setDateAndHour(LocalDateTime.of(2024,3,3,13,0,0));
 			reservation.setStudent(student50);
 			reservation.setCalendary(calendary1);
 			reservationRepository.save(reservation);
