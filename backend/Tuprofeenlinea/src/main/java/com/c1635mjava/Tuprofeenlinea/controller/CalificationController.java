@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin (origins = "http://localhost:8080")
 @RestController
@@ -31,7 +32,11 @@ public class CalificationController {
         List<Calification> califications = calificationService.findAll();
         return ResponseEntity.ok(califications);
     }
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Calification> findById(@PathVariable Long id) {
+        Optional<Calification> calification = calificationService.findById(id);
+        return calification.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
     @PostMapping
     public ResponseEntity<?>
     save(@RequestBody Calification calification) {

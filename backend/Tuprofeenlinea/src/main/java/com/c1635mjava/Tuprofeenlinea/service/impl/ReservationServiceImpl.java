@@ -1,6 +1,5 @@
 package com.c1635mjava.Tuprofeenlinea.service.impl;
 
-import com.c1635mjava.Tuprofeenlinea.dtos.ReservationDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.models.Reservation;
@@ -28,8 +27,8 @@ public class ReservationServiceImpl implements IReservationService {
         Reservation existingReservation = reservationRepository.
                 findById(reservation.getId()).orElse(null);
         if (existingReservation != null) {
-            existingReservation.setDate(existingReservation.getDate());
-            existingReservation.setDuration(existingReservation.getDuration());
+            existingReservation.setDateAndHour(existingReservation.getDateAndHour());
+            existingReservation.setPayed(existingReservation.isPayed());
             return reservationRepository.save(existingReservation);
         } else {
             throw new RuntimeException("Reservation not found");
@@ -57,12 +56,8 @@ public class ReservationServiceImpl implements IReservationService {
     List<Reservation> reservations = reservationRepository.findByCalendary(calendary);
     List<LocalDateTime> datesAndHours = new ArrayList<>();
     for (Reservation res : reservations) {
-        datesAndHours.add(res.getDate().atTime(res.getDuration(), 0));
+        datesAndHours.add(res.getDateAndHour());
     }
     return datesAndHours;
-    }
-    @Override
-    public void createReservation(ReservationDTO reservationDTO) {
-
     }
 }
