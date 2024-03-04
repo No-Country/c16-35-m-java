@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Data
@@ -14,9 +16,9 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate date;
-    private int duration;
-    private boolean rated;
+    private LocalDateTime dateAndHour;
+    private boolean payed;
+
 
     @Enumerated(EnumType.STRING)
     private ReservationState state;
@@ -31,6 +33,8 @@ public class Reservation {
 
     @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Calification calification;
+    public Reservation() {
 
+        this.state = ReservationState.IN_PROGRESS;    }
 
 }

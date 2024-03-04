@@ -8,8 +8,10 @@ import com.c1635mjava.Tuprofeenlinea.repository.CalendaryRepository;
 import com.c1635mjava.Tuprofeenlinea.repository.ReservationRepository;
 import com.c1635mjava.Tuprofeenlinea.service.IReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,10 +22,45 @@ public class ReservationServiceImpl implements IReservationService {
     @Autowired
     private ReservationRepository reservationRepository;
 
-    @Override
-    public Reservation save(Reservation reservation) {
+//    @Override
+//    public Reservation save(Reservation reservation) {
+//        reservation.setState(ReservationState.IN_PROGRESS);
+//        return reservationRepository.save(reservation);
+//    }
+@Override
+public Reservation save(Reservation reservation) {
+    if (!reservation.isPayed()) {
+        throw new RuntimeException("El pago debe ser realizado antes de crear la reserva.");
+        // Alternativamente, puedes devolver null en lugar de lanzar una excepción
+        // return null;
+    }
+
+    LocalDateTime now = LocalDateTime.now();
+    LocalDateTime reservationEndTime = reservation.getDateAndHour();
+
+    if (now.isAfter(reservationEndTime)) {
+        // Si la fecha actual es posterior a la hora de la reserva, establece el estado como "FINISHED"
+        reservation.setState(ReservationState.FINISHED);
+    } else {
+        // Si la fecha actual es anterior o igual a la hora de la reserva, establece el estado como "IN_PROGRESS"
         reservation.setState(ReservationState.IN_PROGRESS);
-        return reservationRepository.save(reservation);
+    }
+
+    return reservationRepository.save(reservation);
+}
+
+    @Scheduled(fixedRate = 60000) // Ejecutar cada minuto (ajusta esto según tus necesidades)
+    public void updateExpiredReservations() {
+        List<Reservation> reservationsInProgress = reservationRepository.findByState(ReservationState.IN_PROGRESS);
+        LocalDateTime now = LocalDateTime.now();
+
+        for (Reservation reservation : reservationsInProgress) {
+            LocalDateTime reservationEndTime = reservation.getDateAndHour();
+            if (now.isAfter(reservationEndTime)) {
+                reservation.setState(ReservationState.FINISHED);
+                reservationRepository.save(reservation);
+            }
+        }
     }
 
     @Override
@@ -32,9 +69,9 @@ public class ReservationServiceImpl implements IReservationService {
         Reservation existingReservation = reservationRepository.
                 findById(reservation.getId()).orElse(null);
         if (existingReservation != null) {
-            existingReservation.setDate(existingReservation.getDate());
-            existingReservation.setDuration(existingReservation.getDuration());
+            existingReservation.setDateAndHour(existingReservation.getDateAndHour());
             existingReservation.setCalendary(existingReservation.getCalendary());
+            existingReservation.setState(existingReservation.getState());
             return reservationRepository.save(existingReservation);
         } else {
             throw new RuntimeException("Reservation not found");
@@ -67,16 +104,17 @@ public class ReservationServiceImpl implements IReservationService {
         return reservationRepository.findByCalendary(calendary);
     }
 
-    @Override
-    public void markReservationAsFinished(Long id) {
-        Optional<Reservation> optionalReservation = reservationRepository.findById(id);
-        if (optionalReservation.isPresent()) {
-            Reservation reservation = optionalReservation.get();
-            reservation.setState(ReservationState.FINISHED); // Actualiza el estado a "FINALIZADA"
-            reservationRepository.save(reservation); // Guarda la reserva actualizada
-        } else {
-            throw new RuntimeException("Reserva no encontrada con ID: " + id);
-        }
-    }
+
+//    @Override
+//    public void markReservationAsFinished(Long id) {
+//        Optional<Reservation> optionalReservation = reservationRepository.findById(id);
+//        if (optionalReservation.isPresent()) {
+//            Reservation reservation = optionalReservation.get();
+//            reservation.setState(ReservationState.FINISHED);
+//            reservationRepository.save(reservation);
+//        } else {
+//            throw new RuntimeException("Reserva no encontrada con ID: " + id);
+//        }
+//    }
 }
 

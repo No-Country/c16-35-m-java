@@ -22,7 +22,6 @@ public interface IReservationService {
 
 
 
-    void markReservationAsFinished(Long id);
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 
 }

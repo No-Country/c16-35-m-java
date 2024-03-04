@@ -20,6 +20,7 @@ public class Calendary {
     private LocalDate endDate;
     private int startHour;
     private int endHour;
+    @Column(name = "description_curse", length = 1000)
     private String descriptionCurse;
     private int price;
     @ManyToOne
@@ -27,5 +28,6 @@ public class Calendary {
     private Client teacher;
     @OneToMany(mappedBy = "calendary")
     private List<Reservation> reservations;
+
 
 }
