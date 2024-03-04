@@ -54,10 +54,11 @@ export const UserPanel = () => {
             descriptionBiography: descriptionBiography,
             imagePath: newImage
         };
-
+        console.log(newImage)
         // Realizar la solicitud PATCH al servidor
         axios.patch('https://c16-35-m-java.onrender.com/api/client/1', profileData)
             .then(() => {
+				console.log(profileData)
                 alert('Se modificaron los datos');
             })
             .catch(error => {
