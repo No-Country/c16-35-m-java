@@ -29,7 +29,7 @@ export const UserPanel = () => {
 };
 
     useEffect(() => {
-        axios.get('https://c16-35-m-java.onrender.com/api/client/1')
+        axios.get('https://c16-35-m-java.onrender.com/api/client/20')
             .then((response) => {
                 const data = response.data;
                 setName(data.name);
@@ -56,7 +56,7 @@ export const UserPanel = () => {
         };
         console.log(newImage)
         // Realizar la solicitud PATCH al servidor
-        axios.patch('https://c16-35-m-java.onrender.com/api/client/1', profileData)
+        axios.patch('https://c16-35-m-java.onrender.com/api/client/20', profileData)
             .then(() => {
 				console.log(profileData)
                 alert('Se modificaron los datos');
@@ -97,7 +97,7 @@ export const UserPanel = () => {
                     <div className='perfil'>
                     <img
                             className='avatar'
-                            src={newImage}
+                            src={newImage || imageProfile}
                             alt='Imagen de Perfil'
                         />
                         <label htmlFor='file-upload' className='btn-form'>

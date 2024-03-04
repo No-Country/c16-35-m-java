@@ -9,9 +9,8 @@ import Login from './views/Login/Login';
 import NotFound from './views/NotFound/NotFound';
 import SignUp from './views/SignUp/SignUp';
 import Subject from './views/Subject/Subject';
-import { UserPanel } from './views/UserPanel/UserPanel';
+import UserPanel  from './views/UserPanel/UserPanel';
 import Anuncio from './views/Anuncio/Anuncio';
-import { Calendar } from 'react-big-calendar';
 import Calendary from './views/Calendary/Calendary';
 // import Protected from "./views/Protected/Protected";
 
