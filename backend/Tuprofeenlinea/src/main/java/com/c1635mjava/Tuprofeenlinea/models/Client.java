@@ -24,7 +24,10 @@ public class Client {
     private String lastname;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
+    @Column(name = "description_teacher", length = 1000)
     private String descriptionTeacher;
+
+    @Column(name = "description_biography", length = 1000)
     private String descriptionBiography;
     private boolean enabled = true;
 

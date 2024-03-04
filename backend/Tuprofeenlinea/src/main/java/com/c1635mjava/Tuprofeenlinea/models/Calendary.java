@@ -20,8 +20,8 @@ public class Calendary {
     private LocalDate endDate;
     private int startHour;
     private int endHour;
-    private String descriptionCurse;
-    private int price;
+    @Column(name = "description_curse", length = 1000)
+    private String descriptionCurse;    private int price;
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Client teacher;
