@@ -26,13 +26,20 @@ public class ClientController {
     @Autowired
     private IUserService userService;
 
-
+    @Autowired
+    private CalendaryServiceImpl calendaryService;
+    
     @GetMapping
     public ResponseEntity<List<Client>> findAll() {
         List<Client> clients = userService.findAll();
         return ResponseEntity.ok(clients);
     }
 
+     @GetMapping("/teaching/{subject}")
+    public ResponseEntity<List<Client>> findTeachersBySubject(@PathVariable String subject){
+        List<Client> teachersBySubject = calendaryService.findTeachersBySubject(subject);
+        return ResponseEntity.ok(teachersBySubject);}
+    
     @PostMapping
     public ResponseEntity<Client> save(@RequestBody ClientDTO clientDTO) {
         clientDTO.setPassword(bcrypt.encode(clientDTO.getPassword()));
