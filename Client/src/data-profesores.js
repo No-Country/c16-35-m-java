@@ -141,6 +141,9 @@ export const DISCIPLINAS = [
 		materia: 'Inglés',
 	},
 	{
+		materia: 'Guitarra',
+	},
+	{
 		materia: 'Piano',
 	},
 	{
@@ -151,9 +154,6 @@ export const DISCIPLINAS = [
 	},
 	{
 		materia: 'Historia',
-	},
-	{
-		materia: 'Guitarra',
 	},
 	{
 		materia: 'Italiano',
