@@ -14,4 +14,5 @@ public interface ICalendaryService {
     List<Calendary> findAll();
     List<Calendary> findByTeacher(Client teacher);
     List<Calendary> findBySubject(String subject);
+    List<Client> findTeachersBySubject(String subject);
 }
