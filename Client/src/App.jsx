@@ -11,14 +11,14 @@ import Login from './views/Login/Login';
 import NotFound from './views/NotFound/NotFound';
 import SignUp from './views/SignUp/SignUp';
 import Subject from './views/Subject/Subject';
+import TeacherPanel from './views/TeacherPanel/TeacherPanel';
 import UserPanel from './views/UserPanel/UserPanel';
-// import Protected from "./views/Protected/Protected";
 
 function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(reloadUser()); // Carga el usuario al montar la aplicación
+		dispatch(reloadUser());
 	}, [dispatch]);
 
 	return (
@@ -35,6 +35,8 @@ function App() {
 				<Route path={`/materia/:materia`} element={<Subject />}></Route>
 				<Route path='/crear-anuncio' element={<Anuncio />}></Route>
 				<Route path='/calendario/:id' element={<Calendary />}></Route>
+				<Route path='/teacher-panel/:id' element={<TeacherPanel />}></Route>
+
 				{/* admin-only routes */}
 				{/* <Route
           path="/adminprofile/:id"

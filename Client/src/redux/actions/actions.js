@@ -5,7 +5,14 @@ import {
 	handleUserLogout,
 	handleUserSignUp,
 } from '../../utils/UserUtils';
-import { LOGIN, LOGOUT, RELOAD_USER, SAVE_TEACHERS, SIGN_UP } from './types';
+import {
+	GET_ANUNCIO,
+	LOGIN,
+	LOGOUT,
+	RELOAD_USER,
+	SAVE_TEACHERS,
+	SIGN_UP,
+} from './types';
 
 export function saveTeachers() {
 	return async function (dispatch) {
@@ -14,6 +21,21 @@ export function saveTeachers() {
 
 			return dispatch({
 				type: SAVE_TEACHERS,
+				payload: data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}
+
+export function getAnuncio(id) {
+	return async function (dispatch) {
+		try {
+			const { data } = await Educaflex.get(`/api/calendary/teacher/5`);
+
+			return dispatch({
+				type: GET_ANUNCIO,
 				payload: data,
 			});
 		} catch (error) {

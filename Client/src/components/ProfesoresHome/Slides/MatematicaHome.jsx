@@ -23,7 +23,7 @@ function MatematicaHome({ materia }) {
 
 	const handleVerMas = (e, id) => {
 		e.preventDefault();
-		navigate(`/calendario/${id}`);
+		navigate(`/teacher-panel/${id}`);
 	};
 
 	return (
@@ -46,6 +46,7 @@ function MatematicaHome({ materia }) {
 						//const {imagePath,descriptionTeacher,name, lastname}
 						const { id, imagePath, descriptionTeacher, name, lastname } =
 							profesor;
+
 						return (
 							<div key={{ index }} className='card-profe'>
 								{' '}

@@ -1,4 +1,5 @@
 import {
+	GET_ANUNCIO,
 	LOGIN,
 	LOGOUT,
 	RELOAD_USER,
@@ -6,7 +7,7 @@ import {
 	SIGN_UP,
 } from '../actions/types';
 
-let initialState = { allTeachers: [], user: {} };
+let initialState = { allTeachers: [], user: {}, teacherDetail: {} };
 
 function rootReducer(state = initialState, action) {
 	const { type, payload } = action;
@@ -26,6 +27,20 @@ function rootReducer(state = initialState, action) {
 				...state,
 				allTeachers: payload,
 			};
+
+		case GET_ANUNCIO: {
+			const teacherFiltered = state.allTeachers.filter(
+				(teacher) => teacher.id === payload[0].id,
+			);
+			return {
+				...state,
+				teacherDetail: {
+					...teacherFiltered[0],
+					...payload[0],
+					id: payload[0].id,
+				},
+			};
+		}
 
 		default:
 			return state;
