@@ -14,7 +14,7 @@ function TeacherPanel() {
 		window.scrollTo(0, 0);
 		console.log('-------------');
 		console.log(teacherDetail);
-	}, [dispatch]);
+	}, []);
 
 	return <section></section>;
 }

@@ -1,12 +1,12 @@
 import { DISCIPLINAS } from '../../data-profesores';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import './HomeDisciplinas.scss';
 
 function HomeDisciplinas() {
-	const navigate = useNavigate()
-	const handleSubject = (materia) =>{
-        navigate(`/materia/${materia.toLowerCase()}`)
-	}
+	const navigate = useNavigate();
+	const handleSubject = (materia) => {
+		navigate(`/materia/${materia.toLowerCase()}`);
+	};
 	return (
 		<section className='disciplinas-home-container'>
 			<h3>Otras clases que puedes tener </h3>
@@ -25,7 +25,11 @@ function HomeDisciplinas() {
 					{DISCIPLINAS.slice(5, 10).map((disciplina, index) => {
 						const { materia } = disciplina;
 						return (
-							<button onClick={() => handleSubject(materia)} key={index + 5} to={'/'}>
+							<button
+								onClick={() => handleSubject(materia)}
+								key={index + 5}
+								to={'/'}
+							>
 								{materia}
 							</button>
 						);
@@ -35,7 +39,11 @@ function HomeDisciplinas() {
 					{DISCIPLINAS.slice(10, 13).map((disciplina, index) => {
 						const { materia } = disciplina;
 						return (
-							<button onClick={() => handleSubject(materia)} key={index + 10} to={'/'}>
+							<button
+								onClick={() => handleSubject(materia)}
+								key={index + 10}
+								to={'/'}
+							>
 								{materia}
 							</button>
 						);

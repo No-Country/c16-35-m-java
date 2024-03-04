@@ -1,5 +1,5 @@
 import ImagenHero from '../../assets/Imagen-hero.png';
-import Lupa from '../../assets/Lupa input.svg'
+import Lupa from '../../assets/Lupa input.svg';
 import './Hero.scss';
 
 export default function Hero() {
@@ -14,10 +14,10 @@ export default function Hero() {
 					</div>
 					<img src={ImagenHero} alt='Imagen del hero' />
 				</div>
-        <div className="hero-buscador">
-          <input type="text" placeholder='¿Qué quieres aprender hoy?' />
-          <img src={Lupa} alt="Icono de Lupa" />
-        </div>
+				<div className='hero-buscador'>
+					<input type='text' placeholder='¿Qué quieres aprender hoy?' />
+					<img src={Lupa} alt='Icono de Lupa' />
+				</div>
 			</section>
 		</>
 	);

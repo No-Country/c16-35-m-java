@@ -103,7 +103,7 @@ export const PROFESORES = [
 			'Doy clases desde hace muchos años y he conocido toda clase de alumnos, contigo aprenderé...',
 		clase: '1er clase gratis',
 		valoracion: 4.7,
-	}
+	},
 ];
 
 export const OPINIONES = [
