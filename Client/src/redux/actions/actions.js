@@ -5,7 +5,22 @@ import {
 	handleUserLogout,
 	handleUserSignUp,
 } from '../../utils/UserUtils';
-import { LOGIN, LOGOUT, RELOAD_USER, SIGN_UP } from './types';
+import { LOGIN, LOGOUT, RELOAD_USER, SAVE_TEACHERS, SIGN_UP } from './types';
+
+export function saveTeachers() {
+	return async function (dispatch) {
+		try {
+			const { data } = await Educaflex.get('/api/client');
+
+			return dispatch({
+				type: SAVE_TEACHERS,
+				payload: data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}
 
 export function reloadUser() {
 	return function (dispatch) {

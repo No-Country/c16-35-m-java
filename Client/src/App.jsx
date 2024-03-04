@@ -4,14 +4,14 @@ import { Route, Routes } from 'react-router-dom';
 import { Nav } from './components/Nav/Nav';
 import { reloadUser } from './redux/actions/actions';
 import About from './views/About/About';
+import Anuncio from './views/Anuncio/Anuncio';
+import Calendary from './views/Calendary/Calendary';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import NotFound from './views/NotFound/NotFound';
 import SignUp from './views/SignUp/SignUp';
 import Subject from './views/Subject/Subject';
-import UserPanel  from './views/UserPanel/UserPanel';
-import Anuncio from './views/Anuncio/Anuncio';
-import Calendary from './views/Calendary/Calendary';
+import UserPanel from './views/UserPanel/UserPanel';
 // import Protected from "./views/Protected/Protected";
 
 function App() {
@@ -33,8 +33,8 @@ function App() {
 				<Route path='/profile' element={<UserPanel />}></Route>
 				<Route path='*' element={<NotFound />}></Route>
 				<Route path={`/materia/:materia`} element={<Subject />}></Route>
-				<Route path="/crear-anuncio" element={<Anuncio />}></Route>
-				<Route path='/calendario' element={<Calendary />}></Route>
+				<Route path='/crear-anuncio' element={<Anuncio />}></Route>
+				<Route path='/calendario/:id' element={<Calendary />}></Route>
 				{/* admin-only routes */}
 				{/* <Route
           path="/adminprofile/:id"
