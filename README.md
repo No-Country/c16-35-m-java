@@ -59,7 +59,7 @@ Este sistema permite a los usuarios:
 
 ## Frontend
 
-| **Ignacion Fernandez** | **Emanuel Rojas** | **Franco Quenellata** |
+| **Ignacio Fernandez** | **Emanuel Rojas** | **Franco Quenellata** |
 | :---: | :---: | :---: | 
 | <a href="https://www.linkedin.com/in/ignaciofernandezdev/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/emanuel-rojas-guindan/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/fquenallata/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
 
