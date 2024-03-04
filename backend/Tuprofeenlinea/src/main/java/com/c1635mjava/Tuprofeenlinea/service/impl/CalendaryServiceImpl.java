@@ -56,5 +56,14 @@ public class CalendaryServiceImpl implements ICalendaryService {
     public List<Calendary> findBySubject(String subject) {
         return calendaryRepository.findBySubject(subject);
     }
+
+    @Override
+    public List<Client> findTeachersBySubject(String subject){
+        List<Calendary> bySubject = calendaryRepository.findBySubject(subject);
+        List<Client> teachersBySubject  = new ArrayList<>();
+        for (Calendary calendary : bySubject) {
+            teachersBySubject.add(calendary.getTeacher());
+        }return teachersBySubject;
+    }
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 }
