@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './UserPanel.scss';
 
-export const UserPanel = () => {
+export default function UserPanel  () {
     const [imageProfile, setImageProfile] = useState("");
     const [newImage, setNewImage] = useState("");
     const [name, setName] = useState('');
