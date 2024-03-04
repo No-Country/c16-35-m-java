@@ -11,6 +11,8 @@ import SignUp from './views/SignUp/SignUp';
 import Subject from './views/Subject/Subject';
 import { UserPanel } from './views/UserPanel/UserPanel';
 import Anuncio from './views/Anuncio/Anuncio';
+import { Calendar } from 'react-big-calendar';
+import Calendary from './views/Calendary/Calendary';
 // import Protected from "./views/Protected/Protected";
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
 				<Route path='*' element={<NotFound />}></Route>
 				<Route path={`/materia/:materia`} element={<Subject />}></Route>
 				<Route path="/crear-anuncio" element={<Anuncio />}></Route>
+				<Route path='/calendario' element={<Calendary />}></Route>
 				{/* admin-only routes */}
 				{/* <Route
           path="/adminprofile/:id"
