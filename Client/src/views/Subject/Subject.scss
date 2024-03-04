@@ -36,8 +36,9 @@
             background-color: rgba(48, 48, 56, 0.806);
             width: 19rem;
             height: 19rem;
-            left: 2.9rem;
-            top: 0.5rem;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
             padding: 0.7rem;
             border-radius: 6px;
             opacity: 0;
