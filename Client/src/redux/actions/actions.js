@@ -5,7 +5,20 @@ import {
 	handleUserLogout,
 	handleUserSignUp,
 } from '../../utils/UserUtils';
-import { LOGIN, LOGOUT, SIGN_UP } from './types';
+import { LOGIN, LOGOUT, RELOAD_USER, SIGN_UP } from './types';
+
+export function reloadUser() {
+	return function (dispatch) {
+		if (getLoggedInUser()) {
+			return dispatch({
+				type: RELOAD_USER,
+				payload: getLoggedInUser(),
+			});
+		} else {
+			console.log('Usuario no encontrado en localStorage');
+		}
+	};
+}
 
 export function signUp(user) {
 	return async function (dispatch) {

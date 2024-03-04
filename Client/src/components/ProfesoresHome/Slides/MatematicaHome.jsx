@@ -25,11 +25,14 @@ function MatematicaHome({ materia }) {
 					prevEl: '.swiper-button-prev',
 				}}
 			>
-				<SwiperSlide style={{background:"none"}}>
-					{PROFESORES.slice(0, 3).map((profesor) => {
+				<SwiperSlide style={{ background: 'none' }}>
+					{PROFESORES.slice(0, 3).map((profesor, index) => {
+						// Añadir el índice como segundo parámetro
 						const { imagen, descripcion, nombre, clase, valoracion } = profesor;
 						return (
-							<div key={nombre} className='card-profe'>
+							<div key={`${nombre}-${index}`} className='card-profe'>
+								{' '}
+								{/* Utilizar una combinación de nombre e índice */}
 								<img src={imagen} alt='' />
 								<div className='card-profe-info'>
 									<div className='valoracion'>
@@ -48,11 +51,14 @@ function MatematicaHome({ materia }) {
 					})}
 				</SwiperSlide>
 
-				<SwiperSlide style={{background:"none"}}>
-					{PROFESORES.slice(3, 6).map((profesor) => {
+				<SwiperSlide style={{ background: 'none' }}>
+					{PROFESORES.slice(3, 6).map((profesor, index) => {
+						// Añadir el índice como segundo parámetro
 						const { imagen, descripcion, nombre, clase, valoracion } = profesor;
 						return (
-							<div key={nombre} className='card-profe'>
+							<div key={`${nombre}-${index}`} className='card-profe'>
+								{' '}
+								{/* Utilizar una combinación de nombre e índice */}
 								<img src={imagen} alt='' />
 								<div className='card-profe-info'>
 									<div className='valoracion'>
