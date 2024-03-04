@@ -1,6 +1,5 @@
 package com.c1635mjava.Tuprofeenlinea.service.impl;
 
-import com.c1635mjava.Tuprofeenlinea.dtos.ReservationDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 import com.c1635mjava.Tuprofeenlinea.models.Reservation;
@@ -8,6 +7,9 @@ import com.c1635mjava.Tuprofeenlinea.repository.ReservationRepository;
 import com.c1635mjava.Tuprofeenlinea.service.IReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,8 +27,8 @@ public class ReservationServiceImpl implements IReservationService {
         Reservation existingReservation = reservationRepository.
                 findById(reservation.getId()).orElse(null);
         if (existingReservation != null) {
-            existingReservation.setDate(existingReservation.getDate());
-            existingReservation.setDuration(existingReservation.getDuration());
+            existingReservation.setDateAndHour(existingReservation.getDateAndHour());
+            existingReservation.setPayed(existingReservation.isPayed());
             return reservationRepository.save(existingReservation);
         } else {
             throw new RuntimeException("Reservation not found");
@@ -50,12 +52,12 @@ public class ReservationServiceImpl implements IReservationService {
         return reservationRepository.findByStudent(student);
     }
     @Override
-    public List<Reservation> findByCalendary(Calendary calendary) {
-        return reservationRepository.findByCalendary(calendary);
+    public List<LocalDateTime> findByCalendary(Calendary calendary) {
+    List<Reservation> reservations = reservationRepository.findByCalendary(calendary);
+    List<LocalDateTime> datesAndHours = new ArrayList<>();
+    for (Reservation res : reservations) {
+        datesAndHours.add(res.getDateAndHour());
     }
-
-    @Override
-    public void createReservation(ReservationDTO reservationDTO) {
-
+    return datesAndHours;
     }
 }

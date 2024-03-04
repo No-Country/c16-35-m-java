@@ -3,6 +3,7 @@ package com.c1635mjava.Tuprofeenlinea.controller;
 
 import com.c1635mjava.Tuprofeenlinea.models.Calendary;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
+import com.c1635mjava.Tuprofeenlinea.models.Reservation;
 import com.c1635mjava.Tuprofeenlinea.service.ICalendaryService;
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class CalendaryController {
     findAll() {
         List<Calendary> calendaries = calendaryService.findAll();
         return ResponseEntity.ok(calendaries);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Calendary> findById(@PathVariable Long id) {
+        Optional<Calendary> calendary = calendaryService.findById(id);
+        return calendary.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
     @PostMapping
     public ResponseEntity<?>
