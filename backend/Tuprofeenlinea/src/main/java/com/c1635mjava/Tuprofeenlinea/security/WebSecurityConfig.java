@@ -71,7 +71,7 @@ public class WebSecurityConfig {
             "/api/client/{id}",
             "/authenticate",
             "/api/calendary/subject/**",
-            "/api/calendary/teacher/**",,
+            "/api/calendary/teacher/**",
             "/api/client/**",
             "/api/client/teaching/**",
             "/swagger-ui/**",
