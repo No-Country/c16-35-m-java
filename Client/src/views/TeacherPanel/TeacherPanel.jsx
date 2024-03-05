@@ -11,7 +11,7 @@ function TeacherPanel() {
 	const dispatch = useDispatch();
 	const teacherDetail = useSelector((state) => state.teacherDetail);
 	const { materia, id } = useParams();
-	const { imagePath, descriptionBiography, descriptionCurse, name, lastname } =
+	const { imagePath, descriptionBiography, name, lastname } =
 		teacherDetail;
 
 	const anunciosFiltered = teacherDetail.anuncios?.filter(
@@ -162,7 +162,8 @@ function TeacherPanel() {
 						</p>
 						<p>
 							<strong>
-								De lunes a viernes desde las{' '}
+								Desde el {anunciosFiltered ? anunciosFiltered[0].startDate : 'startDate'} {' '}
+								hasta {anunciosFiltered ? anunciosFiltered[0].endDate : 'endDate'}  desde las{' '}
 								{anunciosFiltered ? anunciosFiltered[0].startHour : 'startHour'}
 								:00hs hasta las{' '}
 								{anunciosFiltered ? anunciosFiltered[0].endHour : 'endHour'}
