@@ -14,6 +14,7 @@ function ProfesHome() {
 		dispatch(getTeachersBySubject('guitarra'));
 		dispatch(getTeachersBySubject('ingles'));
 	}, []);
+
 	return (
 		<section className='profes-container'>
 			<h3 className='profeshome-titulo'>

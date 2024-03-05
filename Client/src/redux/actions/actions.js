@@ -6,13 +6,13 @@ import {
 	handleUserSignUp,
 } from '../../utils/UserUtils';
 import {
+	CLEAN_TEACHER,
 	GET_ANUNCIO,
 	LOGIN,
 	LOGOUT,
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
-	CLEAN_TEACHER
 } from './types';
 
 export function getTeachersBySubject(subject) {
@@ -34,10 +34,9 @@ export function getTeachersBySubject(subject) {
 }
 export function cleanTeacher() {
 	return function (dispatch) {
-			return dispatch({
-				type: CLEAN_TEACHER,
-			});
-
+		return dispatch({
+			type: CLEAN_TEACHER,
+		});
 	};
 }
 
@@ -45,7 +44,7 @@ export function getAnuncio(id) {
 	return async function (dispatch) {
 		try {
 			const { data } = await Educaflex.get(`/api/calendary/teacher/${id}`);
-			console.log(data)
+			console.log(data);
 
 			return dispatch({
 				type: GET_ANUNCIO,
