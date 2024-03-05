@@ -22,7 +22,7 @@ const DropdownMenuButton = () => {
 				return;
 			}
 			case 'CrearAviso': {
-				navigate('/');
+				navigate('/crear-anuncio');
 				return;
 			}
 			case 'Salir': {
@@ -55,7 +55,9 @@ const DropdownMenuButton = () => {
 					{/* Aquí puedes poner tu contenido de dropdown */}
 					<ul>
 						<li onClick={() => handleDropdown('Miperfil')}>Mi perfil</li>
-						<li onClick={() => handleDropdown('CrearAviso')}>Crea un aviso</li>
+						<li onClick={() => handleDropdown('CrearAviso')}>
+							Crea un anuncio
+						</li>
 						<li onClick={() => handleDropdown('Salir')}>Salir de mi cuenta</li>
 					</ul>
 				</div>
