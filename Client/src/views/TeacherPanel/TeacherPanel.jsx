@@ -8,6 +8,7 @@ function TeacherPanel() {
 	const dispatch = useDispatch();
 	const teacherDetail = useSelector((state) => state.teacherDetail);
 	const { id } = useParams();
+	const { imagePath, descriptionBiography, descriptionCurse, descriptionTeacher, price, name, lastname} = teacherDetail
 
 	useEffect(() => {
 		dispatch(getAnuncio(id));
@@ -16,11 +17,19 @@ function TeacherPanel() {
 
 	}, []);
 
-	return <section>
-        
-		<img src={teacherDetail.imagePath} alt=""  style={{width:'15rem', marginTop:'5rem'}}/>
+	return (
+	<main style={{backgroundColor:'#f2f3fe', height:'100vh'}}>
+    <div className="teacher-panel-container">
+      <img src={imagePath} alt=""  style={{width:'15rem', marginTop:'5rem'}}/>
+      <p>{descriptionBiography}</p>
+		  <p style={{marginTop:'4rem'}}>{descriptionCurse}</p>
+		  <p style={{marginTop:'4rem'}}>{descriptionTeacher}</p>
+		  <p style={{marginTop:'4rem'}}>${price}</p>
+		  <p style={{marginTop:'4rem'}}>{name} {lastname}</p>
+    </div>
 
-	</section>;
+	</main>
+	)
 }
 
 export default TeacherPanel;

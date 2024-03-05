@@ -7,9 +7,9 @@ function ProfesHome() {
 			<h3 className='profeshome-titulo'>
 				El lugar donde podés encontrar los mejores profesores en su área{' '}
 			</h3>
-			<MatematicaHome materia={'Matemáticas'} />
+			<MatematicaHome materia={'Matematica'} />
 			<MatematicaHome materia={'Guitarra'} />
-			<MatematicaHome materia={'Inglés'} />
+			<MatematicaHome materia={'Ingles'} />
 		</section>
 	);
 }

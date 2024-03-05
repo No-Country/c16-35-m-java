@@ -14,10 +14,11 @@ import {
 	SIGN_UP,
 } from './types';
 
-export function saveTeachers() {
+export function saveTeachers(/* subject */) {
 	return async function (dispatch) {
 		try {
 			const { data } = await Educaflex.get('/api/client');
+			/* const { data } = await Educaflex.get(`/api/client/teaching/${subject}`) */
 
 			return dispatch({
 				type: SAVE_TEACHERS,

@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Manzana from '../../../assets/Manzana.svg';
+import Manzana from '../../../assets/Manzana-card.svg';
 import { saveTeachers } from '../../../redux/actions/actions';
 
 import { Navigation } from 'swiper/modules';
@@ -18,7 +18,7 @@ function MatematicaHome({ materia }) {
 
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(saveTeachers());
+		dispatch(saveTeachers(/* subject */));
 	}, [dispatch]);
 
 	const handleVerMas = (e, id) => {
@@ -74,7 +74,7 @@ function MatematicaHome({ materia }) {
 				<SwiperSlide style={{ background: 'none' }}>
 					{allTeachers.slice(6, 9).map((profesor, index) => {
 						// Añadir el índice como segundo parámetro
-						const { imagePath, descriptionTeacher, name, lastname } = profesor;
+						const { imagePath, descriptionTeacher, name, lastname, id } = profesor;
 						return (
 							<div key={{ index }} className='card-profe'>
 								{' '}
@@ -87,7 +87,10 @@ function MatematicaHome({ materia }) {
 									<h2 className='profe-nombre'>{`${name} ${lastname}`}</h2>
 									<p className='profe-descripcion'>{descriptionTeacher}</p>
 									<p className='profe-clase'>Primera Clase Gratis</p>
-									<a className='profe-enlace' href='#'>
+									<a
+										className='profe-enlace'
+										onClick={(e) => handleVerMas(e, id)}
+									>
 										Ver más
 									</a>
 								</div>
