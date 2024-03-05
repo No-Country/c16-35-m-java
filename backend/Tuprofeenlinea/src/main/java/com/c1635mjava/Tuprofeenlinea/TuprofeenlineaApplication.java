@@ -99,8 +99,8 @@ public class TuprofeenlineaApplication {
 			// Profesores de matemáticas
 			Client mathTeacher1 = new Client();
 			mathTeacher1.setName("Maria Jose");
-			mathTeacher1.setLastname("Jose");
-			mathTeacher1.setEmail("mariajose@gmail.com");
+			mathTeacher1.setLastname("Jimenez");
+			mathTeacher1.setEmail("mariajosejimenez@gmail.com");
 			mathTeacher1.setPassword(passwordEncoder.encode("password1"));
 			mathTeacher1.setRole(String.valueOf(Role.TEACHER));
 			mathTeacher1.setDescriptionTeacher("Profesora de matemática de todos lo niveles. Ingreso a escuelas secundarias y universidades. \n" +
@@ -175,11 +175,14 @@ public class TuprofeenlineaApplication {
 
 			Client mathTeacher4 = new Client();
 			mathTeacher4.setName("Lucía");
-			mathTeacher4.setEmail("lucia@example.com");
+			mathTeacher4.setLastname("Navarrete");
+			mathTeacher4.setEmail("lucianavarrete@gmail.com");
 			mathTeacher4.setPassword(passwordEncoder.encode("password4"));
 			mathTeacher4.setRole(String.valueOf(Role.TEACHER));
-			mathTeacher4.setDescriptionTeacher("¡Hola! Soy Lucía, una apasionada de las matemáticas. Mi objetivo es ayudarte a comprender los conceptos más avanzados de esta disciplina de manera clara y sencilla.");
-			mathTeacher4.setDescriptionBiography("Me encanta enseñar y compartir mis conocimientos con los demás. Siempre estoy disponible para responder tus preguntas y ayudarte en tu aprendizaje.");
+			mathTeacher4.setDescriptionTeacher("Clases de matematica!!!! No estas solo, aprobamos junto el examen. Clases virtuales con pizarra digital!!!\n");
+			mathTeacher4.setDescriptionBiography("Soy docente de ciencias y emprendedora con un instituto de clases particulares. \n" +
+					"     Cuento con más de diez años de experiencia laboral en el area de educación, brindando clases de Biologia, Quimica, Matematicas y Ciencias Naturales\n" +
+					"     a todo tipo de estudiantes.");
 			mathTeacher4.setImagePath("https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(mathTeacher4);
 
@@ -189,7 +192,8 @@ public class TuprofeenlineaApplication {
 			mathCalendary4.setEndDate(LocalDate.now().plusMonths(3));
 			mathCalendary4.setStartHour(06);
 			mathCalendary4.setEndHour(12);
-			mathCalendary4.setDescriptionCurse("En este curso, exploraremos conceptos desafiantes y resolveremos problemas complejos para llevar tus habilidades matemáticas al siguiente nivel.");
+			mathCalendary4.setDescriptionCurse("Considero que la matematica puede llegar a ser divertida a la hora de aprender cuando el alumno y el profesor generan un ambiente entretenido.\n" +
+					"  Este es el fin de mis clases, lograr que el alumno disfrute de su espacio de estudio.");
 			mathCalendary4.setPrice(7000);
 			mathCalendary4.setTeacher(mathTeacher4);
 			calendaryRepository.save(mathCalendary4);
@@ -197,11 +201,14 @@ public class TuprofeenlineaApplication {
 
 			Client mathTeacher5 = new Client();
 			mathTeacher5.setName("Matías");
-			mathTeacher5.setEmail("matias@example.com");
+			mathTeacher5.setLastname("Milanesio");
+			mathTeacher5.setEmail("matiasmilanesio@gmail.com");
 			mathTeacher5.setPassword(passwordEncoder.encode("password5"));
 			mathTeacher5.setRole(String.valueOf(Role.TEACHER));
-			mathTeacher5.setDescriptionTeacher("¡Hola! Soy Matías, un apasionado de las matemáticas. Estoy aquí para ayudarte a comprender los conceptos más complejos y desafiantes de esta disciplina.");
-			mathTeacher5.setDescriptionBiography("Mi objetivo es proporcionarte las herramientas necesarias para que puedas dominar las matemáticas de manera efectiva y divertida. Estoy disponible para responder tus preguntas y ayudarte en tu proceso de aprendizaje.");
+			mathTeacher5.setDescriptionTeacher("Profesor universitario de matematicas ofrece clases a distancia con paciencia y dedicacion.");
+			mathTeacher5.setDescriptionBiography("Soy dinamico, con predisposicion, paciencia como clave fundamental.\n" +
+					"   Intento estar actualizado y asi evitar quedar fuera de la actualidad. \n" +
+					"   Considero el respeto como punto clave de cualquier formacion.");
 			mathTeacher5.setImagePath("https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(mathTeacher5);
 
@@ -211,7 +218,8 @@ public class TuprofeenlineaApplication {
 			mathCalendary5.setEndDate(LocalDate.now().plusMonths(3));
 			mathCalendary5.setStartHour(20);
 			mathCalendary5.setEndHour(24);
-			mathCalendary5.setDescriptionCurse("Exploraremos conceptos desafiantes y resolveremos problemas complejos para llevar tus habilidades matemáticas al siguiente nivel.");
+			mathCalendary5.setDescriptionCurse("Cada alumno es distinto y el profesor se tiene que adaptar para que los resultados sean positivos. \n" +
+					"Mis clases están dirigidas a alumnos de primario.");
 			mathCalendary5.setPrice(5000);
 			mathCalendary5.setTeacher(mathTeacher5);
 			calendaryRepository.save(mathCalendary5);
@@ -220,11 +228,13 @@ public class TuprofeenlineaApplication {
 
 			Client mathTeacher6 = new Client();
 			mathTeacher6.setName("Nicolás");
-			mathTeacher6.setEmail("nicolas@example.com");
+			mathTeacher6.setLastname("Vargas");
+			mathTeacher6.setEmail("nicolasvargas@gmail.com");
 			mathTeacher6.setPassword(passwordEncoder.encode("password6"));
 			mathTeacher6.setRole(String.valueOf(Role.TEACHER));
-			mathTeacher6.setDescriptionTeacher("Soy Nicolás, un entusiasta de las matemáticas avanzadas. Estoy aquí para guiarte a través de este apasionante viaje de descubrimiento matemático.");
-			mathTeacher6.setDescriptionBiography("Estoy comprometido a ayudarte a alcanzar tus objetivos académicos. Juntos, exploraremos conceptos desafiantes y resolveremos problemas complejos de una manera clara y comprensible.");
+			mathTeacher6.setDescriptionTeacher("Clases de estadistica y matematica. Clases de nivel secundario, universitario y superior.");
+			mathTeacher6.setDescriptionBiography("Tengo muchos años como docente y mis alumnos aprueban en su amplia mayoria. \n" +
+					"    Me forme en la UBA y soy docente de esa universidad.");
 			mathTeacher6.setImagePath("https://images.unsplash.com/photo-1508341591423-4347099e1f19?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(mathTeacher6);
 
@@ -234,7 +244,9 @@ public class TuprofeenlineaApplication {
 			mathCalendary6.setEndDate(LocalDate.now().plusMonths(3));
 			mathCalendary6.setStartHour(10);
 			mathCalendary6.setEndHour(18);
-			mathCalendary6.setDescriptionCurse("¡Bienvenidos al curso de matemáticas avanzadas! En este curso, exploraremos conceptos desafiantes y resolveremos problemas complejos para llevar tus habilidades matemáticas al siguiente nivel.");
+			mathCalendary6.setDescriptionCurse("Mi metodo de enseñanza es personalizado, haciendo foco en los saberes y necesidades de los estudiantes.\n" +
+					"   Mas alla de ayudarlos a comprender los distintos temas, me enfoco en alentarlos a que crean en si mismos.\n" +
+					"   Mis clases son teorico practicas: les explico los contenidos requeridos, y hacemos ejercitacion.");
 			mathCalendary6.setPrice(5000);
 			mathCalendary6.setTeacher(mathTeacher6);
 			calendaryRepository.save(mathCalendary6);
@@ -314,11 +326,14 @@ public class TuprofeenlineaApplication {
 
 			Client englishTeacher4 = new Client();
 			englishTeacher4.setName("Florencia");
-			englishTeacher4.setEmail("florencia@example.com");
+			englishTeacher4.setLastname("Quiroga");
+			englishTeacher4.setEmail("florenciaquiroga@gmail.com");
 			englishTeacher4.setPassword(passwordEncoder.encode("password10"));
 			englishTeacher4.setRole(String.valueOf(Role.TEACHER));
-			englishTeacher4.setDescriptionTeacher("¡Aprende inglés de forma fácil y divertida conmigo!");
-			englishTeacher4.setDescriptionBiography("Soy un profesor apasionado por enseñar inglés a personas de todas las edades y niveles. Mi objetivo es ayudarte a alcanzar tus metas de aprendizaje de manera efectiva y divertida.");
+			englishTeacher4.setDescriptionTeacher("Magister en enseñanza de lenguas extranjeras con mas de veinte años de experiencia en el area de ingles.\n");
+			englishTeacher4.setDescriptionBiography("Desde muy joven me vincule con el idioma ingles, estudie en los Estados Unidos.\n" +
+					"A partir de 2020 tuve que adaptarme a la modalidad virtual, por videollamada. \n" +
+					"Mi especialidad son los talleres de conversación, perfeccionamiento en distintas áreas laborales, clases de apoyo.");
 			englishTeacher4.setImagePath("https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(englishTeacher4);
 
@@ -328,7 +343,8 @@ public class TuprofeenlineaApplication {
 			englishCalendary4.setEndDate(LocalDate.now().plusMonths(3));
 			englishCalendary4.setStartHour(6);
 			englishCalendary4.setEndHour(12);
-			englishCalendary4.setDescriptionCurse("¡Curso de inglés básico! En este curso, te enseñaré los fundamentos del idioma para que puedas comunicarte de manera efectiva en situaciones cotidianas.");
+			englishCalendary4.setDescriptionCurse(" Las clases se desenvolveran bajo un metodo basado en los intereses del estudiante, utilizando materiales y desarrollando actividades que lo animen.\n" +
+					"    El nivel de ingles no sera un impedimento, podes comenzar desde cero.");
 			englishCalendary4.setPrice(6000);
 			englishCalendary4.setTeacher(englishTeacher4);
 			calendaryRepository.save(englishCalendary4);
@@ -336,11 +352,13 @@ public class TuprofeenlineaApplication {
 
 			Client englishTeacher5 = new Client();
 			englishTeacher5.setName("Maximiliano");
-			englishTeacher5.setEmail("maximiliano@example.com");
+			englishTeacher5.setLastname("Acosta");
+			englishTeacher5.setEmail("maximilianoacosta@gmail.com");
 			englishTeacher5.setPassword(passwordEncoder.encode("password11"));
 			englishTeacher5.setRole(String.valueOf(Role.TEACHER));
-			englishTeacher5.setDescriptionTeacher("¡Aprende inglés de forma divertida y efectiva conmigo!");
-			englishTeacher5.setDescriptionBiography("Soy Maximiliano, un profesor de inglés comprometido con tu éxito en el aprendizaje del idioma. Mi enfoque es hacer que el aprendizaje del inglés sea interesante y accesible para todos.");
+			englishTeacher5.setDescriptionTeacher("Las clases se desenvolveran bajo un metodo basado en los intereses del estudiante, utilizando materiales y desarrollando actividades que lo animen.\n" +
+					"    El nivel de ingles no sera un impedimento, podes comenzar desde cero.");
+			englishTeacher5.setDescriptionBiography("Docente de ingles con certificacion en el idioma de nivel C1, con trayectoria estudiando el idioma y experiencia dando clases particulares.");
 			englishTeacher5.setImagePath("https://images.unsplash.com/photo-1584043720379-b56cd9199c94?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(englishTeacher5);
 
@@ -350,7 +368,9 @@ public class TuprofeenlineaApplication {
 			englishCalendary5.setEndDate(LocalDate.now().plusMonths(3));
 			englishCalendary5.setStartHour(6);
 			englishCalendary5.setEndHour(10);
-			englishCalendary5.setDescriptionCurse("Te proporcionaré las habilidades fundamentales del idioma para que puedas comunicarte con confianza en diferentes situaciones.");
+			englishCalendary5.setDescriptionCurse("Las clases pueden ser desde cero, para alumnos más avanzados, preparación para examenes, o clases de conversación. \n" +
+					"Intento armar todo de una manera en cual los estudiantes puedan aprovechar lo máximo de la clase.\n" +
+					"Uso una serie de textos y proveo PDF de los textos para cada estudiante.");
 			englishCalendary5.setPrice(6000);
 			englishCalendary5.setTeacher(englishTeacher5);
 			calendaryRepository.save(englishCalendary5);
@@ -358,11 +378,15 @@ public class TuprofeenlineaApplication {
 
 			Client englishTeacher6 = new Client();
 			englishTeacher6.setName("Valentina");
-			englishTeacher6.setEmail("valentina@example.com");
+			englishTeacher6.setLastname("Campos");
+			englishTeacher6.setEmail("valentinacampos@gmail.com");
 			englishTeacher6.setPassword(passwordEncoder.encode("password12"));
 			englishTeacher6.setRole(String.valueOf(Role.TEACHER));
-			englishTeacher6.setDescriptionTeacher("¡Aprende inglés de manera fácil y divertida conmigo!");
-			englishTeacher6.setDescriptionBiography("Hola, soy Valentina. Llevo años enseñando inglés y estoy aquí para ayudarte a alcanzar tus metas lingüísticas. Mis clases son dinámicas y adaptadas a tus necesidades individuales.");
+			englishTeacher6.setDescriptionTeacher("Profesora de ingles graduada. \n" +
+					"Clases personalizadas adaptadas a las necesidades del alumno.");
+			englishTeacher6.setDescriptionBiography("Hola, soy Valentina.Soy profe de ingles y estudiante de frances.\n" +
+					"Me encantan los idiomas y fui desarrollando una forma de aprenderlo muy didáctica.\n" +
+					"Todos tenemos nuestros tiempos, y nos tomamos todo el que sea necesario para que los temas sean entendidos e incorporados.");
 			englishTeacher6.setImagePath("https://images.unsplash.com/photo-1599842057874-37393e9342df?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(englishTeacher6);
 
@@ -372,7 +396,8 @@ public class TuprofeenlineaApplication {
 			englishCalendary6.setEndDate(LocalDate.now().plusMonths(3));
 			englishCalendary6.setStartHour(18);
 			englishCalendary6.setEndHour(22);
-			englishCalendary6.setDescriptionCurse("Te proporcionaré las herramientas esenciales para que puedas comunicarte en inglés en situaciones cotidianas.");
+			englishCalendary6.setDescriptionCurse("Las clases son dinamicas y adaptadas a las necesidades del alumno. \n" +
+					"    Utilizamos materiales digitales tales como libros y tareas de audios y videos para trabajar la lectura, la escritura, la escucha y el habla.");
 			englishCalendary6.setPrice(6000);
 			englishCalendary6.setTeacher(englishTeacher6);
 			calendaryRepository.save(englishCalendary6);
@@ -461,8 +486,9 @@ public class TuprofeenlineaApplication {
 			guitarTeacher4.setEmail("luisalberto@gmail.com");
 			guitarTeacher4.setPassword(passwordEncoder.encode("password16"));
 			guitarTeacher4.setRole(String.valueOf(Role.TEACHER));
-			guitarTeacher4.setDescriptionTeacher("¡Aprende a tocar la guitarra con tus canciones favoritas");
-			guitarTeacher4.setDescriptionBiography("¡Hola! Soy Luis Alberto y soy un apasionado de la guitarra y el rock nacional. Llevo años enseñando a personas de todas las edades a tocar la guitarra y me encantaría ayudarte a dominar este instrumento con un enfoque en los ritmos y estilos del rock nacional.");
+			guitarTeacher4.setDescriptionTeacher("Profesor de guitarra clasica, electrica. Métodos personalizados. Ayuda para guitarristas lesionados o en rehabilitacion.");
+			guitarTeacher4.setDescriptionBiography("Toco en bandas de diferentes estilos desde hace 12 años. Estudio guitarra hace mas de 10 años. Estoy por recibirme en la carrera musica. \n" +
+					"      Algunas de los géneros que he tocado: Rock, Jazz, Funk, Soul, R&B, Tango; Folclore, Zamba; Bossa Nova, Rock Progresivo, Reggae, etc.");
 			guitarTeacher4.setImagePath("https://images.unsplash.com/photo-1520454125516-134a66d9bf78?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(guitarTeacher4);
 
@@ -472,7 +498,9 @@ public class TuprofeenlineaApplication {
 			guitarCalendary4.setEndDate(LocalDate.now().plusMonths(3));
 			guitarCalendary4.setStartHour(6);
 			guitarCalendary4.setEndHour(14);
-			guitarCalendary4.setDescriptionCurse("Guitarra inicial y  avanzada con enfoque en el rock nacional e internacional años 60 70 ");
+			guitarCalendary4.setDescriptionCurse("Mi forma de enseñar se basa en encarar los conocimientos desde los gustos del alumno, la idea es ir con al ritmo de cada uno creando asi una forma agradable.\n" +
+					"      Tanto para principiantes, como ya con conocimientos previos. \n" +
+					"      La idea de la clase es divertirse, jugar con la musica pero tambien se puede volver exigente para aquellos que buscan algo mas profesional.");
 			guitarCalendary4.setPrice(8000);
 			guitarCalendary4.setTeacher(guitarTeacher4);
 			calendaryRepository.save(guitarCalendary4);
@@ -482,11 +510,12 @@ public class TuprofeenlineaApplication {
 
 			Client guitarTeacher5 = new Client();
 			guitarTeacher5.setName("Santiago");
-			guitarTeacher5.setEmail("santiago@example.com");
+			guitarTeacher5.setLastname("Gomez");
+			guitarTeacher5.setEmail("santiagogomez@gmail.com");
 			guitarTeacher5.setPassword(passwordEncoder.encode("password17"));
 			guitarTeacher5.setRole(String.valueOf(Role.TEACHER));
 			guitarTeacher5.setDescriptionTeacher("Hola, soy Santiago. Soy un guitarrista apasionado con experiencia en una variedad de estilos musicales, incluyendo zamba, chacarera, chamamé ");
-			guitarTeacher5.setDescriptionBiography(" He dedicado años de estudio y práctica a estos estilos y me encantaría compartir mis conocimientos contigo.");
+			guitarTeacher5.setDescriptionBiography("He dedicado años de estudio y práctica a estos estilos y me encantaría compartir mis conocimientos contigo.");
 			guitarTeacher5.setImagePath("https://images.unsplash.com/photo-1518941683719-5cd280fcdeb7?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(guitarTeacher5);
 
@@ -505,11 +534,14 @@ public class TuprofeenlineaApplication {
 
 			Client guitarTeacher6 = new Client();
 			guitarTeacher6.setName("Ana");
-			guitarTeacher6.setEmail("ana@example.com");
+			guitarTeacher6.setLastname("Garcia");
+			guitarTeacher6.setEmail("anagarcia@gmail.com");
 			guitarTeacher6.setPassword(passwordEncoder.encode("password18"));
 			guitarTeacher6.setRole(String.valueOf(Role.TEACHER));
-			guitarTeacher6.setDescriptionTeacher("Hola soy Ana, estudiante de la Licenciatura en Composición Musical");
-			guitarTeacher6.setDescriptionBiography("Soy una apasionada de la música y la guitarra. Tengo experiencia en enseñanza musical y puedo ayudarte a desarrollar tus habilidades en la guitarra, ya sea aprendiendo canciones favoritas o explorando la composición musical.");
+			guitarTeacher6.setDescriptionTeacher(" Clases de guitarra y/o lenguaje musical para todas las edades. Niveles principiante e intermedio.\n");
+			guitarTeacher6.setDescriptionBiography("Mi nombre es Carmen, tengo 22 años y me encuentro cursando mi ultimo semestre del profesorado de música en la ciudad de Mar del Plata, Argentina. \n" +
+					"       Me interesa la docencia tanto como la música.\n" +
+					"       Me especializo en musica clasica y folclorica.");
 			guitarTeacher6.setImagePath("https://images.unsplash.com/photo-1474752651386-dc296d69dc90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 			clientRepository.save(guitarTeacher6);
 
@@ -519,7 +551,8 @@ public class TuprofeenlineaApplication {
 			guitarCalendary6.setEndDate(LocalDate.now().plusMonths(3));
 			guitarCalendary6.setStartHour(16);
 			guitarCalendary6.setEndHour(24);
-			guitarCalendary6.setDescriptionCurse("Puedo ayudarte a sacar tus canciones favoritas, así como también puedo orientarte en la composición musical de tus propias creaciones.");
+			guitarCalendary6.setDescriptionCurse("Mi idea es que las clases sean divertidas y dinamicas. \n" +
+					"       Me gusta que los estudiantes terminen tocando algo desde la primer clase. ");
 			guitarCalendary6.setPrice(5000);
 			guitarCalendary6.setTeacher(guitarTeacher6);
 			calendaryRepository.save(guitarCalendary6);
