@@ -32,7 +32,7 @@ export function saveTeachers() {
 export function getAnuncio(id) {
 	return async function (dispatch) {
 		try {
-			const { data } = await Educaflex.get(`/api/calendary/teacher/5`);
+			const { data } = await Educaflex.get(`/api/calendary/teacher/${id}`);
 
 			return dispatch({
 				type: GET_ANUNCIO,

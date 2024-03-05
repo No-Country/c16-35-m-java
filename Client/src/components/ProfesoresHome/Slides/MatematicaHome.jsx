@@ -74,8 +74,7 @@ function MatematicaHome({ materia }) {
 				<SwiperSlide style={{ background: 'none' }}>
 					{allTeachers.slice(6, 9).map((profesor, index) => {
 						// Añadir el índice como segundo parámetro
-						const { id, imagePath, descriptionTeacher, name, lastname } =
-							profesor;
+						const { imagePath, descriptionTeacher, name, lastname } = profesor;
 						return (
 							<div key={{ index }} className='card-profe'>
 								{' '}

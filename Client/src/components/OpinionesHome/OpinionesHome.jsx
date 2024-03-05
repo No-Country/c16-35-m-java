@@ -1,4 +1,4 @@
-import Manzana from '../../assets/Manzana.svg'
+import Manzana from '../../assets/Manzana.svg';
 import { OPINIONES } from '../../data-profesores';
 import './OpinionesHome.scss';
 function OpinionesHome() {

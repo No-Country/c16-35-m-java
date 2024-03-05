@@ -11,12 +11,16 @@ function TeacherPanel() {
 
 	useEffect(() => {
 		dispatch(getAnuncio(id));
-		window.scrollTo(0, 0);
-		console.log('-------------');
 		console.log(teacherDetail);
-	}, [dispatch]);
+		window.scrollTo(0, 0);
 
-	return <section></section>;
+	}, []);
+
+	return <section>
+        
+		<img src={teacherDetail.imagePath} alt=""  style={{width:'15rem', marginTop:'5rem'}}/>
+
+	</section>;
 }
 
 export default TeacherPanel;
