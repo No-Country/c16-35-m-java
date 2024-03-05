@@ -36,6 +36,19 @@ public class CalendaryController {
     save(@RequestBody Calendary calendary) {
         return ResponseEntity.ok(calendaryService.save(calendary));
     }
+    @PostMapping("/teacher/{teacherId}")
+    public ResponseEntity<?>
+    save(@PathVariable Long teacherId, @RequestBody Calendary calendary) {
+        Client teacher = userService.findById(teacherId).orElse(null);
+        if (teacher != null) {
+            calendary.setTeacher(teacher);
+            Calendary savedCalendary = calendaryService.save(calendary);
+            return ResponseEntity.ok(savedCalendary);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<?>
     update(@PathVariable Long id, @RequestBody Calendary calendary) {
