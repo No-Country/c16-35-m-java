@@ -34,6 +34,7 @@ public class CalendaryServiceImpl implements ICalendaryService {
             existingCalendary.setEndHour(calendary.getEndHour());
             existingCalendary.setDescriptionCurse(calendary.getDescriptionCurse());
             existingCalendary.setPrice(calendary.getPrice());
+//            existingCalendary.setTeacher(findByTeacher());
             return calendaryRepository.save(existingCalendary);
         } else {
             throw new RuntimeException("Calendary not found");
