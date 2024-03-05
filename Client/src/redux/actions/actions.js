@@ -14,15 +14,17 @@ import {
 	SIGN_UP,
 } from './types';
 
-export function saveTeachers(/* subject */) {
+export function getTeachersBySubject(subject) {
 	return async function (dispatch) {
 		try {
-			const { data } = await Educaflex.get('/api/client');
-			/* const { data } = await Educaflex.get(`/api/client/teaching/${subject}`) */
-
+			const { data } = await Educaflex.get(`/api/client/teaching/${subject}`);
+			const payload = {
+				data,
+				subject,
+			};
 			return dispatch({
 				type: SAVE_TEACHERS,
-				payload: data,
+				payload,
 			});
 		} catch (error) {
 			console.log(error);
