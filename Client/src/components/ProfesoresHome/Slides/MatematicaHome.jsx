@@ -10,7 +10,7 @@ import { Navigation } from 'swiper/modules';
 import './SlideHome.scss';
 
 function MatematicaHome({ materia, teachers }) {
-	console.log(typeof teachers);
+	console.log(teachers);
 
 	const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ function MatematicaHome({ materia, teachers }) {
 				}}
 			>
 				<SwiperSlide style={{ background: 'none' }}>
-					{teachers.slice(0, 3).map((profesor, index) => {
+					{teachers?.slice(0, 3).map((profesor, index) => {
 						// Añadir el índice como segundo parámetro
 						//const {imagePath,descriptionTeacher,name, lastname}
 						const { id, imagePath, descriptionTeacher, name, lastname } =
@@ -64,7 +64,7 @@ function MatematicaHome({ materia, teachers }) {
 				</SwiperSlide>
 
 				<SwiperSlide style={{ background: 'none' }}>
-					{teachers.slice(3, 6).map((profesor, index) => {
+					{teachers?.slice(3, 6).map((profesor, index) => {
 						// Añadir el índice como segundo parámetro
 						const { id, imagePath, descriptionTeacher, name, lastname } =
 							profesor;
