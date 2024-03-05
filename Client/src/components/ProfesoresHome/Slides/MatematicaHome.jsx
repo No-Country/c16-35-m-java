@@ -1,22 +1,25 @@
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Manzana from '../../../assets/Manzana.svg';
 
-import { Navigation } from 'swiper/modules';
-
+import { getAnuncio } from '../../../redux/actions/actions';
 import './SlideHome.scss';
 
 function MatematicaHome({ materia, teachers }) {
+	const dispatch = useDispatch();
 	console.log(teachers);
 
 	const navigate = useNavigate();
 
-	const handleVerMas = (e, id) => {
+	const handleVerMas = (e, id, profesor) => {
 		e.preventDefault();
-		navigate(`/teacher-panel/${id}`);
+		dispatch(getAnuncio(id, profesor));
+		navigate(`/teacher-panel/${materia.toLowerCase()}/${id}`);
 	};
 
 	return (
@@ -53,7 +56,7 @@ function MatematicaHome({ materia, teachers }) {
 									<p className='profe-clase'>Primera Clase Gratis</p>
 									<a
 										className='profe-enlace'
-										onClick={(e) => handleVerMas(e, id)}
+										onClick={(e) => handleVerMas(e, id, profesor)}
 									>
 										Ver más
 									</a>
@@ -81,7 +84,7 @@ function MatematicaHome({ materia, teachers }) {
 									<p className='profe-clase'>Primera Clase Gratis</p>
 									<a
 										className='profe-enlace'
-										onClick={(e) => handleVerMas(e, id)}
+										onClick={(e) => handleVerMas(e, id, profesor)}
 									>
 										Ver más
 									</a>

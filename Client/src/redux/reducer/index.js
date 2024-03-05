@@ -1,11 +1,11 @@
 import {
+	CLEAN_TEACHER,
 	GET_ANUNCIO,
 	LOGIN,
 	LOGOUT,
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
-	CLEAN_TEACHER
 } from '../actions/types';
 
 let initialState = { allTeachers: {}, user: {}, teacherDetail: {} };
@@ -30,23 +30,20 @@ function rootReducer(state = initialState, action) {
 			};
 
 		case GET_ANUNCIO: {
-			const teacherFiltered = state.allTeachers.filter(
-				(teacher) => teacher.id === payload[0].id,
-			);
+			const { profe, anuncios } = payload;
 			return {
 				...state,
 				teacherDetail: {
-					...teacherFiltered[0],
-                    anuncios: payload[0]
-
+					...profe,
+					anuncios,
 				},
 			};
 		}
-		case CLEAN_TEACHER:{
-			return{
+		case CLEAN_TEACHER: {
+			return {
 				...state,
-				teacherDetail:{}
-			}
+				teacherDetail: {},
+			};
 		}
 		default:
 			return state;

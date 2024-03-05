@@ -40,15 +40,17 @@ export function cleanTeacher() {
 	};
 }
 
-export function getAnuncio(id) {
+export function getAnuncio(id, profe) {
 	return async function (dispatch) {
 		try {
 			const { data } = await Educaflex.get(`/api/calendary/teacher/${id}`);
-			console.log(data);
-
+			const payload = {
+				profe,
+				anuncios: data,
+			};
 			return dispatch({
 				type: GET_ANUNCIO,
-				payload: data,
+				payload,
 			});
 		} catch (error) {
 			console.log(error);
