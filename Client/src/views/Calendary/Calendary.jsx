@@ -10,7 +10,7 @@ const localizer = momentLocalizer(moment);
 
 const WORK_HOURS = {
 	start: new Date(0, 0, 0, 6, 0, 0), // 8am
-	end: new Date(0, 0, 0, 24, 0, 0), // 8pm
+	end: new Date(0, 0, 0, 23,59, 0, 0), // 8pm
 };
 
 const Calendary = () => {

@@ -37,8 +37,8 @@ function rootReducer(state = initialState, action) {
 				...state,
 				teacherDetail: {
 					...teacherFiltered[0],
-					...payload[0],
-					id: payload[0].id,
+                    anuncios: payload[0]
+
 				},
 			};
 		}

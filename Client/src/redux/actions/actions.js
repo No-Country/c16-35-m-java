@@ -43,6 +43,7 @@ export function getAnuncio(id) {
 	return async function (dispatch) {
 		try {
 			const { data } = await Educaflex.get(`/api/calendary/teacher/${id}`);
+			console.log(data)
 
 			return dispatch({
 				type: GET_ANUNCIO,

@@ -17,10 +17,9 @@ function TeacherPanel() {
 
 	useEffect(() => {
 		dispatch(getAnuncio(id));
-		console.log(teacherDetail);
 		window.scrollTo(0, 0);
 	}, []);
-    
+	console.log(teacherDetail);
 	useEffect(() => {
 		return () => {
 			dispatch(cleanTeacher());
