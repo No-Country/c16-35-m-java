@@ -1,9 +1,6 @@
 package com.c1635mjava.Tuprofeenlinea;
 
-import com.c1635mjava.Tuprofeenlinea.models.Calendary;
-import com.c1635mjava.Tuprofeenlinea.models.Client;
-import com.c1635mjava.Tuprofeenlinea.models.Reservation;
-import com.c1635mjava.Tuprofeenlinea.models.Role;
+import com.c1635mjava.Tuprofeenlinea.models.*;
 import com.c1635mjava.Tuprofeenlinea.repository.CalendaryRepository;
 import com.c1635mjava.Tuprofeenlinea.repository.ClientRepository;
 import com.c1635mjava.Tuprofeenlinea.repository.ReservationRepository;
@@ -558,6 +555,36 @@ public class TuprofeenlineaApplication {
 			guitarCalendary6.setPrice(5000);
 			guitarCalendary6.setTeacher(guitarTeacher6);
 			calendaryRepository.save(guitarCalendary6);
+
+
+			//RESERVAS
+			// Crear una reserva de ejemplo
+			Reservation reservation = new Reservation();
+			reservation.setDateAndHour(LocalDateTime.now().plusDays(2));
+			reservation.setStudent(englishTeacher6);
+			reservation.setCalendary(mathCalendary2);
+
+			reservationRepository.save(reservation);
+
+
+			// Crear la calificación y establecer los detalles
+			Calification calification = new Calification();
+			calification.setClarity(4);
+			calification.setPunctuality(5);
+			calification.setPreparation(3);
+			calification.setComment("La clase fue excelente, pero hubo un pequeño retraso al inicio.");
+			reservationRepository.save(reservation);
+
+
+
+			Reservation reservation2 = new Reservation();
+			reservation2.setDateAndHour(LocalDateTime.now().minusMinutes(1));
+			reservation2.setStudent(englishTeacher4);
+			reservation2.setCalendary(mathCalendary5);
+
+			reservationRepository.save(reservation2);
+
+
 
 		};
 	}
