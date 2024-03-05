@@ -4,6 +4,7 @@ import com.c1635mjava.Tuprofeenlinea.dtos.ClientDTO;
 import com.c1635mjava.Tuprofeenlinea.models.Client;
 
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
+import com.c1635mjava.Tuprofeenlinea.service.impl.CalendaryServiceImpl;
 import io.jsonwebtoken.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,13 +27,20 @@ public class ClientController {
     @Autowired
     private IUserService userService;
 
-
+    @Autowired
+    private CalendaryServiceImpl calendaryService;
+    
     @GetMapping
     public ResponseEntity<List<Client>> findAll() {
         List<Client> clients = userService.findAll();
         return ResponseEntity.ok(clients);
     }
 
+     @GetMapping("/teaching/{subject}")
+    public ResponseEntity<List<Client>> findTeachersBySubject(@PathVariable String subject){
+        List<Client> teachersBySubject = calendaryService.findTeachersBySubject(subject);
+        return ResponseEntity.ok(teachersBySubject);}
+    
     @PostMapping
     public ResponseEntity<Client> save(@RequestBody ClientDTO clientDTO) {
         clientDTO.setPassword(bcrypt.encode(clientDTO.getPassword()));

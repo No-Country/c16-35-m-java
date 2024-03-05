@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.util.ArrayList;
 
 @Service
 public class CalendaryServiceImpl implements ICalendaryService {
@@ -55,6 +56,15 @@ public class CalendaryServiceImpl implements ICalendaryService {
     @Override
     public List<Calendary> findBySubject(String subject) {
         return calendaryRepository.findBySubject(subject);
+    }
+
+    @Override
+    public List<Client> findTeachersBySubject(String subject){
+        List<Calendary> bySubject = calendaryRepository.findBySubject(subject);
+        List<Client> teachersBySubject  = new ArrayList<>();
+        for (Calendary calendary : bySubject) {
+            teachersBySubject.add(calendary.getTeacher());
+        }return teachersBySubject;
     }
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 }

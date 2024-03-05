@@ -73,6 +73,7 @@ public class WebSecurityConfig {
             "/api/calendary/subject/**",
             "/api/calendary/teacher/**",
             "/api/client/**",
+            "/api/client/teaching/**",
             "/swagger-ui/**",
             "/swagger-ui.html",
             "/v3/api-docs/**"
