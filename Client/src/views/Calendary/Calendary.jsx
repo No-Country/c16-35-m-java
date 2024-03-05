@@ -9,7 +9,7 @@ moment.locale('es'); // Cambiar la configuración regional a español
 const localizer = momentLocalizer(moment);
 
 const WORK_HOURS = {
-	start: new Date(0, 0, 0, 8, 0, 0), // 8am
+	start: new Date(0, 0, 0, 6, 0, 0), // 8am
 	end: new Date(0, 0, 0, 24, 0, 0), // 8pm
 };
 

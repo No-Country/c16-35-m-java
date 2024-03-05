@@ -59,7 +59,6 @@ function TeacherPanel() {
 					<p>Precio: ${price}</p>
 					<button>Reservar clase</button>
 				</div>
-				
 			</div>
 		</div>
 	    <div className="teacher-panel-text">
