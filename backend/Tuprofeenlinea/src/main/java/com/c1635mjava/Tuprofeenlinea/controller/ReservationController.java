@@ -38,6 +38,35 @@ public class ReservationController {
         return ResponseEntity.ok(reservationService.save(reservation));
     }
 
+    @PostMapping("/calendary/{calendaryId}")
+    public ResponseEntity<?> saveByCalendary(@PathVariable Long calendaryId, @RequestBody Reservation reservation) {
+
+        Calendary calendary = calendaryService.findById(calendaryId).orElse(null);
+        if (calendary == null) {
+            return ResponseEntity.notFound().build();
+        }
+        reservation.setCalendary(calendary);
+        Reservation savedReservation = reservationService.save(reservation);
+        return ResponseEntity.ok(savedReservation);
+    }
+
+    @PostMapping("/calendary/{calendaryId}/client/{clientId}")
+    public ResponseEntity<?> saveByCalendaryAndClient(@PathVariable Long calendaryId, @PathVariable Long clientId, @RequestBody Reservation reservation) {
+
+        Calendary calendary = calendaryService.findById(calendaryId).orElse(null);
+        if (calendary == null) {
+            return ResponseEntity.notFound().build();
+        }
+        Client client = userService.findById(clientId).orElse(null);
+        if (client == null) {
+            return ResponseEntity.notFound().build();
+        }
+        reservation.setCalendary(calendary);
+        reservation.setStudent(client);
+        Reservation savedReservation = reservationService.save(reservation);
+        return ResponseEntity.ok(savedReservation);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Reservation reservation) {
         reservation.setId(id);

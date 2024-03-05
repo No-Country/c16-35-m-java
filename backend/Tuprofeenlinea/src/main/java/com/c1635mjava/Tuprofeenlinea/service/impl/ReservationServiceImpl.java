@@ -39,13 +39,10 @@ public Reservation save(Reservation reservation) {
     LocalDateTime reservationEndTime = reservation.getDateAndHour();
 
     if (now.isAfter(reservationEndTime)) {
-        // Si la fecha actual es posterior a la hora de la reserva, establece el estado como "FINISHED"
         reservation.setState(ReservationState.FINISHED);
     } else {
-        // Si la fecha actual es anterior o igual a la hora de la reserva, establece el estado como "IN_PROGRESS"
         reservation.setState(ReservationState.IN_PROGRESS);
     }
-
     return reservationRepository.save(reservation);
 }
 

@@ -80,20 +80,8 @@ public class TuprofeenlineaApplication {
 //			calendary2.setTeacher(student50);
 //			calendaryRepository.save(calendary2);
 //
-//			// Crear una reserva de ejemplo
-//			Reservation reservation = new Reservation();
-//			reservation.setDateAndHour(LocalDateTime.now().plusDays(2));
-//			reservation.setStudent(student50);
-//			reservation.setCalendary(calendary1);
-//			reservationRepository.save(reservation);
-//
-//			// Obtener la fecha actual
-//			LocalDate currentDate = LocalDate.now();
-//			Reservation finishedReservation = new Reservation();
-//			finishedReservation.setDateAndHour(currentDate.minusWeeks(1).atStartOfDay()); // Fecha pasada
-//			finishedReservation.setStudent(student50); // Cliente que realizó la reserva
-//			finishedReservation.setCalendary(calendary1); // Calendario asociado a la reserva
-//			reservationRepository.save(finishedReservation);
+
+////
 //
 
 			// Profesores de matemáticas
@@ -559,6 +547,37 @@ public class TuprofeenlineaApplication {
 
 
 
+			//RESERVAS
+			// Crear una reserva de ejemplo
+			Reservation reservation = new Reservation();
+			reservation.setDateAndHour(LocalDateTime.now().plusDays(2));
+			reservation.setStudent(englishTeacher6);
+			reservation.setCalendary(mathCalendary2);
+			reservation.setState(ReservationState.FINISHED);
+			reservationRepository.save(reservation);
+
+
+			// Crear la calificación y establecer los detalles
+			Calification calification = new Calification();
+			calification.setClarity(4);
+			calification.setPunctuality(5);
+			calification.setPreparation(3);
+			calification.setComment("La clase fue excelente, pero hubo un pequeño retraso al inicio.");
+			reservation.setCalification(calification);
+			reservationRepository.save(reservation);
+
+
+
+			Reservation reservation2 = new Reservation();
+			reservation2.setDateAndHour(LocalDateTime.now().minusMinutes(1));
+			reservation2.setStudent(englishTeacher4);
+			reservation2.setCalendary(mathCalendary5);
+
+			reservationRepository.save(reservation2);
+
+
+
 		};
+
 	}
 }

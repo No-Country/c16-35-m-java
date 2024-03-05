@@ -40,6 +40,11 @@ public class Client {
     @OneToMany(mappedBy = "teacher")
     private List<Calendary> teachingCalendaries;
 
+
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Calification> califications;
+
     @Column(name = "role")
     private String role;
 
