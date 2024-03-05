@@ -16,15 +16,15 @@ const WORK_HOURS = {
 const Calendary = () => {
 	const [selectedSlot, setSelectedSlot] = useState(null);
 	const [studentName, setStudentName] = useState('');
-	const [events, setEvents] = useState([]);
+/* 	const [events, setEvents] = useState([]);
 
-	const [evento, setEvento] = useState([]);
+	const [evento, setEvento] = useState([]); */
 
 	const handleClose = () => {
 		setSelectedSlot(null);
 	};
 
-	useEffect(() => {
+/* 	useEffect(() => {
 		axios
 			.get('https://c16-35-m-java.onrender.com/api/reservation/calendary/1')
 			.then((response) => {
@@ -37,7 +37,7 @@ const Calendary = () => {
 			.catch((error) => {
 				console.error('Error al obtener la fecha de inicio:', error);
 			});
-	}, []);
+	}, []); */
 
 	const handleSelectSlot = (slotInfo) => {
 		// Verificar si la fecha seleccionada es mayor o igual a la fecha actual
@@ -56,7 +56,7 @@ const Calendary = () => {
     setStudentName(e.target.value);
   };
 
-  const handleReservation = () => {
+/*   const handleReservation = () => {
     const newEvent = {
       id: Math.random().toString(36).substring(7), // Genera un ID único para el evento
       start: selectedSlot.start,
@@ -71,7 +71,7 @@ const Calendary = () => {
 
 	const handleDeleteEvent = (eventId) => {
 		setEvents(events.filter((event) => event.id !== eventId));
-	};
+	}; */
 
   const EventComponent = ({ event }) => {
     return (
@@ -86,8 +86,8 @@ const Calendary = () => {
       <Calendar
         style={{ width: '80vw' }}
         localizer={localizer}
-        events={evento}
         views={{ week: true }}
+        defaultDate={{}}
         defaultView={Views.WEEK}
         selectable
         onSelectSlot={handleSelectSlot}

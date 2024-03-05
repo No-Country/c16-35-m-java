@@ -2,11 +2,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAnuncio } from '../../redux/actions/actions';
+import { cleanTeacher } from '../../redux/actions/actions';
 import Manzana from '../../assets/Manzana.svg'
 import ManzanaItems from '../../assets/Manzana-card.svg'
+import { useNavigate } from 'react-router-dom';
 import './TeacherPanel.scss';
 
 function TeacherPanel() {
+	const navigate = useNavigate()
 	const dispatch = useDispatch();
 	const teacherDetail = useSelector((state) => state.teacherDetail);
 	const { id } = useParams();
@@ -16,8 +19,17 @@ function TeacherPanel() {
 		dispatch(getAnuncio(id));
 		console.log(teacherDetail);
 		window.scrollTo(0, 0);
-
 	}, []);
+    
+	useEffect(() => {
+		return () => {
+			dispatch(cleanTeacher());
+		};
+	},[]);
+    
+	const handleReservation = (id) => {
+        navigate(`/calendario/${id}`)
+	}
 
 	return (
 	<main style={{backgroundColor:'#f2f3fe', height:'100vh'}}>
@@ -57,7 +69,7 @@ function TeacherPanel() {
 				</div>
 				<div className="panel-reserva" style={{marginTop:'2rem'}}>
 					<p>Precio: ${price}</p>
-					<button>Reservar clase</button>
+					<button onClick={() => handleReservation(id)}>Reservar clase</button>
 				</div>
 			</div>
 		</div>

@@ -5,6 +5,7 @@ import {
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
+	CLEAN_TEACHER
 } from '../actions/types';
 
 let initialState = { allTeachers: [], user: {}, teacherDetail: {} };
@@ -41,7 +42,12 @@ function rootReducer(state = initialState, action) {
 				},
 			};
 		}
-
+		case CLEAN_TEACHER:{
+			return{
+				...state,
+				teacherDetail:{}
+			}
+		}
 		default:
 			return state;
 	}

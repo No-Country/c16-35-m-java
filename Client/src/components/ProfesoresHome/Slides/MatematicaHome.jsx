@@ -15,7 +15,7 @@ import './SlideHome.scss';
 function MatematicaHome({ materia }) {
 	const allTeachers = useSelector((state) => state.allTeachers);
 	const navigate = useNavigate();
-
+    
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(saveTeachers(/* subject */));

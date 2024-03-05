@@ -12,6 +12,7 @@ import {
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
+	CLEAN_TEACHER
 } from './types';
 
 export function saveTeachers(/* subject */) {
@@ -27,6 +28,14 @@ export function saveTeachers(/* subject */) {
 		} catch (error) {
 			console.log(error);
 		}
+	};
+}
+export function cleanTeacher() {
+	return function (dispatch) {
+			return dispatch({
+				type: CLEAN_TEACHER,
+			});
+
 	};
 }
 
