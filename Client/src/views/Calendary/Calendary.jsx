@@ -19,6 +19,8 @@ const Calendary = () => {
   const [events, setEvents] = useState([]);
 
   const [evento, setEvento] = useState([])
+
+  const [allEvent, setAllEvent] = useState([])
   
   const handleClose = () => {
     setSelectedSlot(null);
@@ -31,13 +33,28 @@ const Calendary = () => {
         const end = moment(start).add(1, 'hour').toDate(); // Calcular la fecha de fin (1 hora después)
         const newEvent = { start, end }; // Crear el evento con la fecha de inicio y fin calculadas
         setEvento([newEvent]); // Establecer los eventos como un array que contiene el nuevo evento
-        console.log(newEvent);
+  
+        // Combinar los eventos 'event' y 'evento' en 'allEvent'
+        setAllEvent([...events, ...evento]); // Combina los eventos 'events' y 'evento' y los establece como 'allEvent'
       })
       .catch((error) => {
         console.error('Error al obtener la fecha de inicio:', error);
       });
-  }, []);
-
+  }, [allEvent]);
+  
+  const handleReservation = () => {
+    const newEvent = {
+      id: Math.random().toString(36).substring(7), // Genera un ID único para el evento
+      start: selectedSlot.start,
+      end: moment(selectedSlot.start).add(1, 'hour').toDate(),
+    };
+    // Agregar el nuevo evento al estado 'events'
+    setEvents([...events, newEvent]);
+    // Agregar el nuevo evento a 'allEvent' también
+    setAllEvent([...allEvent, newEvent]);
+    setSelectedSlot(null);
+    setStudentName('');
+  };
 
   const handleSelectSlot = (slotInfo) => {
     // Verificar si la fecha seleccionada es mayor o igual a la fecha actual
@@ -50,19 +67,6 @@ const Calendary = () => {
 
   const handleInputChange = (e) => {
     setStudentName(e.target.value);
-  };
-
-  const handleReservation = () => {
-    const newEvent = {
-      id: Math.random().toString(36).substring(7), // Genera un ID único para el evento
-      start: selectedSlot.start,
-      end: moment(selectedSlot.start).add(1, 'hour').toDate(),
-      title: studentName,
-    };
-    setEvents([...events, newEvent]);
-    setSelectedSlot(null);
-    setStudentName('');
-    console.log(newEvent)
   };
 
   const handleDeleteEvent = (eventId) => {
@@ -82,7 +86,7 @@ const Calendary = () => {
       <Calendar
         style={{ width: '80vw' }}
         localizer={localizer}
-        events={evento}
+        events={allEvent}
         views={{ week: true }}
         defaultView={Views.WEEK}
         selectable
@@ -100,12 +104,6 @@ const Calendary = () => {
           <div className='modal' style={{ marginTop: '20px' }}>
             <h1>Reservar la clase</h1>
             <div className="reservar">
-              <input
-                type="text"
-                placeholder="Nombre completo del alumno"
-                value={studentName}
-                onChange={handleInputChange}
-              />
               <button className='btn-reservar' onClick={handleReservation}>Reservar</button>
             </div>
             <button className='cerrar-modal' onClick={handleClose}>X</button>
