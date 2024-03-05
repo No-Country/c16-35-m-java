@@ -7,6 +7,7 @@ import com.c1635mjava.Tuprofeenlinea.models.Reservation;
 import com.c1635mjava.Tuprofeenlinea.service.ICalendaryService;
 import com.c1635mjava.Tuprofeenlinea.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
@@ -45,14 +46,10 @@ public class CalendaryController {
     @GetMapping("/teacher/{teacherId}")
     public ResponseEntity<?>
     findByTeacher(@PathVariable Long teacherId) {
-        Client teacher = userService.findById(teacherId).orElse(null);
-        if (teacher != null) {
-            List<Calendary> calendaries = calendaryService.
-                    findByTeacher(teacher);
-            return ResponseEntity.ok(calendaries);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        Client teacher = userService.findById(teacherId)
+                .orElseThrow(() -> new ResourceNotFoundException("Teacher not found with id " + teacherId));
+        List<Calendary> calendaries = calendaryService.findByTeacher(teacher);
+        return ResponseEntity.ok(calendaries);
     }
     @GetMapping("/subject/{subject}")
     public ResponseEntity<?>
