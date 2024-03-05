@@ -58,7 +58,7 @@ function MatematicaHome({ materia }) {
 									</div>
 									<h2 className='profe-nombre'>{`${name} ${lastname}`}</h2>
 									<p className='profe-descripcion'>{descriptionTeacher}</p>
-									<p className='profe-clase'>Primera Clase Gratis</p>
+									<p className='profe-clase'>1ra Clase Gratis</p>
 									<a
 										className='profe-enlace'
 										onClick={(e) => handleVerMas(e, id)}
@@ -86,7 +86,7 @@ function MatematicaHome({ materia }) {
 									</div>
 									<h2 className='profe-nombre'>{`${name} ${lastname}`}</h2>
 									<p className='profe-descripcion'>{descriptionTeacher}</p>
-									<p className='profe-clase'>Primera Clase Gratis</p>
+									<p className='profe-clase'>1ra Clase Gratis</p>
 									<a
 										className='profe-enlace'
 										onClick={(e) => handleVerMas(e, id)}
