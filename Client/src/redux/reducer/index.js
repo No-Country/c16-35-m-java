@@ -8,7 +8,7 @@ import {
 	CLEAN_TEACHER
 } from '../actions/types';
 
-let initialState = { allTeachers: [], user: {}, teacherDetail: {} };
+let initialState = { allTeachers: {}, user: {}, teacherDetail: {} };
 
 function rootReducer(state = initialState, action) {
 	const { type, payload } = action;
@@ -26,7 +26,7 @@ function rootReducer(state = initialState, action) {
 		case SAVE_TEACHERS:
 			return {
 				...state,
-				allTeachers: payload,
+				allTeachers: { ...state.allTeachers, [payload.subject]: payload.data },
 			};
 
 		case GET_ANUNCIO: {
