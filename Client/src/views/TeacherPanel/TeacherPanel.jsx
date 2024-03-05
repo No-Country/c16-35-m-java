@@ -55,7 +55,7 @@ function TeacherPanel() {
 					    </div>
 				    </div>
 				</div>
-				<div className="panel-reserva">
+				<div className="panel-reserva" style={{marginTop:'2rem'}}>
 					<p>Precio: ${price}</p>
 					<button>Reservar clase</button>
 				</div>
