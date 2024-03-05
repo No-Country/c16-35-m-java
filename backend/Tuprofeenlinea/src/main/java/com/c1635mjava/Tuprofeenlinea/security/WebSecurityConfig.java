@@ -58,6 +58,9 @@ public class WebSecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/api/calification/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/calification/reservation/{reservationId}")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/calendary/teacher/{teacherId}")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/reservation/teacher/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/reservation/calendary/**")).permitAll()
+
 
                         .requestMatchers(new AntPathRequestMatcher("/api/reservation/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/client/{id}")).permitAll()

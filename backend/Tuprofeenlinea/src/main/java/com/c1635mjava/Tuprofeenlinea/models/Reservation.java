@@ -30,6 +30,10 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "calendary_id")
     private Calendary calendary;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "teacher_id")
+//    private Calendary teacher;
 
     @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Calification calification;

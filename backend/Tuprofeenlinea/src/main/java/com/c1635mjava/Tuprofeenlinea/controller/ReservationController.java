@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:8080")
@@ -83,6 +84,32 @@ public class ReservationController {
             return ResponseEntity.notFound().build();
         }
     }
+
+@GetMapping("/teacher/{teacherId}")
+public ResponseEntity<?> findByTeacher(@PathVariable Long teacherId) {
+    // Buscar al profesor por su ID
+    Client teacher = userService.findById(teacherId).orElse(null);
+    if (teacher != null) {
+        // Si se encuentra el profesor, buscar todas los calendarios asociados a él
+        List<Calendary> calendaries = calendaryService.findByTeacher(teacher);
+
+        // Lista para almacenar todas las reservas asociadas a los calendarios
+        List<Reservation> reservations = new ArrayList<>();
+
+        // Iterar sobre cada calendario
+        for (Calendary calendary : calendaries) {
+            // Obtener las reservas asociadas a este calendario
+            List<Reservation> reservationsForCalendary = reservationService.findByCalendary(calendary);
+            // Agregar las reservas a la lista general de reservas
+            reservations.addAll(reservationsForCalendary);
+        }
+
+        return ResponseEntity.ok(reservations);
+    } else {
+        // Si no se encuentra el profesor, devolver una respuesta de error 404
+        return ResponseEntity.notFound().build();
+    }
+}
 
     @GetMapping("/calendary/{calendaryId}")
     public ResponseEntity<?> findByCalendary(@PathVariable Long calendaryId) {
