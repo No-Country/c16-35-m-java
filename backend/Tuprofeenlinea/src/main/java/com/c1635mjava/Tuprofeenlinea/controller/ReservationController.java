@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -92,8 +93,20 @@ public class ReservationController {
         // Buscar al profesor por su ID
         Client teacher = userService.findById(teacherId).orElse(null);
         if (teacher != null) {
-            // Si se encuentra el profesor, buscar todas las reservas asociadas a él
-            List<Reservation> reservations = reservationService.findByTeacher(teacher);
+            // Si se encuentra el profesor, buscar todas los calendarios asociados a él
+            List<Calendary> calendaries = calendaryService.findByTeacher(teacher);
+
+            // Lista para almacenar todas las reservas asociadas a los calendarios
+            List<LocalDateTime> reservations = new ArrayList<>();
+
+            // Iterar sobre cada calendario
+            for (Calendary calendary : calendaries) {
+                // Obtener las reservas asociadas a este calendario
+                List<LocalDateTime> reservationsForCalendary = reservationService.findByCalendary(calendary);
+                // Agregar las reservas a la lista general de reservas
+                reservations.addAll(reservationsForCalendary);
+            }
+
             return ResponseEntity.ok(reservations);
         } else {
             // Si no se encuentra el profesor, devolver una respuesta de error 404
