@@ -17,6 +17,7 @@ public interface IReservationService {
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     List<Reservation> findByStudent(Client student);
+    List<Reservation> findByTeacher(Client teacher);
     List<LocalDateTime> findByCalendary(Calendary calendary);
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 

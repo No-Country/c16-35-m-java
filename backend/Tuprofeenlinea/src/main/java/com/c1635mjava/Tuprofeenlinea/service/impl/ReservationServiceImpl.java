@@ -51,6 +51,12 @@ public class ReservationServiceImpl implements IReservationService {
     public List<Reservation> findByStudent(Client student) {
         return reservationRepository.findByStudent(student);
     }
+
+    @Override
+    public List<Reservation> findByTeacher(Client teacher) {
+        return reservationRepository.findByTeacher(teacher);
+    }
+
     @Override
     public List<LocalDateTime> findByCalendary(Calendary calendary) {
     List<Reservation> reservations = reservationRepository.findByCalendary(calendary);

@@ -43,7 +43,33 @@ public class ReservationController {
     public ResponseEntity<?> save(@RequestBody Reservation reservation) {
         return ResponseEntity.ok(reservationService.save(reservation));
     }
+    @PostMapping("/calendary/{calendaryId}")
+    public ResponseEntity<?> saveByCalendary(@PathVariable Long calendaryId, @RequestBody Reservation reservation) {
 
+        Calendary calendary = calendaryService.findById(calendaryId).orElse(null);
+        if (calendary == null) {
+            return ResponseEntity.notFound().build();
+        }
+        reservation.setCalendary(calendary);
+        Reservation savedReservation = reservationService.save(reservation);
+        return ResponseEntity.ok(savedReservation);
+    }
+    @PostMapping("/calendary/{calendaryId}/client/{clientId}")
+    public ResponseEntity<?> saveByCalendaryAndClient(@PathVariable Long calendaryId, @PathVariable Long clientId, @RequestBody Reservation reservation) {
+
+        Calendary calendary = calendaryService.findById(calendaryId).orElse(null);
+        if (calendary == null) {
+            return ResponseEntity.notFound().build();
+        }
+        Client client = userService.findById(clientId).orElse(null);
+        if (client == null) {
+            return ResponseEntity.notFound().build();
+        }
+        reservation.setCalendary(calendary);
+        reservation.setStudent(client);
+        Reservation savedReservation = reservationService.save(reservation);
+        return ResponseEntity.ok(savedReservation);
+    }
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Reservation reservation) {
         reservation.setId(id);
@@ -60,6 +86,21 @@ public class ReservationController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/teacher/{teacherId}")
+    public ResponseEntity<?> findByTeacher(@PathVariable Long teacherId) {
+        // Buscar al profesor por su ID
+        Client teacher = userService.findById(teacherId).orElse(null);
+        if (teacher != null) {
+            // Si se encuentra el profesor, buscar todas las reservas asociadas a él
+            List<Reservation> reservations = reservationService.findByTeacher(teacher);
+            return ResponseEntity.ok(reservations);
+        } else {
+            // Si no se encuentra el profesor, devolver una respuesta de error 404
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/calendary/{calendaryId}")
     public ResponseEntity<?> findByCalendary(@PathVariable Long calendaryId) {
         Calendary calendary = calendaryService.findById(calendaryId)
