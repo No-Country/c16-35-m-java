@@ -5,6 +5,7 @@ import {
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
+	POST_ANUNCIO
 } from '../actions/types';
 
 let initialState = { allTeachers: [], user: {}, teacherDetail: {} };
@@ -40,6 +41,12 @@ function rootReducer(state = initialState, action) {
 					id: payload[0].id,
 				},
 			};
+		}
+
+		case POST_ANUNCIO: {
+			return {
+				...state,
+			}
 		}
 
 		default:

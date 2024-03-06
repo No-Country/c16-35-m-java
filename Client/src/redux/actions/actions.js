@@ -12,7 +12,22 @@ import {
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
+	POST_ANUNCIO
 } from './types';
+
+export function postAnuncio(anuncio, id) {
+	return async function (dispatch) {
+		try {
+			const { data } = await Educaflex.post(`/api/calendary/teacher/${id}`)
+			return dispatch({
+				type: POST_ANUNCIO,
+				payload: data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
 
 export function saveTeachers(/* subject */) {
 	return async function (dispatch) {
