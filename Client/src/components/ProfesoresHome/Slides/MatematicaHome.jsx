@@ -1,29 +1,25 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Manzana from '../../../assets/Manzana-card.svg';
-import { saveTeachers } from '../../../redux/actions/actions';
-
 import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Manzana from '../../../assets/Manzana.svg';
 
+import { getAnuncio } from '../../../redux/actions/actions';
 import './SlideHome.scss';
 
-function MatematicaHome({ materia }) {
-	const allTeachers = useSelector((state) => state.allTeachers);
+function MatematicaHome({ materia, teachers }) {
+	const dispatch = useDispatch();
+	console.log(teachers);
+
 	const navigate = useNavigate();
 
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(saveTeachers(/* subject */));
-	}, [dispatch]);
-
-	const handleVerMas = (e, id) => {
+	const handleVerMas = (e, id, profesor) => {
 		e.preventDefault();
-		navigate(`/teacher-panel/${id}`);
+		dispatch(getAnuncio(id, profesor));
+		navigate(`/teacher-panel/${materia.toLowerCase()}/${id}`);
 	};
 
 	return (
@@ -41,7 +37,7 @@ function MatematicaHome({ materia }) {
 				}}
 			>
 				<SwiperSlide style={{ background: 'none' }}>
-					{allTeachers.slice(3, 6).map((profesor, index) => {
+					{teachers?.slice(0, 3).map((profesor, index) => {
 						// Añadir el índice como segundo parámetro
 						//const {imagePath,descriptionTeacher,name, lastname}
 						const { id, imagePath, descriptionTeacher, name, lastname } =
@@ -50,7 +46,6 @@ function MatematicaHome({ materia }) {
 						return (
 							<div key={{ index }} className='card-profe'>
 								{' '}
-								{/* Utilizar una combinación de nombre e índice */}
 								<img src={imagePath} alt='' />
 								<div className='card-profe-info'>
 									<div className='valoracion'>
@@ -61,7 +56,7 @@ function MatematicaHome({ materia }) {
 									<p className='profe-clase'>Primera Clase Gratis</p>
 									<a
 										className='profe-enlace'
-										onClick={(e) => handleVerMas(e, id)}
+										onClick={(e) => handleVerMas(e, id, profesor)}
 									>
 										Ver más
 									</a>
@@ -72,13 +67,13 @@ function MatematicaHome({ materia }) {
 				</SwiperSlide>
 
 				<SwiperSlide style={{ background: 'none' }}>
-					{allTeachers.slice(6, 9).map((profesor, index) => {
+					{teachers?.slice(3, 6).map((profesor, index) => {
 						// Añadir el índice como segundo parámetro
-						const { imagePath, descriptionTeacher, name, lastname, id } = profesor;
+						const { id, imagePath, descriptionTeacher, name, lastname } =
+							profesor;
 						return (
 							<div key={{ index }} className='card-profe'>
 								{' '}
-								{/* Utilizar una combinación de nombre e índice */}
 								<img src={imagePath} alt='' />
 								<div className='card-profe-info'>
 									<div className='valoracion'>
@@ -89,7 +84,7 @@ function MatematicaHome({ materia }) {
 									<p className='profe-clase'>Primera Clase Gratis</p>
 									<a
 										className='profe-enlace'
-										onClick={(e) => handleVerMas(e, id)}
+										onClick={(e) => handleVerMas(e, id, profesor)}
 									>
 										Ver más
 									</a>

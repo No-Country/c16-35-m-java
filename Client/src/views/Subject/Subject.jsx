@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { PROFESORES } from '../../data-profesores';
-import Manzana from '../../assets/Manzana.svg';
+import Manzana from '../../assets/Manzana-card.svg';
 import './Subject.scss';
 import { useEffect } from 'react';
 function Subject() {

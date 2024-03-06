@@ -37,8 +37,11 @@ function App() {
 					<Route path='*' element={<NotFound />}></Route>
 					<Route path={`/materia/:materia`} element={<Subject />}></Route>
 					<Route path='/crear-anuncio' element={<Anuncio />}></Route>
-					<Route path='/calendario/:id' element={<Calendary />}></Route>
-					<Route path={`/teacher-panel/:id`} element={<TeacherPanel />}></Route>
+					<Route path={`/calendario/:id`} element={<Calendary />}></Route>
+					<Route
+						path={`/teacher-panel/:materia/:id`}
+						element={<TeacherPanel />}
+					></Route>
 
 					{/* admin-only routes */}
 					{/* <Route

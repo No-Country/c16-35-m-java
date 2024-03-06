@@ -5,3 +5,4 @@ export const RELOAD_USER = 'RELOAD_USER';
 export const SAVE_TEACHERS = 'SAVE_TEACHERS';
 export const GET_ANUNCIO = 'GET_ANUNCIO';
 export const POST_ANUNCIO = 'POST_ANUNCIO';
+export const CLEAN_TEACHER = 'CLEAN_TEACHER';

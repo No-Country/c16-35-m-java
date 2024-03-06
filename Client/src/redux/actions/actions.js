@@ -6,6 +6,7 @@ import {
 	handleUserSignUp,
 } from '../../utils/UserUtils';
 import {
+	CLEAN_TEACHER,
 	GET_ANUNCIO,
 	LOGIN,
 	LOGOUT,
@@ -29,30 +30,42 @@ export function postAnuncio(anuncio, id) {
 	}
 }
 
-export function saveTeachers(/* subject */) {
+export function getTeachersBySubject(subject) {
 	return async function (dispatch) {
 		try {
-			const { data } = await Educaflex.get('/api/client');
-			/* const { data } = await Educaflex.get(`/api/client/teaching/${subject}`) */
-
+			const { data } = await Educaflex.get(`/api/client/teaching/${subject}`);
+			const payload = {
+				data,
+				subject,
+			};
 			return dispatch({
 				type: SAVE_TEACHERS,
-				payload: data,
+				payload,
 			});
 		} catch (error) {
 			console.log(error);
 		}
 	};
 }
+export function cleanTeacher() {
+	return function (dispatch) {
+		return dispatch({
+			type: CLEAN_TEACHER,
+		});
+	};
+}
 
-export function getAnuncio(id) {
+export function getAnuncio(id, profe) {
 	return async function (dispatch) {
 		try {
 			const { data } = await Educaflex.get(`/api/calendary/teacher/${id}`);
-
+			const payload = {
+				profe,
+				anuncios: data,
+			};
 			return dispatch({
 				type: GET_ANUNCIO,
-				payload: data,
+				payload,
 			});
 		} catch (error) {
 			console.log(error);
