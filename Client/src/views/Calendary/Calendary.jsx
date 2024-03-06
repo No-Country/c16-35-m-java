@@ -4,12 +4,7 @@ import { useEffect, useState } from 'react';
 import { Calendar, Views, momentLocalizer } from 'react-big-calendar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import {
-	cleanCalendary,
-	cleanReservas,
-	getCalendary,
-	getReservas,
-} from '../../redux/actions/actions';
+import { getCalendary, getReservas } from '../../redux/actions/actions';
 import './Calendary.scss';
 moment.locale('es'); // Cambiar la configuración regional a español
 
@@ -59,14 +54,6 @@ const Calendary = () => {
 			});
 		}
 	}, [dispatch]);
-
-	useEffect(
-		() => () => {
-			dispatch(cleanReservas());
-			dispatch(cleanCalendary());
-		},
-		[],
-	);
 
 	const handleSelectSlot = (slotInfo) => {
 		if (
