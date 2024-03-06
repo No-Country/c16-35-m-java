@@ -560,7 +560,7 @@ public class TuprofeenlineaApplication {
 			//RESERVAS
 			// Crear una reserva de ejemplo
 			Reservation reservation = new Reservation();
-			reservation.setDateAndHour(LocalDateTime.now().plusDays(2));
+			reservation.setDateAndHour(LocalDateTime.now().plusDays(2).withMinute(0).withSecond(0));
 			reservation.setStudent(englishTeacher6);
 			reservation.setCalendary(mathCalendary2);
 
@@ -578,7 +578,7 @@ public class TuprofeenlineaApplication {
 
 
 			Reservation reservation2 = new Reservation();
-			reservation2.setDateAndHour(LocalDateTime.now().minusMinutes(1));
+			reservation2.setDateAndHour(LocalDateTime.now().plusDays(2).withMinute(0).withSecond(0));
 			reservation2.setStudent(englishTeacher4);
 			reservation2.setCalendary(mathCalendary5);
 
