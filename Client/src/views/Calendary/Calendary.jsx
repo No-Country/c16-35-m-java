@@ -22,6 +22,7 @@ const Calendary = () => {
 	const [selectedSlot, setSelectedSlot] = useState(null);
 	const [studentName, setStudentName] = useState('');
 	const [evento, setEvento] = useState([]);
+	const [events, setEvents] = useState([]);
 
 	const handleClose = () => {
 		setSelectedSlot(null);
@@ -71,29 +72,22 @@ const Calendary = () => {
 		setStudentName(e.target.value);
 	};
 
-	/*   const handleReservation = () => {
-    const newEvent = {
-      id: Math.random().toString(36).substring(7), // Genera un ID único para el evento
-      start: selectedSlot.start,
-      end: moment(selectedSlot.start).add(1, 'hour').toDate(),
-      title: studentName,
-    };
-    setEvents([...events, newEvent]);
-    setSelectedSlot(null);
-    setStudentName('');
-    console.log(newEvent)
-  };
-
-	const handleDeleteEvent = (eventId) => {
-		setEvents(events.filter((event) => event.id !== eventId));
-	}; */
+	const handleReservation = () => {
+		const newEvent = {
+			id: Math.random().toString(36).substring(7), // Genera un ID único para el evento
+			start: selectedSlot.start,
+			end: moment(selectedSlot.start).add(1, 'hour').toDate(),
+			title: studentName,
+		};
+		setEvents([...events, newEvent]);
+		setSelectedSlot(null);
+		setStudentName('');
+		console.log(newEvent);
+	};
 
 	const EventComponent = ({ event }) => {
 		return (
-			<div
-				onClick={() => handleDeleteEvent(event.id)}
-				style={{ display: 'flex', alignItems: 'center' }}
-			>
+			<div style={{ display: 'flex', alignItems: 'center' }}>
 				<p style={{ fontSize: '0.8rem' }}>{event.title}</p>
 			</div>
 		);
