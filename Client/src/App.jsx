@@ -1,10 +1,10 @@
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Nav } from './components/Nav/Nav';
 import { reloadUser } from './redux/actions/actions';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import About from './views/About/About';
 import Anuncio from './views/Anuncio/Anuncio';
 import Calendary from './views/Calendary/Calendary';
@@ -37,7 +37,10 @@ function App() {
 					<Route path='*' element={<NotFound />}></Route>
 					<Route path={`/materia/:materia`} element={<Subject />}></Route>
 					<Route path='/crear-anuncio' element={<Anuncio />}></Route>
-					<Route path={`/calendario/:id`} element={<Calendary />}></Route>
+					<Route
+						path={`/calendario/:idCalendary/:idTeacher`}
+						element={<Calendary />}
+					></Route>
 					<Route
 						path={`/teacher-panel/:materia/:id`}
 						element={<TeacherPanel />}

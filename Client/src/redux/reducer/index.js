@@ -1,15 +1,23 @@
 import {
 	CLEAN_TEACHER,
 	GET_ANUNCIO,
+	GET_CALENDARY,
+	GET_RESERVAS,
 	LOGIN,
 	LOGOUT,
+	POST_ANUNCIO,
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
-	POST_ANUNCIO
 } from '../actions/types';
 
-let initialState = { allTeachers: {}, user: {}, teacherDetail: {} };
+let initialState = {
+	allTeachers: {},
+	user: {},
+	teacherDetail: {},
+	currentCalendary: {},
+	reservas: [],
+};
 
 function rootReducer(state = initialState, action) {
 	const { type, payload } = action;
@@ -22,6 +30,12 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				user: payload,
+			};
+
+		case GET_RESERVAS:
+			return {
+				...state,
+				reservas: payload,
 			};
 
 		case SAVE_TEACHERS:
@@ -43,7 +57,14 @@ function rootReducer(state = initialState, action) {
 		case POST_ANUNCIO: {
 			return {
 				...state,
-			}
+			};
+		}
+
+		case GET_CALENDARY: {
+			return {
+				...state,
+				currentCalendary: payload,
+			};
 		}
 
 		case CLEAN_TEACHER: {

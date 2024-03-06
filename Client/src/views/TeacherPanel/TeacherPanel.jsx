@@ -10,9 +10,9 @@ function TeacherPanel() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const teacherDetail = useSelector((state) => state.teacherDetail);
+	console.log(teacherDetail);
 	const { materia, id } = useParams();
-	const { imagePath, descriptionBiography, name, lastname } =
-		teacherDetail;
+	const { imagePath, descriptionBiography, name, lastname } = teacherDetail;
 
 	const anunciosFiltered = teacherDetail.anuncios?.filter(
 		(anuncio) => anuncio.subject === materia,
@@ -28,8 +28,8 @@ function TeacherPanel() {
 		};
 	}, []);
 
-	const handleReservation = (id) => {
-		navigate(`/calendario/${id}`);
+	const handleReservation = () => {
+		navigate(`/calendario/${teacherDetail.anuncios[0].id}/${id}`);
 	};
 
 	return (
@@ -132,9 +132,7 @@ function TeacherPanel() {
 								Precio:{' '}
 								{anunciosFiltered ? anunciosFiltered[0].price : 'precio'}
 							</p>
-							<button onClick={() => handleReservation(id)}>
-								Reservar clase
-							</button>
+							<button onClick={handleReservation}>Reservar clase</button>
 						</div>
 					</div>
 				</div>
@@ -162,8 +160,10 @@ function TeacherPanel() {
 						</p>
 						<p>
 							<strong>
-								Desde el {anunciosFiltered ? anunciosFiltered[0].startDate : 'startDate'} {' '}
-								hasta {anunciosFiltered ? anunciosFiltered[0].endDate : 'endDate'}  desde las{' '}
+								Desde el{' '}
+								{anunciosFiltered ? anunciosFiltered[0].startDate : 'startDate'}{' '}
+								hasta{' '}
+								{anunciosFiltered ? anunciosFiltered[0].endDate : 'endDate'} de{' '}
 								{anunciosFiltered ? anunciosFiltered[0].startHour : 'startHour'}
 								:00hs hasta las{' '}
 								{anunciosFiltered ? anunciosFiltered[0].endHour : 'endHour'}

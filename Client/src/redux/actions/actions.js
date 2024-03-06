@@ -8,26 +8,58 @@ import {
 import {
 	CLEAN_TEACHER,
 	GET_ANUNCIO,
+	GET_CALENDARY,
+	GET_RESERVAS,
 	LOGIN,
 	LOGOUT,
+	POST_ANUNCIO,
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
-	POST_ANUNCIO
 } from './types';
+
+export function getReservas(idCalendary) {
+	return async function (dispatch) {
+		try {
+			const { data } = await Educaflex.get(
+				`/api/reservation/calendary/${idCalendary}`,
+			);
+			return dispatch({
+				type: GET_RESERVAS,
+				payload: data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}
+
+export function getCalendary(id) {
+	return async function (dispatch) {
+		try {
+			const { data } = await Educaflex.get(`/api/calendary/teacher/${id}`);
+			return dispatch({
+				type: GET_CALENDARY,
+				payload: data[0],
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}
 
 export function postAnuncio(anuncio, id) {
 	return async function (dispatch) {
 		try {
-			const { data } = await Educaflex.post(`/api/calendary/teacher/${id}`)
+			const { data } = await Educaflex.post(`/api/calendary/teacher/${id}`);
 			return dispatch({
 				type: POST_ANUNCIO,
-				payload: data
-			})
+				payload: data,
+			});
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
-	}
+	};
 }
 
 export function getTeachersBySubject(subject) {

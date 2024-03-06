@@ -1,46 +1,62 @@
-import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/es';
 import { useEffect, useState } from 'react';
 import { Calendar, Views, momentLocalizer } from 'react-big-calendar';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getCalendary, getReservas } from '../../redux/actions/actions';
 import './Calendary.scss';
-
 moment.locale('es'); // Cambiar la configuración regional a español
+
 const localizer = momentLocalizer(moment);
 
-const WORK_HOURS = {
-	start: new Date(0, 0, 0, 6, 0, 0), // 8am
-	end: new Date(0, 0, 0, 23,59, 0, 0), // 8pm
-};
-
 const Calendary = () => {
+	const [workHours, setWworkHours] = useState({
+		start: new Date(0, 0, 0, 6, 0, 0), // 8am
+		end: new Date(0, 0, 0, 23, 59, 0, 0), // 8pm
+	});
+	const dispatch = useDispatch();
+	const { idCalendary, idTeacher } = useParams();
+	const calendary = useSelector((state) => state.currentCalendary);
+	const reservas = useSelector((state) => state.reservas);
 	const [selectedSlot, setSelectedSlot] = useState(null);
 	const [studentName, setStudentName] = useState('');
-/* 	const [events, setEvents] = useState([]);
-
-	const [evento, setEvento] = useState([]); */
+	const [evento, setEvento] = useState([]);
 
 	const handleClose = () => {
 		setSelectedSlot(null);
 	};
 
-/* 	useEffect(() => {
-		axios
-			.get('https://c16-35-m-java.onrender.com/api/reservation/calendary/1')
-			.then((response) => {
-				const start = new Date(response.data); // Crear la fecha de inicio desde la respuesta de la API
-				const end = moment(start).add(1, 'hour').toDate(); // Calcular la fecha de fin (1 hora después)
-				const newEvent = { start, end }; // Crear el evento con la fecha de inicio y fin calculadas
-				setEvento([newEvent]); // Establecer los eventos como un array que contiene el nuevo evento
-				console.log(newEvent);
-			})
-			.catch((error) => {
-				console.error('Error al obtener la fecha de inicio:', error);
+	useEffect(() => {
+		dispatch(getReservas(idCalendary));
+		dispatch(getCalendary(idTeacher));
+	}, []);
+
+	useEffect(() => {
+		const startHour = new Date();
+		startHour.setHours(calendary.startHour, 0, 0, 0);
+
+		const endHour = new Date();
+		endHour.setHours(calendary.endHour, 0, 0, 0);
+
+		setWworkHours({
+			start: startHour,
+			end: endHour,
+		});
+		console.log(reservas);
+		for (let i = 0; i < reservas.length; i++) {
+			const start = new Date(reservas[i]);
+			const end = moment(start).add(1, 'hour').toDate();
+			const newEvent = { start, end };
+
+			setEvento((prevEvento) => {
+				return [...prevEvento, newEvent];
 			});
-	}, []); */
+		}
+	}, [dispatch]);
+	console.log(evento);
 
 	const handleSelectSlot = (slotInfo) => {
-		// Verificar si la fecha seleccionada es mayor o igual a la fecha actual
 		if (
 			moment(slotInfo.start)
 				.startOf('day')
@@ -52,11 +68,11 @@ const Calendary = () => {
 		}
 	};
 
-  const handleInputChange = (e) => {
-    setStudentName(e.target.value);
-  };
+	const handleInputChange = (e) => {
+		setStudentName(e.target.value);
+	};
 
-/*   const handleReservation = () => {
+	/*   const handleReservation = () => {
     const newEvent = {
       id: Math.random().toString(36).substring(7), // Genera un ID único para el evento
       start: selectedSlot.start,
@@ -73,51 +89,69 @@ const Calendary = () => {
 		setEvents(events.filter((event) => event.id !== eventId));
 	}; */
 
-  const EventComponent = ({ event }) => {
-    return (
-      <div onClick={() => handleDeleteEvent(event.id)} style={{ display: 'flex', alignItems: 'center'}}>
-        <p style={{ fontSize: '0.8rem' }}>{event.title}</p>
-      </div>
-    );
-  };
-  
-  return (
-    <div style={{ height: '95vh', width: '95vw', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop:'8rem' }}>
-      <Calendar
-        style={{ width: '80vw' }}
-        localizer={localizer}
-        views={{ week: true }}
-        defaultDate={{}}
-        defaultView={Views.WEEK}
-        selectable
-        onSelectSlot={handleSelectSlot}
-        min={WORK_HOURS.start}
-        max={WORK_HOURS.end}
-        step={60} // Configura el paso de tiempo en minutos
-        timeslots={1} // Configura la cantidad de ranuras de tiempo por hora
-        components={{
-          event: EventComponent, // Usa el componente EventComponent para renderizar los eventos
-        }}
-      />
-      {selectedSlot && (
-        <div className="contenedor-modal">
-          <div className='modal' style={{ marginTop: '20px' }}>
-            <h1>Reservar la clase</h1>
-            <div className="reservar">
-              <input
-                type="text"
-                placeholder="Nombre completo del alumno"
-                value={studentName}
-                onChange={handleInputChange}
-              />
-              <button className='btn-reservar' onClick={handleReservation}>Reservar</button>
-            </div>
-            <button className='cerrar-modal' onClick={handleClose}>X</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+	const EventComponent = ({ event }) => {
+		return (
+			<div
+				onClick={() => handleDeleteEvent(event.id)}
+				style={{ display: 'flex', alignItems: 'center' }}
+			>
+				<p style={{ fontSize: '0.8rem' }}>{event.title}</p>
+			</div>
+		);
+	};
+
+	return (
+		<div
+			style={{
+				height: '95vh',
+				width: '95vw',
+				position: 'relative',
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				paddingTop: '8rem',
+			}}
+		>
+			<Calendar
+				style={{ width: '80vw' }}
+				localizer={localizer}
+				views={{ week: true }}
+				defaultDate={{}}
+				events={evento}
+				defaultView={Views.WEEK}
+				selectable
+				onSelectSlot={handleSelectSlot}
+				min={workHours.start}
+				max={workHours.end}
+				step={60}
+				timeslots={1}
+				components={{
+					event: EventComponent,
+				}}
+			/>
+			{selectedSlot && (
+				<div className='contenedor-modal'>
+					<div className='modal' style={{ marginTop: '20px' }}>
+						<h1>Reservar la clase</h1>
+						<div className='reservar'>
+							<input
+								type='text'
+								placeholder='Nombre completo del alumno'
+								value={studentName}
+								onChange={handleInputChange}
+							/>
+							<button className='btn-reservar' onClick={handleReservation}>
+								Reservar
+							</button>
+						</div>
+						<button className='cerrar-modal' onClick={handleClose}>
+							X
+						</button>
+					</div>
+				</div>
+			)}
+		</div>
+	);
 };
 
 export default Calendary;
