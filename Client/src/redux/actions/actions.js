@@ -6,6 +6,8 @@ import {
 	handleUserSignUp,
 } from '../../utils/UserUtils';
 import {
+	CLEAN_CALENDARY,
+	CLEAN_RESERVAS,
 	CLEAN_TEACHER,
 	GET_ANUNCIO,
 	GET_CALENDARY,
@@ -17,6 +19,22 @@ import {
 	SAVE_TEACHERS,
 	SIGN_UP,
 } from './types';
+
+export function cleanReservas() {
+	return function (dispatch) {
+		return dispatch({
+			type: CLEAN_RESERVAS,
+		});
+	};
+}
+
+export function cleanCalendary() {
+	return function (dispatch) {
+		return dispatch({
+			type: CLEAN_CALENDARY,
+		});
+	};
+}
 
 export function getReservas(idCalendary) {
 	return async function (dispatch) {

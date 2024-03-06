@@ -1,4 +1,6 @@
 import {
+	CLEAN_CALENDARY,
+	CLEAN_RESERVAS,
 	CLEAN_TEACHER,
 	GET_ANUNCIO,
 	GET_CALENDARY,
@@ -67,12 +69,24 @@ function rootReducer(state = initialState, action) {
 			};
 		}
 
-		case CLEAN_TEACHER: {
+		case CLEAN_TEACHER:
 			return {
 				...state,
 				teacherDetail: {},
 			};
-		}
+
+		case CLEAN_RESERVAS:
+			return {
+				...state,
+				reservas: [],
+			};
+
+		case CLEAN_CALENDARY:
+			return {
+				...state,
+				currentCalendary: {},
+			};
+
 		default:
 			return state;
 	}
