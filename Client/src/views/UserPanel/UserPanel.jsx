@@ -1,37 +1,37 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import imageDefault from '../../assets/imagen-de-perfil.jpg';
 import './UserPanel.scss';
 
 export default function UserPanel() {
 	const [imageProfile, setImageProfile] = useState('');
-	const [newImage, setNewImage] = useState('');
 	const [name, setName] = useState('');
 	const [lastname, setLastname] = useState('');
 	const [birthday, setBirthday] = useState('');
 	const [descriptionBiography, setDescriptionBiography] = useState('');
-	const [email, setEmail] = useState('');
 	const user = useSelector((state) => state.user);
+	const [email, setEmail] = useState(`${user.email}`);
 	console.log(user.id);
 
-	const actualizarImagenDePerfil = async (event) => {
-		const imagenSeleccionada = event.target.files[0];
+	// const actualizarImagenDePerfil = async (event) => {
+	// 	const imagenSeleccionada = event.target.files[0];
 
-		const formData = new FormData();
-		formData.append('file', imagenSeleccionada);
-		formData.append('upload_preset', 'Images');
+	// 	const formData = new FormData();
+	// 	formData.append('file', imagenSeleccionada);
+	// 	formData.append('upload_preset', 'Images');
 
-		await axios
-			.post('https://api.cloudinary.com/v1_1/dxryietha/image/upload', formData)
-			.then((response) => {
-				const imageUrl = response.data.secure_url;
-				setNewImage(imageUrl);
-				console.log(imageUrl);
-			})
-			.catch((error) => {
-				console.log('Error al cargar la imagen', error);
-			});
-	};
+	// 	await axios
+	// 		.post('https://api.cloudinary.com/v1_1/dxryietha/image/upload', formData)
+	// 		.then((response) => {
+	// 			const imageUrl = response.data.secure_url;
+	// 			setNewImage(imageUrl);
+	// 			console.log(imageUrl);
+	// 		})
+	// 		.catch((error) => {
+	// 			console.log('Error al cargar la imagen', error);
+	// 		});
+	// };
 
 	useEffect(() => {
 		axios
@@ -39,7 +39,6 @@ export default function UserPanel() {
 			.then((response) => {
 				const data = response.data;
 				setName(data.name);
-				setEmail(data.email)
 				setLastname(data.lastname);
 				setBirthday(data.birthday);
 				setDescriptionBiography(data.descriptionBiography);
@@ -56,13 +55,9 @@ export default function UserPanel() {
 		const profileData = {
 			name: name,
 			lastname: lastname,
-
 			birthday: birthday,
 			descriptionBiography: descriptionBiography,
-			imagePath: newImage,
 		};
-		console.log(newImage);
-		// Realizar la solicitud PATCH al servidor
 		axios
 			.patch(
 				`https://c16-35-m-java.onrender.com/api/client/${user.id}`,
@@ -140,18 +135,13 @@ export default function UserPanel() {
 					<div className='perfil'>
 						<img
 							className='avatar'
-							src={newImage || imageProfile}
+							src={imageDefault || imageProfile}
 							alt='Imagen de Perfil'
 						/>
 						<label htmlFor='file-upload' className='btn-form'>
 							Seleccionar
 						</label>
-						<input
-							id='file-upload'
-							type='file'
-							name='imagePath'
-							onChange={actualizarImagenDePerfil}
-						/>
+						<input id='file-upload' type='file' name='imagePath' />
 					</div>
 				</div>
 			</div>
