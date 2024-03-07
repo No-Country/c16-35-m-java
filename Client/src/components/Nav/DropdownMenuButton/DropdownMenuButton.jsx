@@ -1,4 +1,4 @@
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ const DropdownMenuButton = () => {
 	const dispatch = useDispatch();
 	const [checked, setChecked] = useState(false);
 
-	const handleCheckboxChange = () => {
+	const handleButton = () => {
 		setChecked((prevChecked) => !prevChecked);
 	};
 
@@ -37,22 +37,12 @@ const DropdownMenuButton = () => {
 
 	return (
 		<div className={`mainContainer ${checked ? 'clicked' : ''}`}>
-			<label htmlFor='check' className='checkbox-label'>
-				<input
-					type='checkbox'
-					id='check'
-					className='checkbox-input'
-					checked={checked}
-					onChange={handleCheckboxChange}
-				/>
-				<span className='checkbox-span'></span>
-				<span className='checkbox-span'></span>
-				<span className='checkbox-span'></span>
-			</label>
-			<AccountCircleIcon fontSize='large' />
+			<button className='button-Mi-Cuenta' onClick={handleButton}>
+				Mi cuenta{' '}
+			</button>
+			<PersonOutlineIcon fontSize='medium' />
 			{checked && (
 				<div className='dropdown'>
-					{/* Aquí puedes poner tu contenido de dropdown */}
 					<ul>
 						<li onClick={() => handleDropdown('Miperfil')}>Mi perfil</li>
 						<li onClick={() => handleDropdown('CrearAviso')}>

@@ -20,6 +20,7 @@ function Subject() {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		const newMateria = removeAccents(materia);
+		console.log(newMateria);
 		dispatch(getTeachersBySubject(`${newMateria}`));
 	}, []);
 
@@ -41,8 +42,10 @@ function Subject() {
 			<h1>{materia}</h1>
 			<div className='subject-card'>
 				{PROFESORES?.map((profesor, index) => {
-					const { id, imagePath, descriptionTeacher, name, lastname } =
-						profesor;
+					let { id, imagePath, descriptionTeacher, name, lastname } = profesor;
+					if (!descriptionTeacher) {
+						descriptionTeacher = 'not found';
+					}
 					return (
 						<div key={index} className='card-profe'>
 							<img src={imagePath || imagenDefault} alt={`${name} imagen`} />

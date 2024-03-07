@@ -134,7 +134,8 @@ function Anuncio() {
 
 	const handleAnuncio = async () => {
 		try {
-			dispatch(postAnuncio(anuncio, user.id));
+			const body = { ...anuncio, subject: anuncio.subject.toLowerCase() };
+			dispatch(postAnuncio(body, user.id));
 			const { data } = await axios.get(
 				`https://c16-35-m-java.onrender.com/api/client/${user.id}`,
 			);
