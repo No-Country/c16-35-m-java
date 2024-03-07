@@ -40,6 +40,7 @@ function Anuncio() {
 		endDate: '',
 		startHour: '',
 		endHour: '',
+		price:''
 	});
 
 	console.log(anuncio);
@@ -209,6 +210,14 @@ function Anuncio() {
 							setAnuncio({ ...anuncio, descriptionCurse: e.target.value })
 						}
 					></textarea>
+					<h1>Precio</h1>
+					<input 
+					type="text"
+					className='price-class'
+					onChange={(e) =>
+						setAnuncio({ ...anuncio, price: Number(e.target.value) })
+					}
+					/>
 				</div>
 				<button
 					onClick={handleAnuncio}
