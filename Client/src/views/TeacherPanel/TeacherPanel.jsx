@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import ManzanaItems from '../../assets/Manzana-card.svg';
 import Manzana from '../../assets/Manzana.svg';
+import imageDefault from '../../assets/imagen-de-perfil.jpg';
 import { cleanTeacher } from '../../redux/actions/actions';
 import './TeacherPanel.scss';
 
@@ -42,7 +43,7 @@ function TeacherPanel() {
 		>
 			<div className='teacher-panel-container'>
 				<div className='teacher-panel-reserva'>
-					<img src={imagePath} alt={name} />
+					<img src={imageDefault || imagePath} alt={name} />
 					<div className='teacher-panel-calificacion'>
 						<div className='calificacion'>
 							<p>Calificación</p>
