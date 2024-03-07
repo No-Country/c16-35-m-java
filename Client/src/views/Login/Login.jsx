@@ -58,7 +58,6 @@ const Login = () => {
 							{...register('password', { required: true, minLength: 8 })}
 							type='password'
 							name='password'
-							placeholder='*********'
 						/>
 						<span>
 							<img className='eye-form' src={EyePassword} alt='Icono' />
