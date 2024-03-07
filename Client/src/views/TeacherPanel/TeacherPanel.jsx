@@ -30,7 +30,7 @@ function TeacherPanel() {
 	const handleReservation = () => {
 		navigate(`/calendario/${teacherDetail.anuncios[0].id}/${id}`);
 	};
-	console.log(teacherDetail);
+
 	return (
 		<main
 			style={{
@@ -169,11 +169,14 @@ function TeacherPanel() {
 							<strong>
 								Desde el{' '}
 								{anunciosFiltered
-									? anunciosFiltered[0].startDate.split('-').reverse().join('-')
+									? anunciosFiltered[0]?.startDate
+											.split('-')
+											.reverse()
+											.join('-')
 									: 'startDate'}{' '}
 								hasta{' '}
 								{anunciosFiltered
-									? anunciosFiltered[0].endDate.split('-').reverse().join('-')
+									? anunciosFiltered[0]?.endDate.split('-').reverse().join('-')
 									: 'endDate'}{' '}
 								de{' '}
 								{anunciosFiltered
