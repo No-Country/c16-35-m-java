@@ -1,11 +1,14 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { DigitalClock } from '@mui/x-date-pickers/DigitalClock';
-import { postAnuncio } from '../../redux/actions/actions';
+import axios from 'axios';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getAnuncio, postAnuncio } from '../../redux/actions/actions';
 import './Anuncio.scss';
 
 function Anuncio() {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const [error, setError] = useState({
 		subject: '',
@@ -13,7 +16,7 @@ function Anuncio() {
 		startDate: '',
 		endDate: '',
 		startHour: '',
-		endHour: ''
+		endHour: '',
 	});
 	const user = useSelector((state) => state.user);
 
@@ -36,10 +39,10 @@ function Anuncio() {
 		startDate: '',
 		endDate: '',
 		startHour: '',
-		endHour: ''
+		endHour: '',
 	});
 
-	console.log(anuncio)
+	console.log(anuncio);
 
 	const handleCheckboxChange = (e) => {
 		const nuevaMateriaSeleccionada = e.target.value;
@@ -51,84 +54,94 @@ function Anuncio() {
 
 	const handleStartDateChange = (e) => {
 		const startDate = e.target.value;
-		console.log(startDate)
-		console.log(anuncio.endDate)
+		console.log(startDate);
+		console.log(anuncio.endDate);
 		if (startDate > anuncio.endDate && anuncio.endDate !== '') {
-			setError(prevError => ({
+			setError((prevError) => ({
 				...prevError,
-				startDate: 'La fecha de inicio no puede ser mayor que la fecha de finalización'
+				startDate:
+					'La fecha de inicio no puede ser mayor que la fecha de finalización',
 			}));
 		} else {
-			setAnuncio(prevAnuncio => ({
+			setAnuncio((prevAnuncio) => ({
 				...prevAnuncio,
 				startDate,
 			}));
-			setError(prevError => ({
+			setError((prevError) => ({
 				...prevError,
-				startDate: ''
-			}))
+				startDate: '',
+			}));
 		}
 	};
 
 	const handleEndDateChange = (e) => {
 		const endDate = e.target.value;
 		if (anuncio.startDate > endDate && anuncio.startDate !== '') {
-			setError(prevError => ({
+			setError((prevError) => ({
 				...prevError,
-				endDate: 'La fecha de fin no puede ser mayor que la fecha de inicio'
+				endDate: 'La fecha de fin no puede ser mayor que la fecha de inicio',
 			}));
 		} else {
-			setAnuncio(prevAnuncio => ({
+			setAnuncio((prevAnuncio) => ({
 				...prevAnuncio,
 				endDate,
 			}));
-			setError(prevError => ({
+			setError((prevError) => ({
 				...prevError,
-				endDate: ''
-			}))
+				endDate: '',
+			}));
 		}
 	};
 
 	const handleStartClock = (time) => {
-		const startHour = time.$H
+		const startHour = time.$H;
 		if (startHour > anuncio.endHour && anuncio.endHour !== '') {
-			setError(prevError => ({
+			setError((prevError) => ({
 				...prevError,
-				startHour: 'La hora de inicio no puede ser mayor que la hora de fin'
+				startHour: 'La hora de inicio no puede ser mayor que la hora de fin',
 			}));
 		} else {
-			setAnuncio(prevAnuncio => ({
+			setAnuncio((prevAnuncio) => ({
 				...prevAnuncio,
 				startHour,
 			}));
-			setError(prevError => ({
+			setError((prevError) => ({
 				...prevError,
-				startHour: ''
+				startHour: '',
 			}));
 		}
-	}
+	};
 
 	const handleEndClock = (time) => {
-		const endHour = time.$H
+		const endHour = time.$H;
 		if (endHour < anuncio.startHour && anuncio.startHour !== '') {
-			setError(prevError => ({
+			setError((prevError) => ({
 				...prevError,
-				endHour: 'La hora de inicio no puede ser mayor que la hora de fin'
+				endHour: 'La hora de inicio no puede ser mayor que la hora de fin',
 			}));
 		} else {
-			setAnuncio(prevAnuncio => ({
+			setAnuncio((prevAnuncio) => ({
 				...prevAnuncio,
 				endHour,
 			}));
-			setError(prevError => ({
+			setError((prevError) => ({
 				...prevError,
-				endHour: ''
+				endHour: '',
 			}));
 		}
-	}
+	};
 
-	const handleAnuncio = () => {
-		dispatch(postAnuncio(anuncio, user.id))
+	const handleAnuncio = async () => {
+		try {
+			dispatch(postAnuncio(anuncio, user.id));
+			const { data } = await axios.get(
+				`https://c16-35-m-java.onrender.com/api/client/${user.id}`,
+			);
+			dispatch(getAnuncio(user.id, data));
+			navigate(`/teacher-panel/${anuncio.subject}/${user.id}`);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -151,20 +164,38 @@ function Anuncio() {
 				</div>
 				<div className='anuncio-seccion'>
 					<h3>Fecha de inicio</h3>
-					<input type='date' value={anuncio.startDate} onChange={handleStartDateChange} />
+					<input
+						type='date'
+						value={anuncio.startDate}
+						onChange={handleStartDateChange}
+					/>
 					{error.startDate && <p style={{ color: 'red' }}>{error.startDate}</p>}
 				</div>
 				<div className='anuncio-seccion'>
 					<h3>Fecha de fin</h3>
-					<input type='date' value={anuncio.endDate} onChange={handleEndDateChange} />
+					<input
+						type='date'
+						value={anuncio.endDate}
+						onChange={handleEndDateChange}
+					/>
 					{error.endDate && <p style={{ color: 'red' }}>{error.endDate}</p>}
 				</div>
 				<div className='anuncio-seccion'>
 					<h3>Hora de inicio</h3>
-					<DigitalClock onChange={handleStartClock} minutesStep={60} skipDisabled sx={{ width: '240px', ml: 0, height: '300px', border: 'solid 1px' }} />
+					<DigitalClock
+						onChange={handleStartClock}
+						minutesStep={60}
+						skipDisabled
+						sx={{ width: '240px', ml: 0, height: '300px', border: 'solid 1px' }}
+					/>
 					{error.startHour && <p style={{ color: 'red' }}>{error.startHour}</p>}
 					<h3>Hora de fin</h3>
-					<DigitalClock onChange={handleEndClock} minutesStep={60} skipDisabled sx={{ width: '240px', ml: 0, height: '300px', border: 'solid 1px' }} />
+					<DigitalClock
+						onChange={handleEndClock}
+						minutesStep={60}
+						skipDisabled
+						sx={{ width: '240px', ml: 0, height: '300px', border: 'solid 1px' }}
+					/>
 					{error.endHour && <p style={{ color: 'red' }}>{error.endHour}</p>}
 				</div>
 
@@ -179,7 +210,12 @@ function Anuncio() {
 						}
 					></textarea>
 				</div>
-				<button onClick={handleAnuncio} disabled={Object.values(error).some(e => e !== '')}>Crear Anuncio</button>
+				<button
+					onClick={handleAnuncio}
+					disabled={Object.values(error).some((e) => e !== '')}
+				>
+					Crear Anuncio
+				</button>
 			</div>
 		</main>
 	);

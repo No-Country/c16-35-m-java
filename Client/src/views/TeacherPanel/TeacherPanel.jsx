@@ -10,6 +10,7 @@ function TeacherPanel() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const teacherDetail = useSelector((state) => state.teacherDetail);
+	console.log(teacherDetail);
 	const { materia, id } = useParams();
 	const { imagePath, descriptionBiography, name, lastname } = teacherDetail;
 
@@ -32,22 +33,21 @@ function TeacherPanel() {
 
 	console.log(teacherDetail);
 	return (
-		<main style={{ backgroundColor: '#f2f3fe', height: 'fit-content', paddingBottom:'1rem' }}>
+		<main
+			style={{
+				backgroundColor: '#f2f3fe',
+				height: 'fit-content',
+				paddingBottom: '1rem',
+			}}
+		>
 			<div className='teacher-panel-container'>
 				<div className='teacher-panel-reserva'>
 					<img src={imagePath} alt={name} />
 					<div className='teacher-panel-calificacion'>
-						<div
-							className='calificacion'
-						>
-							<p>Calificacion</p>
-							<div
-								className='valoracion'
-							>
-                <img
-									src={Manzana}
-									alt='Icono'
-								/>
+						<div className='calificacion'>
+							<p>Calificación</p>
+							<div className='valoracion'>
+								<img src={Manzana} alt='Icono' />
 								<p>4.7</p>
 							</div>
 						</div>
@@ -66,7 +66,7 @@ function TeacherPanel() {
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-                  <img
+									<img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
@@ -88,7 +88,7 @@ function TeacherPanel() {
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-                  <img
+									<img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
@@ -105,12 +105,12 @@ function TeacherPanel() {
 									marginTop: '1rem',
 								}}
 							>
-								<p>Preparacion</p>
+								<p>Preparación</p>
 								<div
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-                <img
+									<img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
@@ -120,15 +120,27 @@ function TeacherPanel() {
 							</div>
 						</div>
 						<div className='panel-reserva' style={{ marginTop: '2rem' }}>
-              <div className="reserva-precio">
-                <p style={{color:'#fccd88'}}>Precio por hora</p>
-                <p style={{color:'white'}}>${anunciosFiltered ? anunciosFiltered[0].price : 'precio'}</p>
-              </div>
-              <div className="reserva-precio">
-                <p style={{color:'#fccd88'}}>Plataformas</p>
-                <p style={{color:'white', fontSize:'0.9rem', fontWeight:'400'}}>Google meets <br /> Zoom</p>
-              </div>
-              <button className='reserva-btn' onClick={handleReservation}>Reservar clase</button>
+							<div className='reserva-precio'>
+								<p style={{ color: '#fccd88' }}>Precio por hora</p>
+								<p style={{ color: 'white' }}>
+									${anunciosFiltered ? anunciosFiltered[0].price : 'precio'}
+								</p>
+							</div>
+							<div className='reserva-precio'>
+								<p style={{ color: '#fccd88' }}>Plataformas</p>
+								<p
+									style={{
+										color: 'white',
+										fontSize: '0.9rem',
+										fontWeight: '400',
+									}}
+								>
+									Google meets <br /> Zoom
+								</p>
+							</div>
+							<button className='reserva-btn' onClick={handleReservation}>
+								Reservar clase
+							</button>
 						</div>
 					</div>
 				</div>
@@ -157,9 +169,14 @@ function TeacherPanel() {
 						<p>
 							<strong>
 								Desde el{' '}
-								{anunciosFiltered ? anunciosFiltered[0].startDate.split("-").reverse().join("-") : 'startDate'}{' '}
+								{anunciosFiltered
+									? anunciosFiltered[0].startDate.split('-').reverse().join('-')
+									: 'startDate'}{' '}
 								hasta{' '}
-								{anunciosFiltered ? anunciosFiltered[0].endDate.split("-").reverse().join("-") : 'endDate'} de{' '}
+								{anunciosFiltered
+									? anunciosFiltered[0].endDate.split('-').reverse().join('-')
+									: 'endDate'}{' '}
+								de{' '}
 								{anunciosFiltered ? anunciosFiltered[0].startHour : 'startHour'}
 								:00hs hasta las{' '}
 								{anunciosFiltered ? anunciosFiltered[0].endHour : 'endHour'}

@@ -69,8 +69,11 @@ export function getCalendary(id) {
 export function postAnuncio(anuncio, id) {
 	return async function (dispatch) {
 		try {
-			console.log(anuncio, id);
-			const { data } = await Educaflex.post(`/api/calendary/teacher/${id}`);
+			console.log(anuncio, '---------', id);
+			const { data } = await Educaflex.post(
+				`/api/calendary/teacher/${id}`,
+				anuncio,
+			);
 			return dispatch({
 				type: POST_ANUNCIO,
 				payload: data,
