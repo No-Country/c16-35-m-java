@@ -10,6 +10,7 @@ export default function UserPanel() {
 	const [lastname, setLastname] = useState('');
 	const [birthday, setBirthday] = useState('');
 	const [descriptionBiography, setDescriptionBiography] = useState('');
+	const [email, setEmail] = useState('');
 	const user = useSelector((state) => state.user);
 	console.log(user.id);
 
@@ -38,6 +39,7 @@ export default function UserPanel() {
 			.then((response) => {
 				const data = response.data;
 				setName(data.name);
+				setEmail(data.email)
 				setLastname(data.lastname);
 				setBirthday(data.birthday);
 				setDescriptionBiography(data.descriptionBiography);
@@ -54,6 +56,7 @@ export default function UserPanel() {
 		const profileData = {
 			name: name,
 			lastname: lastname,
+
 			birthday: birthday,
 			descriptionBiography: descriptionBiography,
 			imagePath: newImage,
@@ -97,6 +100,15 @@ export default function UserPanel() {
 								name='lastname'
 								value={lastname}
 								onChange={(e) => setLastname(e.target.value)}
+							/>
+						</div>
+						<label>Email</label>
+						<div className='form-input'>
+							<input
+								type='text'
+								name='email'
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
 							/>
 						</div>
 						<label>Cumpleaños</label>
