@@ -31,7 +31,6 @@ export const Nav = () => {
 						<img src={Logo} alt='Logo de la aplicación' />
 					</Link>
 				</div>
-				<MPButton />
 				{user.email ? <DropdownMenuButton /> : registrarse()}
 			</nav>
 		</header>
