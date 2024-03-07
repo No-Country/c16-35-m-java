@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Calendar, Views, momentLocalizer } from 'react-big-calendar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import MPButton from '../../components/MPButton/MPButton';
 import { getCalendary, getReservas } from '../../redux/actions/actions';
 import Logo from '../../assets/Logo.svg'
 import './Calendary.scss';
@@ -21,11 +22,30 @@ const Calendary = () => {
 	const { idCalendary, idTeacher } = useParams();
 	const calendary = useSelector((state) => state.currentCalendary);
 	const reservas = useSelector((state) => state.reservas);
+	const user = useSelector((state) => state.user);
 	const [selectedSlot, setSelectedSlot] = useState(null);
-	const [studentName, setStudentName] = useState('');
 	const [evento, setEvento] = useState([]);
-	const [events, setEvents] = useState([]);
 	const [reservationSuccess, setReservationSuccess] = useState(false);
+	let post = {};
+
+	function formatDateToString(fecha) {
+		const year = fecha.getFullYear();
+		const month = String(fecha.getMonth() + 1).padStart(2, '0');
+		const day = String(fecha.getDate()).padStart(2, '0');
+		const hours = String(fecha.getHours()).padStart(2, '0');
+		const minutes = String(fecha.getMinutes()).padStart(2, '0');
+		const seconds = String(fecha.getSeconds()).padStart(2, '0');
+
+		return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+	}
+
+	if (selectedSlot) {
+		post = {
+			idCalendary: calendary.id,
+			fecha: formatDateToString(selectedSlot?.start),
+			idUser: user.id,
+		};
+	}
 
 	const handleClose = () => {
 		setSelectedSlot(null);
@@ -67,27 +87,6 @@ const Calendary = () => {
 		}
 	};
 
-	console.log(selectedSlot);
-
-	const handleReservation = () => {
-		// Verificar que se haya ingresado el nombre del estudiante
-		if (studentName.trim() === '') {
-			alert('Por favor ingresa el nombre del estudiante.');
-			return;
-		}
-
-		const newEvent = {
-			id: Math.random().toString(36).substring(7), // Genera un ID único para el evento
-			start: selectedSlot.start,
-			end: moment(selectedSlot.start).add(1, 'hour').toDate(),
-			title: studentName,
-		};
-		setEvents([...events, newEvent]);
-		setSelectedSlot(null);
-		setStudentName('');
-		setReservationSuccess(true); // Actualizar el estado de éxito de la reserva
-	};
-
 	const EventComponent = ({ event }) => {
 		return (
 			<div style={{ display: 'flex', alignItems: 'center' }}>
@@ -96,6 +95,7 @@ const Calendary = () => {
 		);
 	};
 
+	console.log(reservas);
 	return (
 		<div
 			style={{
@@ -125,6 +125,7 @@ const Calendary = () => {
 					event: EventComponent,
 				}}
 			/>
+
 			{selectedSlot && (
 				<div className='contenedor-modal'>
 					<div className='modal' style={{ marginTop: '20px' }}>
@@ -139,9 +140,13 @@ const Calendary = () => {
 							</p>
 						) : (
 							<div className='reservar'>
-								<button className='btn-reservar' onClick={handleReservation}>
-									Reservar
-								</button>
+								<MPButton
+									title={user.email}
+									price={calendary.price}
+									post={post}
+								>
+									reservar
+								</MPButton>
 							</div>
 						)}
 						<button className='cerrar-modal' onClick={handleClose}>

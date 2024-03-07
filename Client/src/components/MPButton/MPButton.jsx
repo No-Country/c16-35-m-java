@@ -1,19 +1,23 @@
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import axios from 'axios';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { postReserva } from '../../redux/actions/actions';
 
-const MPButton = () => {
+const MPButton = ({ children, title, price, post, quantity = 1 }) => {
+	const dispatch = useDispatch();
 	const [preferenceId, setpreferenceId] = useState(null);
 
 	const createPreference = async () => {
 		try {
 			//"/create_preference"
+			console.log(price);
 			const response = await axios.post(
 				'http://localhost:3003/MercadoPago/create_preference',
 				{
-					title: 'Clase',
-					quantity: 1,
-					price: 100,
+					title: title,
+					quantity: quantity,
+					price: price,
 				},
 			);
 
@@ -24,7 +28,8 @@ const MPButton = () => {
 		}
 	};
 
-	const handleBuy = async () => {
+	const handleBuy = async (post) => {
+		dispatch(postReserva(post));
 		const id = await createPreference();
 		if (id) {
 			setpreferenceId(id);
@@ -36,7 +41,7 @@ const MPButton = () => {
 		};
 	return (
 		<div>
-			<button onClick={handleBuy}></button>
+			<button onClick={() => handleBuy(post)}>{children}</button>
 			{preferenceId && (
 				<Wallet initialization={{ preferenceId: preferenceId }} />
 			)}

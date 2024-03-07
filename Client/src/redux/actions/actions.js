@@ -15,6 +15,7 @@ import {
 	LOGIN,
 	LOGOUT,
 	POST_ANUNCIO,
+	POST_RESERVA,
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
@@ -25,6 +26,28 @@ export function cleanReservas() {
 		return dispatch({
 			type: CLEAN_RESERVAS,
 		});
+	};
+}
+
+export function postReserva({ idCalendary, idUser, fecha }) {
+	return async function (dispatch) {
+		try {
+			console.log(idCalendary, idUser, fecha);
+
+			await Educaflex.post(
+				`/api/reservation/calendary/${idCalendary}/client/${idUser}`,
+				{
+					id: 0,
+					dateAndHour: fecha,
+					payed: true,
+				},
+			);
+			return dispatch({
+				type: POST_RESERVA,
+			});
+		} catch (error) {
+			console.log(error);
+		}
 	};
 }
 

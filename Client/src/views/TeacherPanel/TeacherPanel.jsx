@@ -11,7 +11,6 @@ function TeacherPanel() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const teacherDetail = useSelector((state) => state.teacherDetail);
-	console.log(teacherDetail);
 	const { materia, id } = useParams();
 	const { imagePath, descriptionBiography, name, lastname } = teacherDetail;
 
@@ -31,6 +30,7 @@ function TeacherPanel() {
 	const handleReservation = () => {
 		navigate(`/calendario/${teacherDetail.anuncios[0].id}/${id}`);
 	};
+
 	return (
 		<main
 			style={{
@@ -122,7 +122,7 @@ function TeacherPanel() {
 							<div className='reserva-precio'>
 								<p style={{ color: '#fccd88' }}>Precio por hora</p>
 								<p style={{ color: 'white' }}>
-									${anunciosFiltered ? anunciosFiltered[0].price : 'precio'}
+									${anunciosFiltered ? anunciosFiltered[0]?.price : 'precio'}
 								</p>
 							</div>
 							<div className='reserva-precio'>
@@ -155,7 +155,7 @@ function TeacherPanel() {
 						<h2>Sobre la clase</h2>
 						<p>
 							{anunciosFiltered
-								? anunciosFiltered[0].descriptionCurse
+								? anunciosFiltered[0]?.descriptionCurse
 								: 'descriptionCurse'}
 						</p>
 					</div>
@@ -169,16 +169,21 @@ function TeacherPanel() {
 							<strong>
 								Desde el{' '}
 								{anunciosFiltered
-									? anunciosFiltered[0].startDate.split('-').reverse().join('-')
+									? anunciosFiltered[0]?.startDate
+											.split('-')
+											.reverse()
+											.join('-')
 									: 'startDate'}{' '}
 								hasta{' '}
 								{anunciosFiltered
-									? anunciosFiltered[0].endDate.split('-').reverse().join('-')
+									? anunciosFiltered[0]?.endDate.split('-').reverse().join('-')
 									: 'endDate'}{' '}
 								de{' '}
-								{anunciosFiltered ? anunciosFiltered[0].startHour : 'startHour'}
+								{anunciosFiltered
+									? anunciosFiltered[0]?.startHour
+									: 'startHour'}
 								:00hs hasta las{' '}
-								{anunciosFiltered ? anunciosFiltered[0].endHour : 'endHour'}
+								{anunciosFiltered ? anunciosFiltered[0]?.endHour : 'endHour'}
 								:00hs
 							</strong>
 						</p>

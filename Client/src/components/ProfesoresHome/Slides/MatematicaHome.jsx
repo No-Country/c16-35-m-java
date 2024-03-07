@@ -5,7 +5,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Manzana from '../../../assets/Manzana-card.svg';
 
 import { getAnuncio } from '../../../redux/actions/actions';
 import './SlideHome.scss';
@@ -43,9 +42,6 @@ function MatematicaHome({ materia, teachers }) {
 							<div key={id || index} className='card-profe'>
 								<img src={imagePath} alt='' />
 								<div className='card-profe-info'>
-									<div className='valoracion'>
-										<img src={Manzana} alt='Icono' />
-									</div>
 									<h2 className='profe-nombre'>{`${name} ${lastname}`}</h2>
 									<p className='profe-descripcion'>{descriptionTeacher}</p>
 									<p className='profe-clase'>Primera Clase Gratis</p>
@@ -70,9 +66,6 @@ function MatematicaHome({ materia, teachers }) {
 							<div key={id || index} className='card-profe'>
 								<img src={imagePath} alt='' />
 								<div className='card-profe-info'>
-									<div className='valoracion'>
-										<img src={Manzana} alt='Icono' />
-									</div>
 									<h2 className='profe-nombre'>{`${name} ${lastname}`}</h2>
 									<p className='profe-descripcion'>{descriptionTeacher}</p>
 									<p className='profe-clase'>Primera Clase Gratis</p>
