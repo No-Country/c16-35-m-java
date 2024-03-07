@@ -1,12 +1,21 @@
-import { useParams } from 'react-router-dom';
-import { PROFESORES } from '../../data-profesores';
-import Manzana from '../../assets/Manzana-card.svg';
-import './Subject.scss';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import Manzana from '../../assets/Manzana-card.svg';
+import { getTeachersBySubject } from '../../redux/actions/actions';
+import './Subject.scss';
 function Subject() {
 	const { materia } = useParams();
+	const allTeachers = useSelector((state) => state.allTeachers);
+	const PROFESORES = allTeachers.matematica;
+	function removeAccents(text) {
+		return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+	}
+	const dispatch = useDispatch();
 	useEffect(() => {
 		window.scrollTo(0, 0);
+		const newMateria = removeAccents(materia);
+		dispatch(getTeachersBySubject(`${newMateria}`));
 	}, []);
 	return (
 		<section className='subject-container'>

@@ -31,8 +31,6 @@ function TeacherPanel() {
 	const handleReservation = () => {
 		navigate(`/calendario/${teacherDetail.anuncios[0].id}/${id}`);
 	};
-
-	console.log(teacherDetail);
 	return (
 		<main
 			style={{
