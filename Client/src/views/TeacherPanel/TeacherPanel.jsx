@@ -40,28 +40,22 @@ function TeacherPanel() {
 					<div className='teacher-panel-calificacion'>
 						<div
 							className='calificacion'
-							style={{
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'space-around',
-							}}
 						>
 							<p>Calificacion</p>
 							<div
 								className='valoracion'
 								style={{ display: 'flex', alignItems: 'center' }}
 							>
-								<p>4.7</p>
-								<img
+                <img
 									src={Manzana}
-									alt=''
-									style={{ width: '1.5rem', height: '1.5rem' }}
+									alt='Icono'
 								/>
+								<p>4.7</p>
 							</div>
 						</div>
-						<div className='items' style={{ width: '11rem', margin: '0 auto' }}>
+						<div className='items' style={{ width: '12rem', margin: '0 auto' }}>
 							<div
-								className='calificacion'
+								className='calificacion-items'
 								style={{
 									display: 'flex',
 									alignItems: 'center',
@@ -74,16 +68,16 @@ function TeacherPanel() {
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-									<p>4.7</p>
-									<img
+                  <img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
 									/>
+									<p>4.7</p>
 								</div>
 							</div>
 							<div
-								className='calificacion'
+								className='calificacion-items'
 								style={{
 									display: 'flex',
 									alignItems: 'center',
@@ -96,16 +90,16 @@ function TeacherPanel() {
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-									<p>4.7</p>
-									<img
+                  <img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
 									/>
+									<p>4.6</p>
 								</div>
 							</div>
 							<div
-								className='calificacion'
+								className='calificacion-items'
 								style={{
 									display: 'flex',
 									alignItems: 'center',
@@ -118,12 +112,12 @@ function TeacherPanel() {
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-									<p>4.7</p>
-									<img
+                <img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
 									/>
+									<p>4.8</p>
 								</div>
 							</div>
 						</div>

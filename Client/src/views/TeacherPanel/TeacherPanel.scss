@@ -12,6 +12,30 @@
             object-fit: cover;
         }
     }
+    .teacher-panel-calificacion{
+        .calificacion{
+            width: 15rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1rem auto;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            font-weight: 500;
+            background-color: var(--color-secondary);
+            & img{
+                width: 1.7rem;
+                height: 1.7rem;
+            }
+        }
+        .calificacion-items{
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    }
     .teacher-panel-text{
         display: flex;
         flex-direction: column;
