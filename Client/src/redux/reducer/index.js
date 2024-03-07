@@ -8,6 +8,7 @@ import {
 	LOGIN,
 	LOGOUT,
 	POST_ANUNCIO,
+	POST_RESERVA,
 	RELOAD_USER,
 	SAVE_TEACHERS,
 	SIGN_UP,
@@ -57,6 +58,12 @@ function rootReducer(state = initialState, action) {
 			};
 		}
 		case POST_ANUNCIO: {
+			return {
+				...state,
+			};
+		}
+
+		case POST_RESERVA: {
 			return {
 				...state,
 			};
