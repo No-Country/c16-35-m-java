@@ -5,6 +5,7 @@ import { Calendar, Views, momentLocalizer } from 'react-big-calendar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getCalendary, getReservas } from '../../redux/actions/actions';
+import Logo from '../../assets/Logo.svg'
 import './Calendary.scss';
 
 moment.locale('es'); // Cambiar la configuración regional a español
@@ -127,6 +128,10 @@ const Calendary = () => {
 			{selectedSlot && (
 				<div className='contenedor-modal'>
 					<div className='modal' style={{ marginTop: '20px' }}>
+						<div className="modal-img">
+						  <img src={Logo} alt="Logo Educaflex" />
+						</div>
+						
 						<h1>Reservar la clase</h1>
 						{reservationSuccess ? (
 							<p style={{ color: 'green' }}>

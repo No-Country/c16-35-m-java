@@ -20,6 +20,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 1rem;
 	border-radius: 6px;
 	transform: scale(0);
 	animation: agrandar forwards 0.3s; /* Cambié la duración de la animación a 0.3 segundos */
@@ -41,11 +42,24 @@ input {
 	background-color: #3b99fc;
 	color: white;
 	border: none;
-	border-top-right-radius: 6px;
-	border-bottom-right-radius: 6px;
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
+	border-radius: 6px;
+	width: 8rem;
 	height: 2.4rem;
+	font-family: var(--font-poppins);
+	font-size: 1.3rem;
+	border: 1px solid #3b99fc;
+	cursor: pointer;
+	transition: all 250ms;
+}
+.btn-reservar:hover{
+	border: 1px solid var(--color-secondary);
+}
+.modal-img{
+	position: absolute;
+	bottom: 15rem;
+	& img{
+		width: 17rem;
+	}
 }
 .cerrar-modal {
 	position: absolute;
@@ -53,8 +67,9 @@ input {
 	color: white;
 	font-size: 2rem;
 	border: none;
-	top: -1rem;
-	right: -1rem;
+	top: 0rem;
+	right: 0.5rem;
+	cursor: pointer;
 }
 .cerrar-modal:focus {
 	border: 1px solid transparent;
