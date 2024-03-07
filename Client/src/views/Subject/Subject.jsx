@@ -17,23 +17,39 @@ function Subject() {
 		const newMateria = removeAccents(materia);
 		dispatch(getTeachersBySubject(`${newMateria}`));
 	}, []);
+
+    function TextoConSuspensivos({ texto, longitudMaxima,...props}) {
+		if (texto.length > longitudMaxima) {
+		  return <p {...props}>{texto.slice(0, longitudMaxima)}...</p>;
+		} else {
+		  return <p {...props}>{texto}</p>;
+		}
+	  }
+
+
 	return (
 		<section className='subject-container'>
 			<h1>{materia}</h1>
 			<div className='subject-card'>
-				{PROFESORES.map((profesor) => {
-					const { imagen, descripcion, nombre, clase, valoracion } = profesor;
+				{PROFESORES?.map((profesor, index) => {
+					const { imagePath, descriptionTeacher, name, lastname } = profesor;
 					return (
-						<div key={nombre} className='card-profe'>
-							<img src={imagen} alt={imagen} />
+						<div key={index} className='card-profe'>
+							<img src={imagePath} alt={name} />
 							<div className='card-profe-info'>
-								<div className='valoracion'>
-									<img src={Manzana} alt='Icono' />
-									<p className='profe-valoracion'>{valoracion}</p>
+								<div className="titulo-profe-card">
+								    <h2 className='profe-nombre'>{name} {lastname}</h2>
+								    <div className='valoracion'>
+									    <img src={Manzana} alt='Icono' />
+									    <p className='profe-valoracion'>4.5</p>
+								    </div>
 								</div>
-								<h2 className='profe-nombre'>{nombre}</h2>
-								<p className='profe-descripcion'>{descripcion}</p>
-								<p className='profe-clase'>{clase}</p>
+								<TextoConSuspensivos
+								className='profe-descripcion' 
+								texto={descriptionTeacher}
+								longitudMaxima={90}
+								></TextoConSuspensivos>
+								<p className='profe-clase'>1ra clase gratis</p>
 								<a className='profe-enlace' href='#'>
 									Ver más
 								</a>
