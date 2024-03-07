@@ -81,7 +81,13 @@
 					font-family: var(--font-poppins);
 				}
 			}
-
+            .price-class{
+				background-color: transparent;
+				border: 2px solid var(--color-primary);
+				border-radius: 6px;
+				width: 12rem;
+				padding: 1rem;
+			}
 			textarea {
 				font-family: var(--font-poppins);
 			}
