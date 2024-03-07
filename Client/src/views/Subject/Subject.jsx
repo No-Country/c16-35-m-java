@@ -5,14 +5,17 @@ import Manzana from '../../assets/Manzana-card.svg';
 import imagenDefault from '../../assets/imagen-de-perfil.jpg';
 import { getAnuncio, getTeachersBySubject } from '../../redux/actions/actions';
 import './Subject.scss';
+
 function Subject() {
 	const navigate = useNavigate();
 	const { materia } = useParams();
 	const allTeachers = useSelector((state) => state.allTeachers);
 	const PROFESORES = allTeachers.matematica;
+
 	function removeAccents(text) {
 		return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 	}
+
 	const dispatch = useDispatch();
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -20,6 +23,13 @@ function Subject() {
 		dispatch(getTeachersBySubject(`${newMateria}`));
 	}, []);
 
+	function TextoConSuspensivos({ texto, longitudMaxima, ...props }) {
+		if (texto.length > longitudMaxima) {
+			return <p {...props}>{texto.slice(0, longitudMaxima)}...</p>;
+		} else {
+			return <p {...props}>{texto}</p>;
+		}
+	}
 	const handleVerMas = (e, id, profesor) => {
 		e.preventDefault();
 		dispatch(getAnuncio(id, profesor));
@@ -30,7 +40,7 @@ function Subject() {
 		<section className='subject-container'>
 			<h1>{materia}</h1>
 			<div className='subject-card'>
-				{PROFESORES.map((profesor, index) => {
+				{PROFESORES?.map((profesor, index) => {
 					const { id, imagePath, descriptionTeacher, name, lastname } =
 						profesor;
 					return (
@@ -42,17 +52,11 @@ function Subject() {
 									<p className='profe-valoracion'>{4.7}</p>
 								</div>
 								<h2 className='profe-nombre'>{`${name} ${lastname}`}</h2>
-								<p
+								<TextoConSuspensivos
 									className='profe-descripcion'
-									style={{
-										overflow: 'hidden',
-										textOverflow: 'ellipsis',
-										whiteSpace: 'wrap',
-									}}
-								>
-									{descriptionTeacher}
-								</p>
-
+									texto={descriptionTeacher}
+									longitudMaxima={90}
+								/>
 								<p className='profe-clase'>{materia}</p>
 								<a
 									className='profe-enlace'
