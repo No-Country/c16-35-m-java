@@ -87,6 +87,7 @@ export function postAnuncio(anuncio, id) {
 export function getTeachersBySubject(subject) {
 	return async function (dispatch) {
 		try {
+			console.log(subject);
 			const { data } = await Educaflex.get(`/api/client/teaching/${subject}`);
 			const payload = {
 				data,
@@ -117,6 +118,7 @@ export function getAnuncio(id, profe) {
 				profe,
 				anuncios: data,
 			};
+			console.log(payload);
 			return dispatch({
 				type: GET_ANUNCIO,
 				payload,

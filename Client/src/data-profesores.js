@@ -119,21 +119,23 @@ export const OPINIONES = [
 		nombre: 'Claudia',
 		materia: 'Literatura',
 		valoracion: 4.5,
-		reseña:'La pasión de Claudia por la literatura se refleja en cada una de sus clases. Su profundo conocimiento de los textos y su capacidad para analizarlos desde múltiples perspectivas hacen que las clases sean cautivadoras.',
+		reseña:
+			'La pasión de Claudia por la literatura se refleja en cada una de sus clases. Su profundo conocimiento de los textos y su capacidad para analizarlos desde múltiples perspectivas hacen que las clases sean cautivadoras.',
 		alumno: 'Francisco',
 	},
 	{
 		nombre: 'Alejandro',
 		materia: 'Historia',
 		valoracion: 4.2,
-		reseña:'Alejandro tiene un don para hacer que la historia cobre vida. Sus clases no son solo una recopilación de fechas y eventos, sino una narrativa apasionante que conecta el pasado con el presente.',
+		reseña:
+			'Alejandro tiene un don para hacer que la historia cobre vida. Sus clases no son solo una recopilación de fechas y eventos, sino una narrativa apasionante que conecta el pasado con el presente.',
 		alumno: 'Romina',
 	},
 ];
 
 export const DISCIPLINAS = [
 	{
-		materia: 'Matemáticas',
+		materia: 'Matemática',
 	},
 	{
 		materia: 'Inglés',
