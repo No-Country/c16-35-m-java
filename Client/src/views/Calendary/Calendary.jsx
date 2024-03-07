@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getCalendary, getReservas } from '../../redux/actions/actions';
 import './Calendary.scss';
+
 moment.locale('es'); // Cambiar la configuración regional a español
 
 const localizer = momentLocalizer(moment);
@@ -23,17 +24,16 @@ const Calendary = () => {
 	const [studentName, setStudentName] = useState('');
 	const [evento, setEvento] = useState([]);
 	const [events, setEvents] = useState([]);
+	const [reservationSuccess, setReservationSuccess] = useState(false);
 
 	const handleClose = () => {
 		setSelectedSlot(null);
+		setReservationSuccess(false);
 	};
 
 	useEffect(() => {
 		dispatch(getReservas(idCalendary));
 		dispatch(getCalendary(idTeacher));
-	}, []);
-
-	useEffect(() => {
 		const startHour = new Date();
 		startHour.setHours(calendary.startHour, 0, 0, 0);
 
@@ -44,17 +44,15 @@ const Calendary = () => {
 			start: startHour,
 			end: endHour,
 		});
-		console.log(reservas);
+
+		const eventos = [];
 		for (let i = 0; i < reservas.length; i++) {
 			const start = new Date(reservas[i]);
 			const end = moment(start).add(1, 'hour').toDate();
-			const newEvent = { start, end };
-
-			setEvento((prevEvento) => {
-				return [...prevEvento, newEvent];
-			});
+			eventos.push({ start, end });
 		}
-	}, [dispatch]);
+		setEvento(eventos);
+	}, []);
 
 	const handleSelectSlot = (slotInfo) => {
 		if (
@@ -68,11 +66,15 @@ const Calendary = () => {
 		}
 	};
 
-	const handleInputChange = (e) => {
-		setStudentName(e.target.value);
-	};
+	console.log(selectedSlot);
 
 	const handleReservation = () => {
+		// Verificar que se haya ingresado el nombre del estudiante
+		if (studentName.trim() === '') {
+			alert('Por favor ingresa el nombre del estudiante.');
+			return;
+		}
+
 		const newEvent = {
 			id: Math.random().toString(36).substring(7), // Genera un ID único para el evento
 			start: selectedSlot.start,
@@ -82,7 +84,7 @@ const Calendary = () => {
 		setEvents([...events, newEvent]);
 		setSelectedSlot(null);
 		setStudentName('');
-		console.log(newEvent);
+		setReservationSuccess(true); // Actualizar el estado de éxito de la reserva
 	};
 
 	const EventComponent = ({ event }) => {
@@ -126,17 +128,17 @@ const Calendary = () => {
 				<div className='contenedor-modal'>
 					<div className='modal' style={{ marginTop: '20px' }}>
 						<h1>Reservar la clase</h1>
-						<div className='reservar'>
-							<input
-								type='text'
-								placeholder='Nombre completo del alumno'
-								value={studentName}
-								onChange={handleInputChange}
-							/>
-							<button className='btn-reservar' onClick={handleReservation}>
-								Reservar
-							</button>
-						</div>
+						{reservationSuccess ? (
+							<p style={{ color: 'green' }}>
+								¡La reserva se ha realizado con éxito!
+							</p>
+						) : (
+							<div className='reservar'>
+								<button className='btn-reservar' onClick={handleReservation}>
+									Reservar
+								</button>
+							</div>
+						)}
 						<button className='cerrar-modal' onClick={handleClose}>
 							X
 						</button>

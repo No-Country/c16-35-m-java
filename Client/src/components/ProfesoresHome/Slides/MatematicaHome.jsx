@@ -12,8 +12,6 @@ import './SlideHome.scss';
 
 function MatematicaHome({ materia, teachers }) {
 	const dispatch = useDispatch();
-	console.log(teachers);
-
 	const navigate = useNavigate();
 
 	const handleVerMas = (e, id, profesor) => {
@@ -38,14 +36,11 @@ function MatematicaHome({ materia, teachers }) {
 			>
 				<SwiperSlide style={{ background: 'none' }}>
 					{teachers?.slice(0, 3).map((profesor, index) => {
-						// Añadir el índice como segundo parámetro
-						//const {imagePath,descriptionTeacher,name, lastname}
 						const { id, imagePath, descriptionTeacher, name, lastname } =
 							profesor;
 
 						return (
-							<div key={{ index }} className='card-profe'>
-								{' '}
+							<div key={id || index} className='card-profe'>
 								<img src={imagePath} alt='' />
 								<div className='card-profe-info'>
 									<div className='valoracion'>
@@ -68,12 +63,11 @@ function MatematicaHome({ materia, teachers }) {
 
 				<SwiperSlide style={{ background: 'none' }}>
 					{teachers?.slice(3, 6).map((profesor, index) => {
-						// Añadir el índice como segundo parámetro
 						const { id, imagePath, descriptionTeacher, name, lastname } =
 							profesor;
+
 						return (
-							<div key={{ index }} className='card-profe'>
-								{' '}
+							<div key={id || index} className='card-profe'>
 								<img src={imagePath} alt='' />
 								<div className='card-profe-info'>
 									<div className='valoracion'>

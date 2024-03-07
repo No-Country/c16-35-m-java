@@ -10,7 +10,6 @@ function TeacherPanel() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const teacherDetail = useSelector((state) => state.teacherDetail);
-	console.log(teacherDetail);
 	const { materia, id } = useParams();
 	const { imagePath, descriptionBiography, name, lastname } = teacherDetail;
 
@@ -21,7 +20,6 @@ function TeacherPanel() {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
-	console.log(teacherDetail);
 	useEffect(() => {
 		return () => {
 			dispatch(cleanTeacher());
@@ -32,6 +30,7 @@ function TeacherPanel() {
 		navigate(`/calendario/${teacherDetail.anuncios[0].id}/${id}`);
 	};
 
+	console.log(teacherDetail);
 	return (
 		<main style={{ backgroundColor: '#f2f3fe', height: '100vh' }}>
 			<div className='teacher-panel-container'>

@@ -7,7 +7,6 @@ import MatematicaHome from './Slides/MatematicaHome';
 function ProfesHome() {
 	const dispatch = useDispatch();
 	const allTeachers = useSelector((state) => state.allTeachers);
-	console.log(allTeachers);
 
 	useEffect(() => {
 		dispatch(getTeachersBySubject('matematica'));
