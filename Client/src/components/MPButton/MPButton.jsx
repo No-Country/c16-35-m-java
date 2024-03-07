@@ -3,12 +3,12 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postReserva } from '../../redux/actions/actions';
-import './MPButton.scss'
+import './MPButton.scss';
 
 const MPButton = ({ children, title, price, post, quantity = 1 }) => {
 	const dispatch = useDispatch();
 	const [preferenceId, setpreferenceId] = useState(null);
-
+	const [disabled, setDisabled] = useState(false);
 	const createPreference = async () => {
 		try {
 			//"/create_preference"
@@ -30,6 +30,7 @@ const MPButton = ({ children, title, price, post, quantity = 1 }) => {
 	};
 
 	const handleBuy = async (post) => {
+		setDisabled(true);
 		dispatch(postReserva(post));
 		const id = await createPreference();
 		if (id) {
@@ -42,7 +43,13 @@ const MPButton = ({ children, title, price, post, quantity = 1 }) => {
 		};
 	return (
 		<div>
-			<button className='btn-reservar' onClick={() => handleBuy(post)}>{children}</button>
+			<button
+				className='btn-reservar'
+				hidden={disabled}
+				onClick={() => handleBuy(post)}
+			>
+				{children}
+			</button>
 			{preferenceId && (
 				<Wallet initialization={{ preferenceId: preferenceId }} />
 			)}
