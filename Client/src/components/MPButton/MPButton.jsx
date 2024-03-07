@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postReserva } from '../../redux/actions/actions';
+import './MPButton.scss'
 
 const MPButton = ({ children, title, price, post, quantity = 1 }) => {
 	const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const MPButton = ({ children, title, price, post, quantity = 1 }) => {
 		};
 	return (
 		<div>
-			<button onClick={() => handleBuy(post)}>{children}</button>
+			<button className='btn-reservar' onClick={() => handleBuy(post)}>{children}</button>
 			{preferenceId && (
 				<Wallet initialization={{ preferenceId: preferenceId }} />
 			)}

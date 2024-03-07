@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import MPButton from '../../components/MPButton/MPButton';
 import { getCalendary, getReservas } from '../../redux/actions/actions';
+import Logo from '../../assets/Logo.svg'
 import './Calendary.scss';
 
 moment.locale('es'); // Cambiar la configuración regional a español
@@ -36,6 +37,16 @@ const Calendary = () => {
 		const seconds = String(fecha.getSeconds()).padStart(2, '0');
 
 		return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+	}
+
+  function formatDateDescription(fecha) {
+		const year = fecha.getFullYear();
+		const month = String(fecha.getMonth() + 1).padStart(2, '0');
+		const day = String(fecha.getDate()).padStart(2, '0');
+		const hours = String(fecha.getHours()).padStart(2, '0');
+		const minutes = String(fecha.getMinutes()).padStart(2, '0');
+
+		return `${day}-${month}-${year} a las ${hours}:${minutes}`;
 	}
 
 	if (selectedSlot) {
@@ -128,6 +139,7 @@ const Calendary = () => {
 			{selectedSlot && (
 				<div className='contenedor-modal'>
 					<div className='modal' style={{ marginTop: '20px' }}>
+
 						<h1>Reservar la clase</h1>
 						{reservationSuccess ? (
 							<p style={{ color: 'green' }}>
@@ -140,8 +152,12 @@ const Calendary = () => {
 									price={calendary.price}
 									post={post}
 								>
-									reservar
+									Reservar
 								</MPButton>
+                <div className="detalles-reserva">
+                  <p>Precio: <span>${calendary.price}</span></p>
+                  <p>Dia y hora de la clase: <span>{formatDateDescription(selectedSlot?.start)}hs</span></p>
+                </div>
 							</div>
 						)}
 						<button className='cerrar-modal' onClick={handleClose}>

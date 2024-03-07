@@ -13,20 +13,24 @@
 	position: relative;
 	height: 40vh;
 	z-index: 5;
-	background-color: #3174ad;
+	background-color: var(--color-cuartiary);
 	color: white;
 	width: 40vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 1rem;
 	border-radius: 6px;
 	transform: scale(0);
 	animation: agrandar forwards 0.3s; /* Cambié la duración de la animación a 0.3 segundos */
 }
 .reservar {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	gap: 1rem;
 }
 input {
 	width: 20rem;
@@ -37,15 +41,15 @@ input {
 	padding: 0rem 1rem;
 	outline: none;
 }
-.btn-reservar {
-	background-color: #3b99fc;
-	color: white;
-	border: none;
-	border-top-right-radius: 6px;
-	border-bottom-right-radius: 6px;
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
-	height: 2.4rem;
+.detalles-reserva{
+	& p{
+		font-weight: 600;
+		color: var(--color-secondary);
+		font-size: 1.1rem;
+	}
+	& span{
+		color: white;
+	}
 }
 .cerrar-modal {
 	position: absolute;
@@ -53,8 +57,9 @@ input {
 	color: white;
 	font-size: 2rem;
 	border: none;
-	top: -1rem;
-	right: -1rem;
+	top: 0rem;
+	right: 0.5rem;
+	cursor: pointer;
 }
 .cerrar-modal:focus {
 	border: 1px solid transparent;
@@ -335,7 +340,7 @@ button.rbc-input::-moz-focus-inner {
 	box-shadow: none;
 	margin: 0;
 	padding: 2px 5px;
-	background-color: #3174ad;
+	background-color: gray;
 	border-radius: 5px;
 	color: #fff;
 	cursor: pointer;
@@ -350,11 +355,11 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-event.rbc-selected,
 .rbc-day-slot .rbc-selected.rbc-background-event {
-	background-color: #265985;
+	background-color: gray;
 }
 .rbc-event:focus,
 .rbc-day-slot .rbc-background-event:focus {
-	outline: 5px auto #3b99fc;
+	outline: 5px auto gray;
 }
 
 .rbc-event-label {
@@ -655,7 +660,8 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-day-slot .rbc-event,
 .rbc-day-slot .rbc-background-event {
-	border: 1px solid #265985;
+	border: 1px solid white;
+	opacity: 0.7;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;

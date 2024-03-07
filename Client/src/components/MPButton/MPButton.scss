@@ -1,0 +1,16 @@
+.btn-reservar {
+	background-color: var(--color-tertiary);
+	color: black;
+	border: none;
+	border-radius: 6px;
+	width: 8rem;
+	height: 2.4rem;
+	font-family: var(--font-poppins);
+	font-size: 1.3rem;
+	border: 1px solid var(--color-tertiary);
+	cursor: pointer;
+	transition: all 250ms;
+    &:hover{
+        border: 1px solid var(--color-secondary);
+    }
+}
