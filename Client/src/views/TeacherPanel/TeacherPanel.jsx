@@ -33,7 +33,7 @@ function TeacherPanel() {
 	};
 
 	return (
-		<main style={{ backgroundColor: '#f2f3fe', height: '100vh' }}>
+		<main style={{ backgroundColor: '#f2f3fe', height: 'fit-content', paddingBottom:'1rem' }}>
 			<div className='teacher-panel-container'>
 				<div className='teacher-panel-reserva'>
 					<img src={imagePath} alt={name} />
@@ -44,7 +44,6 @@ function TeacherPanel() {
 							<p>Calificacion</p>
 							<div
 								className='valoracion'
-								style={{ display: 'flex', alignItems: 'center' }}
 							>
                 <img
 									src={Manzana}
@@ -122,11 +121,15 @@ function TeacherPanel() {
 							</div>
 						</div>
 						<div className='panel-reserva' style={{ marginTop: '2rem' }}>
-							<p>
-								Precio:{' '}
-								{anunciosFiltered ? anunciosFiltered[0].price : 'precio'}
-							</p>
-							<button onClick={handleReservation}>Reservar clase</button>
+              <div className="reserva-precio">
+                <p style={{color:'#fccd88'}}>Precio por hora</p>
+                <p style={{color:'white'}}>${anunciosFiltered ? anunciosFiltered[0].price : 'precio'}</p>
+              </div>
+              <div className="reserva-precio">
+                <p style={{color:'#fccd88'}}>Plataformas</p>
+                <p style={{color:'white', fontSize:'0.9rem', fontWeight:'400'}}>Google meets <br /> Zoom</p>
+              </div>
+              <button className='reserva-btn' onClick={handleReservation}>Reservar clase</button>
 						</div>
 					</div>
 				</div>
@@ -155,9 +158,9 @@ function TeacherPanel() {
 						<p>
 							<strong>
 								Desde el{' '}
-								{anunciosFiltered ? anunciosFiltered[0].startDate : 'startDate'}{' '}
+								{anunciosFiltered ? anunciosFiltered[0].startDate.split("-").reverse().join("-") : 'startDate'}{' '}
 								hasta{' '}
-								{anunciosFiltered ? anunciosFiltered[0].endDate : 'endDate'} de{' '}
+								{anunciosFiltered ? anunciosFiltered[0].endDate.split("-").reverse().join("-") : 'endDate'} de{' '}
 								{anunciosFiltered ? anunciosFiltered[0].startHour : 'startHour'}
 								:00hs hasta las{' '}
 								{anunciosFiltered ? anunciosFiltered[0].endHour : 'endHour'}

@@ -30,10 +30,48 @@
                 height: 1.7rem;
             }
         }
+        .valoracion{
+            display: flex;
+            align-items: center;
+        }
         .calificacion-items{
             color: var(--color-primary);
             font-size: 1.1rem;
             font-weight: 600;
+        }
+        .panel-reserva{
+            background-color: var(--color-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            border-radius: 6px;
+            padding: 1.5rem 0.6rem;
+            height: 14rem;
+            & .reserva-precio{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 18rem;
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+            & .reserva-btn{
+                background-color: var(--color-tertiary);
+                padding: 1rem;
+                outline: none;
+                border-radius: 6px;
+                color: black;
+                font-size: 1.3rem;
+                font-weight: 600;
+                border: 2px solid transparent;
+                cursor: pointer;
+                transition: all 250ms;
+                font-family: var(--font-poppins);
+                &:hover{
+                    border: 2px solid var(--color-secondary);
+                }
+            }
         }
     }
     .teacher-panel-text{
