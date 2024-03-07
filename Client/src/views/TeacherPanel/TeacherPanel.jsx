@@ -41,7 +41,7 @@ function TeacherPanel() {
 		>
 			<div className='teacher-panel-container'>
 				<div className='teacher-panel-reserva'>
-					<img src={imageDefault || imagePath} alt={name} />
+					<img src={imagePath ? imagePath : imageDefault} alt={name} />
 					<div className='teacher-panel-calificacion'>
 						<div className='calificacion'>
 							<p>Calificación</p>
