@@ -32,35 +32,28 @@ function TeacherPanel() {
 
 	console.log(teacherDetail);
 	return (
-		<main style={{ backgroundColor: '#f2f3fe', height: '100vh' }}>
+		<main style={{ backgroundColor: '#f2f3fe', height: 'fit-content', paddingBottom:'1rem' }}>
 			<div className='teacher-panel-container'>
 				<div className='teacher-panel-reserva'>
 					<img src={imagePath} alt={name} />
 					<div className='teacher-panel-calificacion'>
 						<div
 							className='calificacion'
-							style={{
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'space-around',
-							}}
 						>
 							<p>Calificacion</p>
 							<div
 								className='valoracion'
-								style={{ display: 'flex', alignItems: 'center' }}
 							>
-								<p>4.7</p>
-								<img
+                <img
 									src={Manzana}
-									alt=''
-									style={{ width: '1.5rem', height: '1.5rem' }}
+									alt='Icono'
 								/>
+								<p>4.7</p>
 							</div>
 						</div>
-						<div className='items' style={{ width: '11rem', margin: '0 auto' }}>
+						<div className='items' style={{ width: '12rem', margin: '0 auto' }}>
 							<div
-								className='calificacion'
+								className='calificacion-items'
 								style={{
 									display: 'flex',
 									alignItems: 'center',
@@ -73,16 +66,16 @@ function TeacherPanel() {
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-									<p>4.7</p>
-									<img
+                  <img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
 									/>
+									<p>4.7</p>
 								</div>
 							</div>
 							<div
-								className='calificacion'
+								className='calificacion-items'
 								style={{
 									display: 'flex',
 									alignItems: 'center',
@@ -95,16 +88,16 @@ function TeacherPanel() {
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-									<p>4.7</p>
-									<img
+                  <img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
 									/>
+									<p>4.6</p>
 								</div>
 							</div>
 							<div
-								className='calificacion'
+								className='calificacion-items'
 								style={{
 									display: 'flex',
 									alignItems: 'center',
@@ -117,21 +110,25 @@ function TeacherPanel() {
 									className='valoracion'
 									style={{ display: 'flex', alignItems: 'center' }}
 								>
-									<p>4.7</p>
-									<img
+                <img
 										src={ManzanaItems}
 										alt=''
 										style={{ width: '1.5rem', height: '1.5rem' }}
 									/>
+									<p>4.8</p>
 								</div>
 							</div>
 						</div>
 						<div className='panel-reserva' style={{ marginTop: '2rem' }}>
-							<p>
-								Precio:{' '}
-								{anunciosFiltered ? anunciosFiltered[0].price : 'precio'}
-							</p>
-							<button onClick={handleReservation}>Reservar clase</button>
+              <div className="reserva-precio">
+                <p style={{color:'#fccd88'}}>Precio por hora</p>
+                <p style={{color:'white'}}>${anunciosFiltered ? anunciosFiltered[0].price : 'precio'}</p>
+              </div>
+              <div className="reserva-precio">
+                <p style={{color:'#fccd88'}}>Plataformas</p>
+                <p style={{color:'white', fontSize:'0.9rem', fontWeight:'400'}}>Google meets <br /> Zoom</p>
+              </div>
+              <button className='reserva-btn' onClick={handleReservation}>Reservar clase</button>
 						</div>
 					</div>
 				</div>
@@ -160,9 +157,9 @@ function TeacherPanel() {
 						<p>
 							<strong>
 								Desde el{' '}
-								{anunciosFiltered ? anunciosFiltered[0].startDate : 'startDate'}{' '}
+								{anunciosFiltered ? anunciosFiltered[0].startDate.split("-").reverse().join("-") : 'startDate'}{' '}
 								hasta{' '}
-								{anunciosFiltered ? anunciosFiltered[0].endDate : 'endDate'} de{' '}
+								{anunciosFiltered ? anunciosFiltered[0].endDate.split("-").reverse().join("-") : 'endDate'} de{' '}
 								{anunciosFiltered ? anunciosFiltered[0].startHour : 'startHour'}
 								:00hs hasta las{' '}
 								{anunciosFiltered ? anunciosFiltered[0].endHour : 'endHour'}
