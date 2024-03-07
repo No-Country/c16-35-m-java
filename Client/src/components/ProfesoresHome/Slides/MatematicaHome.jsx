@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Manzana from '../../../assets/Manzana.svg';
+import Manzana from '../../../assets/Manzana-card.svg';
 
 import { getAnuncio } from '../../../redux/actions/actions';
 import './SlideHome.scss';
