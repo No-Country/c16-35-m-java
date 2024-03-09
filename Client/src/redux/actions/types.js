@@ -1,0 +1,13 @@
+export const SIGN_UP = 'SIGN_UP';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const RELOAD_USER = 'RELOAD_USER';
+export const SAVE_TEACHERS = 'SAVE_TEACHERS';
+export const GET_ANUNCIO = 'GET_ANUNCIO';
+export const POST_ANUNCIO = 'POST_ANUNCIO';
+export const CLEAN_TEACHER = 'CLEAN_TEACHER';
+export const GET_RESERVAS = 'GET_RESERVAS';
+export const GET_CALENDARY = 'GET_CALENDARY';
+export const CLEAN_RESERVAS = 'CLEAN_RESERVAS';
+export const CLEAN_CALENDARY = 'CLEAN_CALENDARY';
+export const POST_RESERVA = 'POST_RESERVA';

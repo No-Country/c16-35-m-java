@@ -1,0 +1,44 @@
+@mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin image(
+	$imgpath,
+	$height,
+	$width: 100%,
+	$display: inline-block,
+	$bg-size: contain,
+	$bg-pos: center
+) {
+	background-image: url('#{$imgpath}');
+	background-position: $bg-pos;
+	background-repeat: no-repeat;
+	background-size: $bg-size;
+	content: '';
+	display: $display;
+	height: $height;
+	width: $width;
+}
+
+@mixin position(
+	$position,
+	$top: auto,
+	$right: auto,
+	$bottom: auto,
+	$left: auto
+) {
+	position: $position;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+@mixin media-query($breakpoint) {
+	@media only screen and (min-width: $breakpoint) {
+		@content;
+	}
+}

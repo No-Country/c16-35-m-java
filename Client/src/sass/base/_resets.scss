@@ -1,0 +1,29 @@
+/*Parecido a Normalise CSS*/
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+input,
+textarea,
+select {
+	border: none;
+	outline: none;
+}

@@ -1,0 +1,104 @@
+.signup-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	& label {
+		width: 100%;
+	}
+	& h1 {
+		font-size: 4rem;
+	}
+	& .signup-form-inputs {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+	& label {
+		width: 100%;
+	}
+	& .form-input {
+		position: relative;
+	}
+	& input {
+		border: 2px solid var(--color-cuartiary);
+		border-radius: 6px;
+		width: 22rem;
+		padding: 1.3rem;
+	}
+	& span {
+		position: absolute;
+		top: 0.6rem;
+		right: 1rem;
+		& img {
+			width: 2rem;
+			cursor: pointer;
+		}
+		& .eye-form {
+			margin-top: 0.2rem;
+		}
+	}
+	& .btn-form {
+		background-color: var(--color-primary);
+		width: 22rem;
+		padding: 0.9rem;
+		margin-top: 1.5rem;
+		color: white;
+		cursor: pointer;
+		font-size: var(--font-poppins);
+		font-weight: 400;
+		font-size: 1.1rem;
+		transition: all 250ms ease;
+		border-radius: 6px;
+		box-shadow: 1px 1px 1px #292a4d;
+	}
+
+	& .signup-error {
+		color: red;
+	}
+	& .pregunta-signup {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 2rem;
+		& a {
+			text-decoration: underline;
+		}
+	}
+	& .form-opciones {
+		margin-top: 3rem;
+		& p {
+			margin-bottom: 0.5rem;
+		}
+	}
+	& .loader {
+		background-color: var(--color-primary);
+		width: 22rem;
+		padding: 0.6rem;
+		margin-top: 1.5rem;
+		border-radius: 6px;
+		box-shadow: 1px 1px 1px #292a4d;
+	}
+	& .spinner {
+		border: 4px solid rgba(255, 253, 253, 0.73);
+		border-left-color: transparent;
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
+		animation: spin89345 1s linear infinite;
+		margin: 0 auto;
+	}
+}
+
+@keyframes spin89345 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

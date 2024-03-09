@@ -1,0 +1,46 @@
+.hero {
+	margin: 0 auto;
+	width: 70vw;
+	background-color: var(--color-quintiary);
+	z-index: 10;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0.8rem 0rem;
+	.hero-buscador {
+		position: relative;
+		& input {
+			padding: 0.8rem 0.7rem;
+			border: 2px solid var(--color-primary);
+			border-radius: 6px;
+			width: 22rem;
+			background: var(--color-sextiary);
+			box-shadow: 1px 1px 1px var(--color-primary);
+			&::placeholder {
+				font-family: Poppins;
+				color: black;
+			}
+		}
+		& img {
+			position: absolute;
+			right: 0.8rem;
+			top: 0.5rem;
+			cursor: pointer;
+		}
+	}
+	.contenido-hero {
+		padding-top: 6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12rem;
+		.hero-texto {
+			font-size: 3.2rem;
+			line-height: 5rem;
+			font-weight: 700;
+			color: var(--color-primary);
+			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.232);
+		}
+	}
+}
