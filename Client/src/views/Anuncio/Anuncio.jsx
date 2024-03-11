@@ -139,8 +139,8 @@ function Anuncio() {
 			const { data } = await axios.get(
 				`https://c16-35-m-java.onrender.com/api/client/${user.id}`,
 			);
-			dispatch(getAnuncio(user.id, data));
 			navigate(`/teacher-panel/${anuncio.subject}/${user.id}`);
+			dispatch(getAnuncio(user.id, data));
 		} catch (error) {
 			console.log(error);
 		}

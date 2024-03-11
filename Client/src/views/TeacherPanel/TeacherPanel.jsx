@@ -13,7 +13,6 @@ function TeacherPanel() {
 	const teacherDetail = useSelector((state) => state.teacherDetail);
 	const { materia, id } = useParams();
 	const { imagePath, descriptionBiography, name, lastname } = teacherDetail;
-
 	const anunciosFiltered = teacherDetail.anuncios?.filter(
 		(anuncio) => anuncio.subject === materia,
 	);
