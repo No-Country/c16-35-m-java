@@ -8,7 +8,7 @@ const registrarse = () => {
 	return (
 		<div>
 			<div className='nav-enlaces'>
-				<Link className='dar-clases' to='/about'>
+				<Link className='dar-clases' to='/'>
 					Dar clases
 				</Link>
 				<Link className='conectarse' to='/login'>
