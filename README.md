@@ -31,20 +31,23 @@ Este sistema permite a los usuarios:
 
 * Pagar las clases: de forma rapida y de facil acceso.
 
+
 ## 🚀 Equipo de Desarrollo
 
 ## Diseño UX/UI
 
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
-![Adobe Photoshop](https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)
-
+| <img src="https://res.cloudinary.com/dbz5bknul/image/upload/v1710546589/adriana_ogwkdt.jpg" width="120"> | 
 | **Adriana Dellatorre** |
 | :---: |
 | <a href="https://www.linkedin.com/in/adriana-dellatorre/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
 
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![Adobe Photoshop](https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)
+
 
 ## Backend
 
+| <img src="https://res.cloudinary.com/dbz5bknul/image/upload/v1710547090/marco_virinni_oov5tk.jpg" width="150"> |  <img src="https://res.cloudinary.com/dbz5bknul/image/upload/v1710546649/david_k6lvnu.jpg" width="150"> |  <img src="https://res.cloudinary.com/dbz5bknul/image/upload/v1710545757/bryan_rwg5ar.gif" width="150"> |
 | **Marco Virinni** | **David Lugo** | **Bryan Lopez** |
 | :---: | :---: | :---: | 
 | <a href="https://www.linkedin.com/in/marco-virinni/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/davlgven/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="http://www.linkedin.com/in/bryan-lopez-769030216/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
@@ -59,6 +62,7 @@ Este sistema permite a los usuarios:
 
 ## Frontend
 
+| <img src="https://res.cloudinary.com/dbz5bknul/image/upload/v1710546632/nacho_q2olfi.jpg" width="150"> | <img src="https://res.cloudinary.com/dbz5bknul/image/upload/v1710546617/emanuel_h2pahl.jpg" width="150"> | <img src="https://res.cloudinary.com/dbz5bknul/image/upload/v1710546604/franco_lsmdck.jpg" width="150"> |
 | **Ignacio Fernandez** | **Emanuel Rojas** | **Franco Quenellata** |
 | :---: | :---: | :---: | 
 | <a href="https://www.linkedin.com/in/ignaciofernandezdev/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/emanuel-rojas-guindan/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a> | <a href="https://www.linkedin.com/in/fquenallata/"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
@@ -71,6 +75,7 @@ Este sistema permite a los usuarios:
 
 ## QA
 
+| <img src="https://res.cloudinary.com/dbz5bknul/image/upload/v1710546573/ivonne_u9ygcl.jpg" width="120"> |
 | **Ivonne Ballester** |
 | :---: |
 | <a href="https://www.linkedin.com/in/ivonne-ballester-"> <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>|
